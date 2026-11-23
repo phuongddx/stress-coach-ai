@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import type { Theme } from 'vitepress'
+import './custom.css'
 
 // The two home pages are standalone HTML (see scripts/home.mjs), so open them with a full page load.
 const homes = ['/stress-coach-ai/', '/stress-coach-ai/index.html', '/stress-coach-ai/vi/', '/stress-coach-ai/vi/index.html']

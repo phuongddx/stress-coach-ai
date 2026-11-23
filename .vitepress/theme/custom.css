@@ -1,0 +1,49 @@
+/* UI V2 green palette for the docs pages (matches the landing pages and the app). */
+:root {
+  --vp-c-bg: #F1F1E8;
+  --vp-c-bg-alt: #E6EADC;
+  --vp-c-bg-elv: #FCFCF8;
+  --vp-c-bg-soft: #E6EADC;
+  --vp-c-text-1: #13211D;
+  --vp-c-text-2: #44524C;
+  --vp-c-text-3: #5A6761;
+  --vp-c-divider: #D2D8C9;
+  --vp-c-gutter: #D9DFCD;
+  --vp-c-border: #B9C2B1;
+  --vp-c-brand-1: #206A5D;
+  --vp-c-brand-2: #1A5A4F;
+  --vp-c-brand-3: #206A5D;
+  --vp-c-brand-soft: rgba(32, 106, 93, 0.14);
+  --vp-c-tip-1: #206A5D;
+  --vp-c-tip-2: #1A5A4F;
+  --vp-c-tip-3: #206A5D;
+  --vp-c-tip-soft: rgba(191, 220, 174, 0.45);
+  --vp-button-brand-text: #FFFFFF;
+  --vp-button-brand-hover-text: #FFFFFF;
+  --vp-button-brand-active-text: #FFFFFF;
+  --vp-code-color: #1A5A4F;
+}
+.dark {
+  --vp-c-bg: #0B1411;
+  --vp-c-bg-alt: #101B17;
+  --vp-c-bg-elv: #14201B;
+  --vp-c-bg-soft: #1C2A24;
+  --vp-c-text-1: #EEF1E6;
+  --vp-c-text-2: #B9C5B8;
+  --vp-c-text-3: #8F9D94;
+  --vp-c-divider: #2A3A33;
+  --vp-c-gutter: #050B09;
+  --vp-c-border: #3A4C44;
+  --vp-c-brand-1: #5FBFA9;
+  --vp-c-brand-2: #7DCDBA;
+  --vp-c-brand-3: #2C6B5C;
+  --vp-c-brand-soft: rgba(95, 191, 169, 0.16);
+  --vp-c-tip-1: #5FBFA9;
+  --vp-c-tip-2: #7DCDBA;
+  --vp-c-tip-3: #2C6B5C;
+  --vp-c-tip-soft: rgba(95, 191, 169, 0.14);
+  --vp-button-brand-text: #062A22;
+  --vp-button-brand-hover-text: #062A22;
+  --vp-button-brand-active-text: #062A22;
+  --vp-code-color: #9FD9C9;
+}

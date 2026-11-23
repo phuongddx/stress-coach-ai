@@ -1,26 +1,44 @@
 {
- "start": "2026-11-23T08:50:06.685Z",
- "round": 1,
+ "start": "2026-11-23T17:10:33.391Z",
+ "round": 3,
  "idle": 0,
  "errors": 0,
- "status": "pass",
+ "status": "open",
  "history": [
   {
-   "at": "2026-11-23T11:06:19.075Z",
+   "at": "2026-11-23T17:14:17.121Z",
    "mode": "manual",
    "status": "fail",
-   "fails": 1,
+   "fails": 100,
    "round": 1,
    "reused": false,
    "stopHookActive": false
   },
   {
-   "at": "2026-11-23T11:06:58.493Z",
+   "at": "2026-11-23T17:15:40.484Z",
    "mode": "manual",
-   "status": "pass",
-   "fails": 0,
+   "status": "fail",
+   "fails": 100,
    "round": 1,
    "reused": true,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-23T17:23:45.766Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 100,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-23T17:27:26.071Z",
+   "mode": "manual",
+   "status": "open",
+   "fails": 100,
+   "round": 3,
+   "reused": false,
    "stopHookActive": false
   }
  ],
@@ -33,61 +51,1664 @@
   "category": "stress monitor app for iPhone and Apple Watch",
   "primary": "Download on the App Store",
   "rounds": 3,
-  "start": "2026-11-23T08:50:06.685Z",
+  "start": "2026-11-23T17:10:33.391Z",
   "by": "gate.mjs --start"
  },
  "manual": true,
- "roundKey": "2628413ecc0a31a5:da39a3ee",
+ "roundKey": "0f41c1e852d00a8b:b03b65d8",
  "roundFree": false,
  "idleFree": false,
  "blockKey": null,
- "fp": "2628413ecc0a31a5",
+ "fp": "0f41c1e852d00a8b",
  "page": ".vitepress/dist/index.html",
  "found": {
   "fails": [
    {
-    "check": "scroll-reveal",
-    "where": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary \"Download on the App Store\"",
-    "msg": "starts \"color\" (0.1 s) the moment it is scrolled into view (an IntersectionObserver)",
-    "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+    "check": "checker-gaming",
+    "where": ".vitepress/dist/index.html (inline script)",
+    "msg": "the page's own code tests for navigator.webdriver: the page must behave the same for the checker as for a visitor",
+    "fix": "delete that branch; fix what the check found instead",
+    "hard": true,
+    "widths": [],
+    "ids": [
+     "checker-gaming"
+    ],
+    "wheres": [
+     ".vitepress/dist/index.html (inline script)"
+    ]
+   },
+   {
+    "check": "flush",
+    "where": "div.wrap > div.ratings-none > div.split-copy.reveal > a.btn-ghost \"Rate Stress AI Coach\"",
+    "msg": "its button sits 0px above the lower edge of section#ratings, where the ground changes to section#closing",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
     "widths": [
      1440
     ],
     "from": "consistency",
     "ids": [
-     "scroll-reveal"
+     "flush"
     ],
     "wheres": [
-     "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary \"Download on the App Store\""
+     "div.wrap > div.ratings-none > div.split-copy.reveal > a.btn-ghost \"Rate Stress AI Coach\""
+    ]
+   },
+   {
+    "check": "spill",
+    "where": "div.hero-visual.reveal > div.phone > picture > img \"img: Stress AI Coach home screen: stress\"",
+    "msg": "runs 65px past the bottom edge of the panel it sits on (div#orb > div.ripple:nth-of-type(2))",
+    "fix": "keep the box inside the panel it starts on: shrink it, or grow the panel to hold it",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "spill"
+    ],
+    "wheres": [
+     "div.hero-visual.reveal > div.phone > picture > img \"img: Stress AI Coach home screen: stress\""
+    ]
+   },
+   {
+    "check": "no-visual",
+    "where": "section#privacy \"Your health data stays home.\"",
+    "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "no-visual"
+    ],
+    "wheres": [
+     "section#privacy \"Your health data stays home.\""
+    ]
+   },
+   {
+    "check": "no-visual",
+    "where": "section#ratings \"New on the App Store.\"",
+    "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "no-visual"
+    ],
+    "wheres": [
+     "section#ratings \"New on the App Store.\""
+    ]
+   },
+   {
+    "check": "copy-headings",
+    "where": "section#score > div.wrap > div.sec-head.reveal > h2 \"Five signals in. One calm number out.\"",
+    "msg": "\"Five signals in. One calm number out.\" names no product, part, place or section (8 headings like it; at most one brand line per page) (and 7 more like it: \"Names what moved it\", \"Small check-ins that add\", \"See the week behind the \", \"Your score on your wrist\", ...)",
+    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "copy-headings"
+    ],
+    "wheres": [
+     "section#score > div.wrap > div.sec-head.reveal > h2 \"Five signals in. One calm number out.\""
+    ]
+   },
+   {
+    "check": "heading-scale",
+    "where": "div.wrap.habits > div.habits-head.reveal > div > h3 \"Small check-ins that add up.\"",
+    "msg": "h3 headings in 3 sizes, 21.6px (\"Computed on your iPhone\") to 32px (x1.48)",
+    "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "heading-scale"
+    ],
+    "wheres": [
+     "div.wrap.habits > div.habits-head.reveal > div > h3 \"Small check-ins that add up.\""
+    ]
+   },
+   {
+    "check": "heading-scale",
+    "where": "div#flow > div.score-node > div > b \"0–100\"",
+    "msg": "the figure \"0–100\" is set at 54.4px, larger than the section headings (h2 49.6px)",
+    "fix": "set figures at the h2 size or under: a stat reads as data, not as the heading",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "heading-scale"
+    ],
+    "wheres": [
+     "div#flow > div.score-node > div > b \"0–100\""
+    ]
+   },
+   {
+    "check": "top-stagger",
+    "where": "section#coach > div.wrap.split > div.duo.reveal",
+    "msg": "2 boxes side by side start at different heights (+0, +72px)",
+    "fix": "align the tops of the boxes in the row (one floor, one ceiling)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "top-stagger"
+    ],
+    "wheres": [
+     "section#coach > div.wrap.split > div.duo.reveal"
+    ]
+   },
+   {
+    "check": "centre-axis",
+    "where": "section#watch > div.wrap > div.sec-head.reveal > span.eyebrow \"APPLE WATCH\"",
+    "msg": "centred text 16px right of the middle of its page (736px against 720px)",
+    "fix": "centre the block on its container (margin-inline: auto), or set it on the left grid",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "centre-axis"
+    ],
+    "wheres": [
+     "section#watch > div.wrap > div.sec-head.reveal > span.eyebrow \"APPLE WATCH\""
+    ]
+   },
+   {
+    "check": "visual-caption",
+    "where": "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live score Your stress readout and Rippl\"",
+    "msg": "a figcaption under the picture watch-home.webp: \"Live score Your stress readout and Rippl...\"; no caption or description under any image, render or visual (house rule)",
+    "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "visual-caption"
+    ],
+    "wheres": [
+     "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live score Your stress readout and Rippl\""
+    ]
+   },
+   {
+    "check": "visual-caption",
+    "where": "div.wrap > div.slots > figure.slot.reveal:nth-of-type(1) > figcaption \"Watch face complications Circular, recta\"",
+    "msg": "a figcaption under the picture watch-complications.webp: \"Watch face complications Circular, recta...\"; no caption or description under any image, render or visual (house rule)",
+    "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "visual-caption"
+    ],
+    "wheres": [
+     "div.wrap > div.slots > figure.slot.reveal:nth-of-type(1) > figcaption \"Watch face complications Circular, recta\""
+    ]
+   },
+   {
+    "check": "visual-caption",
+    "where": "div.wrap > div.slots > figure.slot.reveal:nth-of-type(2) > figcaption \"Lock Screen widgets Rectangular, circula\"",
+    "msg": "a figcaption under the picture lockscreen.webp: \"Lock Screen widgets Rectangular, circula...\"; no caption or description under any image, render or visual (house rule)",
+    "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "visual-caption"
+    ],
+    "wheres": [
+     "div.wrap > div.slots > figure.slot.reveal:nth-of-type(2) > figcaption \"Lock Screen widgets Rectangular, circula\""
+    ]
+   },
+   {
+    "check": "visual-caption",
+    "where": "div.wrap > div.slots > figure.slot.reveal:nth-of-type(3) > figcaption \"Home Screen widget Your score, its tier \"",
+    "msg": "a figcaption under the picture widgets-dark.webp: \"Home Screen widget Your score, its tier ...\"; no caption or description under any image, render or visual (house rule)",
+    "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "visual-caption"
+    ],
+    "wheres": [
+     "div.wrap > div.slots > figure.slot.reveal:nth-of-type(3) > figcaption \"Home Screen widget Your score, its tier \""
+    ]
+   },
+   {
+    "check": "section-tile",
+    "where": "section#score \"Five signals in. One calm number out.\"",
+    "msg": "the section is 1256px tall (1.40 screens at 1440x900), not one screen or two: the screen one screen on from its top (scroll 1951px) shows 287px of it and 544px of the next section, its heading \"Meet Ripple, a coach that alre\" on screen",
+    "fix": "set every section after the hero to one screen or two (height: calc(var(--h,1) * 100vh)) and fit its content above --padb",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-tile"
+    ],
+    "wheres": [
+     "section#score \"Five signals in. One calm number out.\""
+    ]
+   },
+   {
+    "check": "section-tile",
+    "where": "section#widgets \"Your score, without opening the app.\"",
+    "msg": "the section is 1019px tall (1.13 screens at 1440x900), not one screen or two: the screen one screen on from its top (scroll 6324px) shows 49px of it and 782px of the next section, its heading \"Your health data stays home.\" on screen",
+    "fix": "set every section after the hero to one screen or two (height: calc(var(--h,1) * 100vh)) and fit its content above --padb",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-tile"
+    ],
+    "wheres": [
+     "section#widgets \"Your score, without opening the app.\""
+    ]
+   },
+   {
+    "check": "section-tile",
+    "where": "section#privacy \"Your health data stays home.\"",
+    "msg": "the section is 1058px tall (1.18 screens at 1440x900), not one screen or two: the screen one screen on from its top (scroll 7342px) shows 89px of it and 742px of the next section, its heading \"Start free. Go further when yo\" on screen",
+    "fix": "set every section after the hero to one screen or two (height: calc(var(--h,1) * 100vh)) and fit its content above --padb",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-tile"
+    ],
+    "wheres": [
+     "section#privacy \"Your health data stays home.\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "section#score > div.wrap > div.sec-links.reveal:nth-of-type(4) > a.tlink:nth-of-type(1) \"Read how the score works →\"",
+    "msg": "Tab stop 11, a \"Read how the score works →\": the focus lands on something you cannot see",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "section#score > div.wrap > div.sec-links.reveal:nth-of-type(4) > a.tlink:nth-of-type(1) \"Read how the score works →\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "section#score > div.wrap > div.sec-links.reveal:nth-of-type(4) > a.tlink:nth-of-type(2) \"What is HRV? →\"",
+    "msg": "Tab stop 12, a \"What is HRV? →\": the focus lands on something you cannot see",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "section#score > div.wrap > div.sec-links.reveal:nth-of-type(4) > a.tlink:nth-of-type(2) \"What is HRV? →\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "section#trends > div.wrap.split > div.split-copy:nth-of-type(2) > a.tlink.reveal \"Open the user guide →\"",
+    "msg": "Tab stop 13, a \"Open the user guide →\": the focus lands on something you cannot see",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "section#trends > div.wrap.split > div.split-copy:nth-of-type(2) > a.tlink.reveal \"Open the user guide →\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "section#widgets > div.wrap > div.widgets-foot.reveal:nth-of-type(3) > a.tlink \"Set up your watch face →\"",
+    "msg": "Tab stop 14, a \"Set up your watch face →\": the focus lands on something you cannot see",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "section#widgets > div.wrap > div.widgets-foot.reveal:nth-of-type(3) > a.tlink \"Set up your watch face →\""
+    ]
+   },
+   {
+    "check": "run-on",
+    "where": "section#top > div.wrap > div.hero-copy:nth-of-type(1) > h1.reveal.d1 \"The stress monitor for iPhone and Apple \"",
+    "msg": "\"s monitor for iPhone and | Apple Watch\": the heading runs its first sentence into the grey second one with no stop",
+    "fix": "end the heading's first sentence with a full stop before its grey second one (\"Rooms and prices. Breakfast included.\")",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "run-on"
+    ],
+    "wheres": [
+     "section#top > div.wrap > div.hero-copy:nth-of-type(1) > h1.reveal.d1 \"The stress monitor for iPhone and Apple \""
+    ]
+   },
+   {
+    "check": "hero-enter",
+    "where": "section#top",
+    "msg": "the hero does not enter on load: no data-enter on the hero and no head line setting html.m-enter (motion.md, The hero's entrance)",
+    "fix": "put data-enter on the hero <section> and keep the head line from starter.html that sets html.m-enter",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-enter"
+    ],
+    "wheres": [
+     "section#top"
+    ]
+   },
+   {
+    "check": "moment-none",
+    "where": "(the page)",
+    "msg": "a software page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+    "fix": "deal one (moments.mjs pick --page software) and mount it in its own section",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "moment-none"
+    ],
+    "wheres": [
+     "(the page)"
+    ]
+   },
+   {
+    "check": "hero-screen",
+    "where": "section#top \"Stress AI Coach The stress monitor for i\"",
+    "msg": "the hero ends at 1051px on a 900px screen, 151px below the fold: it ends at the fold, 1px either way (SR-1)",
+    "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-screen"
+    ],
+    "wheres": [
+     "section#top \"Stress AI Coach The stress monitor for i\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "section#ratings \"Ratings New on the App Store. If you are\"",
+    "msg": "the section is 389px tall (0.4 screens), 511px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height",
+     "screen-short",
+     "screen-height"
+    ],
+    "wheres": [
+     "section#ratings \"Ratings New on the App Store. If you are\"",
+     "#ratings section.ratings \"Ratings New on the App Store. If\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "footer \"Stress AI Coach A stress monitor for iPh\"",
+    "msg": "the section is 397px tall (0.4 screens), 503px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "footer \"Stress AI Coach A stress monitor for iPh\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "section#faq \"FAQ Good questions. Anything else: suppo\"",
+    "msg": "the section is 495px tall (0.5 screens), 405px short of one screen (900px): every section after the hero is one screen or two, 2px either way (and 8 more like it: \"AI coach & breathing Mee\", \"How the score works Five\", \"Pricing Start free. Go f\") (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height",
+     "screen-short",
+     "screen-height"
+    ],
+    "wheres": [
+     "section#faq \"FAQ Good questions. Anything else: suppo\"",
+     "#faq section.sec.faq \"FAQ Good questions. Anything els\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "section#coach \"AI coach & breathing Meet Ripple, a coac\"",
+    "msg": "the section starts at 2307px, 393px above the screen grid (3 x 900px): sections start on whole screens (SR-2)",
+    "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height",
+     "screen-height"
+    ],
+    "wheres": [
+     "section#coach \"AI coach & breathing Meet Ripple, a coac\"",
+     "#coach section.sec.coach \"AI coach & breathing Meet Ripple\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "section#pricing \"Pricing Start free. Go further when you \"",
+    "msg": "the section starts at 7500px, 300px below the screen grid (8 x 900px): sections start on whole screens (and 8 more like it: \"Stress AI Coach A stress\", \"How the score works Five\", \"Privacy Your health data\") (SR-2)",
+    "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height",
+     "screen-height"
+    ],
+    "wheres": [
+     "section#pricing \"Pricing Start free. Go further when you \"",
+     "#pricing section.sec \"Pricing Start free. Go further w\""
+    ]
+   },
+   {
+    "check": "section-air",
+    "where": "section#coach / section#trends",
+    "msg": "709px of air between the content of these two sections: 128-480px (64-600px WARN) (SR-3)",
+    "fix": "keep 128-480px of air between the content of neighbouring sections (112-420px on a phone): the sections' padding (--padt, --padb)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-air"
+    ],
+    "wheres": [
+     "section#coach / section#trends"
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "section#coach > div.wrap.split > div.split-copy > h2.reveal.d1 \"Meet Ripple, a coach that already knows \"",
+    "msg": "the screen at scroll 1800px (stride 2) shows 393px of section 3 and the heading of section 3 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section",
+     "neighbour"
+    ],
+    "wheres": [
+     "section#coach > div.wrap.split > div.split-copy > h2.reveal.d1 \"Meet Ripple, a coach that already knows \"",
+     "#coach section.sec.coach \"AI coach & breathing Meet Ripple\""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "div.wrap > div.ratings-none > div.split-copy.reveal > h2 \"New on the App Store.\"",
+    "msg": "the screen at scroll 8998px (the top of section 9) shows 389px of section 10 and the heading of section 10 whole and the content of 2 sections, over 24px each beside section 9: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "div.wrap > div.ratings-none > div.split-copy.reveal > h2 \"New on the App Store.\""
+    ]
+   },
+   {
+    "check": "one-heading",
+    "where": "div.wrap > div.ratings-none > div.split-copy.reveal > h2 \"New on the App Store.\"",
+    "msg": "headings of two sections show whole on one screen at 8 of 201 scroll positions (4%; at scroll 8850, 8900, 8950, 9000px), here with \"Good questions.\": at most 3% on a desktop (SR-5)",
+    "fix": "make the sections one screen tall so their headings sit a screen apart and two never share one",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-heading"
+    ],
+    "wheres": [
+     "div.wrap > div.ratings-none > div.split-copy.reveal > h2 \"New on the App Store.\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "header#nav \"Stress AI Coach How it works Ripple Appl\"",
+    "msg": "the nav's first box starts at 160px and its last ends at 1280px, not on its .wrap at 120-1320px (SR-6)",
+    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "header#nav \"Stress AI Coach How it works Ripple Appl\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "a.skip \"Skip to content\"",
+    "msg": "a <a> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "a.skip \"Skip to content\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "footer \"Stress AI Coach A stress monitor for iPh\"",
+    "msg": "a <footer> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (and 2 more like it: \"Stress AI Coach The stre\", \"AI coach & breathing Mee\") (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "footer \"Stress AI Coach A stress monitor for iPh\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "section#top > div.wrap > div.hero-visual.reveal > p.breath-cap \"Box breathing·Hold3\"",
+    "msg": "1 text block starts on a left line at x 924, 804px from the container's left: text starts on the container's left, or on one split line (x 630, 732, 834) (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "section#top > div.wrap > div.hero-visual.reveal > p.breath-cap \"Box breathing·Hold3\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.split-copy > ul.checks.reveal > li:nth-of-type(1) > span \"Daily stress over 7, 30 or 90 days\"",
+    "msg": "4 text blocks start on a left line at x 748, 628px from the container's left: text starts on the container's left, or on one split line (x 630, 732, 834) (also \"Time spent in each stress tier\", \"A weekly calendar of your scores\", \"Pattern insights: your best, ave\") (and 19 more like it: x 712, \"See the week behind the \", x 543) (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.split-copy > ul.checks.reveal > li:nth-of-type(1) > span \"Daily stress over 7, 30 or 90 days\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "section#closing > div.wrap > h2.reveal.d1 \"Know your number. Then take two minutes \"",
+    "msg": "\"Know your number. Then take two \" is set centred across 896px, over half the 1200px container: text that wide is set left (SR-6)",
+    "fix": "set the text left (text-align: start)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "section#closing > div.wrap > h2.reveal.d1 \"Know your number. Then take two minutes \""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live scoreYour stress readout and Ripple\"",
+    "msg": "\"Live scoreYour stress readout an\" is set centred across 700px, over half the 1200px container: text that wide is set left (and 1 more like it: \"Your score on your wrist\") (SR-6)",
+    "fix": "set the text left (text-align: start)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live scoreYour stress readout and Ripple\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "section#watch > div.wrap > div.watch-wrap > figure.watch-tray.reveal \"Live scoreYour stress readout and Ripple\"",
+    "msg": "a box over half the container wide runs 280-1160px, not on the container's lines at 120-1320px (and 2 more like it: \"Free and Plus, side by s\", \"Apple, Apple Watch, iPho\") (SR-6)",
+    "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "section#watch > div.wrap > div.watch-wrap > figure.watch-tray.reveal \"Live scoreYour stress readout and Ripple\""
+    ]
+   },
+   {
+    "check": "row-lines",
+    "where": "div.wrap > div.watch-wrap > figure.watch-tray.reveal > div.watch-row",
+    "msg": "a row of 3 items: its first item starts at 373px, the container's left line at 120px; its last item ends at 1067px, the container's right line at 1320px (2px either way) (SR-7)",
+    "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "row-lines"
+    ],
+    "wheres": [
+     "div.wrap > div.watch-wrap > figure.watch-tray.reveal > div.watch-row"
+    ]
+   },
+   {
+    "check": "row-lines",
+    "where": "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live scoreYour stress readout and Ripple\"",
+    "msg": "a row of 3 items: its first item starts at 370px, the container's left line at 120px; its last item ends at 1070px, the container's right line at 1320px (2px either way) (SR-7)",
+    "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "row-lines"
+    ],
+    "wheres": [
+     "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live scoreYour stress readout and Ripple\""
+    ]
+   },
+   {
+    "check": "row-lines",
+    "where": "section#score > div.wrap > div.facts3 \"Computed on your iPhoneThe score is calc\"",
+    "msg": "a row of 3 items: its first item starts at 160px, the container's left line at 120px; its last item ends at 1280px, the container's right line at 1320px (2px either way) (and 6 more like it: \"Stress AI Coach A stress\", \"Mood check-insCheck in o\", \"Watch face complications\") (SR-7)",
+    "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "row-lines"
+    ],
+    "wheres": [
+     "section#score > div.wrap > div.facts3 \"Computed on your iPhoneThe score is calc\""
+    ]
+   },
+   {
+    "check": "split-pair",
+    "where": "section#coach > div.wrap.split \"AI coach & breathing Meet Ripple, a coac\"",
+    "msg": "the two columns of the split start 72px apart at the top: a split's columns are top-aligned, 8px either way (SR-8)",
+    "fix": "top-align both columns of the split (align-items: start)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "split-pair"
+    ],
+    "wheres": [
+     "section#coach > div.wrap.split \"AI coach & breathing Meet Ripple, a coac\""
+    ]
+   },
+   {
+    "check": "split-pair",
+    "where": "section#trends > div.wrap.split \"Trends See the week behind the number. 7\"",
+    "msg": "the two columns of the split start 56px apart at the top (centred on each other): a split's columns are top-aligned, 8px either way (SR-8)",
+    "fix": "top-align both columns of the split (align-items: start)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "split-pair"
+    ],
+    "wheres": [
+     "section#trends > div.wrap.split \"Trends See the week behind the number. 7\""
+    ]
+   },
+   {
+    "check": "split-pair",
+    "where": "section#top > div.wrap \"Stress AI Coach The stress monitor for i\"",
+    "msg": "the two columns of the split start 8px apart at the top: a split's columns are top-aligned, 8px either way (SR-8)",
+    "fix": "top-align both columns of the split (align-items: start)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "split-pair"
+    ],
+    "wheres": [
+     "section#top > div.wrap \"Stress AI Coach The stress monitor for i\""
+    ]
+   },
+   {
+    "check": "flush",
+    "where": "section#ratings > div.wrap > div.ratings-none > div.empty-review.reveal \"No ratings yet. We will not show stars o\"",
+    "msg": "its last line sits 0px above the lower edge of section#ratings, where the ground changes to section#closing",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "flush"
+    ],
+    "wheres": [
+     "section#ratings > div.wrap > div.ratings-none > div.empty-review.reveal \"No ratings yet. We will not show stars o\""
+    ]
+   },
+   {
+    "check": "nav-covers",
+    "where": "div#mbar \"Stress AI Coach Free plan · iOS 18.6+ Do\"",
+    "msg": "sits on top of the text \"Names what moved it\" while the page scrolls: part of the line shows beside it",
+    "fix": "make the fixed nav one opaque band across the whole screen, or let it scroll away with the page",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "nav-covers"
+    ],
+    "wheres": [
+     "div#mbar \"Stress AI Coach Free plan · iOS 18.6+ Do\""
+    ]
+   },
+   {
+    "check": "no-visual",
+    "where": "section#score \"Five signals in. One calm number out.\"",
+    "msg": "pictures, effects and mocks cover 8% of this section; a feature section needs a visual (about 25% or more)",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "no-visual"
+    ],
+    "wheres": [
+     "section#score \"Five signals in. One calm number out.\""
+    ]
+   },
+   {
+    "check": "no-visual",
+    "where": "section#watch \"Your score on your wrist. A reset one ta\"",
+    "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "no-visual"
+    ],
+    "wheres": [
+     "section#watch \"Your score on your wrist. A reset one ta\""
+    ]
+   },
+   {
+    "check": "off-grid",
+    "where": "div.wrap.split > div.reveal.d1 > details.qa:nth-of-type(1) > summary \"Do I need an Apple Watch?\"",
+    "msg": "left edge at 24px, 4px off the page margin at 20px (95 elements, like p.lede); 3 more in this section off the grid too (summary at 24px, summary at 24px, summary at 24px)",
+    "fix": "move it onto the page margin, or the column edge its section uses",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "off-grid"
+    ],
+    "wheres": [
+     "div.wrap.split > div.reveal.d1 > details.qa:nth-of-type(1) > summary \"Do I need an Apple Watch?\""
+    ]
+   },
+   {
+    "check": "contrast",
+    "where": "section#coach > div.wrap.split > div.split-copy > p.lede.reveal \"Ripple is the app’s water otter companio\"",
+    "msg": "body text over a effect reads at 1.5:1 at its worst tenth (needs 4.5:1), on a busy ground",
+    "fix": "put the text on a calm part of the picture, or on a solid panel",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "contrast"
+    ],
+    "wheres": [
+     "section#coach > div.wrap.split > div.split-copy > p.lede.reveal \"Ripple is the app’s water otter companio\""
+    ]
+   },
+   {
+    "check": "section-tile",
+    "where": "section#watch \"Your score on your wrist. A reset one ta\"",
+    "msg": "the section is 522px tall (0.62 screens at 390x844), shorter than the screen: its tile (the screen from its top) shows 453px of it and 322px of the next section, its heading \"Your score, without opening th\" on screen",
+    "fix": "set every section after the hero to one screen or two (height: calc(var(--h,1) * 100vh)) and fit its content above --padb",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-tile"
+    ],
+    "wheres": [
+     "section#watch \"Your score on your wrist. A reset one ta\""
+    ]
+   },
+   {
+    "check": "off-viewport",
+    "where": "a.skip \"Skip to content\"",
+    "msg": "at 320px wide it runs 999px past the screen's left edge (cut there: the page clips what runs past it)",
+    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
+    "widths": [
+     320
+    ],
+    "from": "consistency",
+    "ids": [
+     "off-viewport"
+    ],
+    "wheres": [
+     "a.skip \"Skip to content\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#top div.hero-visual.reveal \"Box breathing·Hold2\"",
+    "msg": "starts at x 782.2; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#top div.hero-visual.reveal \"Box breathing·Hold2\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#top p.breath-cap \"Box breathing·Hold2\"",
+    "msg": "starts at x 905.2; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#top p.breath-cap \"Box breathing·Hold2\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#score h3 \"Names what moved it\"",
+    "msg": "starts at x 935.5; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#score h3 \"Names what moved it\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#score p \"Each reading points to the facto\"",
+    "msg": "starts at x 935.5; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#score p \"Each reading points to the facto\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#coach div.duo.reveal",
+    "msg": "starts at x 763.2; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#coach div.duo.reveal"
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#trends div.phone.reveal",
+    "msg": "starts at x 242.5; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#trends div.phone.reveal"
+    ]
+   },
+   {
+    "check": "edge-right",
+    "where": "#trends div.phone.reveal",
+    "msg": "ends at x 542.5; the right line is 1280",
+    "fix": "end it on the .wrap right line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-right"
+    ],
+    "wheres": [
+     "#trends div.phone.reveal"
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#trends div.split-copy \"Trends See the week behind the n\"",
+    "msg": "starts at x 711.5; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#trends div.split-copy \"Trends See the week behind the n\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#trends h2.reveal.d1 \"See the week behind the number.\"",
+    "msg": "starts at x 711.5; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#trends h2.reveal.d1 \"See the week behind the number.\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#trends ul.checks.reveal \"Daily stress over 7, 30 or 90 da\"",
+    "msg": "starts at x 711.5; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#trends ul.checks.reveal \"Daily stress over 7, 30 or 90 da\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#trends p.note.reveal \"The Free plan keeps up to 14 day\"",
+    "msg": "starts at x 711.5; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#trends p.note.reveal \"The Free plan keeps up to 14 day\""
+    ]
+   },
+   {
+    "check": "edge-right",
+    "where": "#widgets figure.slot.reveal \"Watch face complicationsCircular\"",
+    "msg": "ends at x 520; the right line is 1280",
+    "fix": "end it on the .wrap right line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-right"
+    ],
+    "wheres": [
+     "#widgets figure.slot.reveal \"Watch face complicationsCircular\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#widgets figure.slot.reveal \"Home Screen widgetYour score, it\"",
+    "msg": "starts at x 920; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#widgets figure.slot.reveal \"Home Screen widgetYour score, it\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#pricing h3 \"Plus\"",
+    "msg": "starts at x 734.8; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#pricing h3 \"Plus\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#pricing p.trial \"Includes a 14-day free trial\"",
+    "msg": "starts at x 734.8; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#pricing p.trial \"Includes a 14-day free trial\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#pricing p.plan-sum \"Everything in Free, plus unlimit\"",
+    "msg": "starts at x 734.8; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#pricing p.plan-sum \"Everything in Free, plus unlimit\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#faq div.reveal.d1 \"Do I need an Apple Watch? Stress\"",
+    "msg": "starts at x 659.8; the lines are 160 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#faq div.reveal.d1 \"Do I need an Apple Watch? Stress\""
+    ]
+   },
+   {
+    "check": "screen-height",
+    "where": "#score section.sec \"How the score works Five signals\"",
+    "msg": "1256px, 1.51 screens; a section is exactly one or two (--h)",
+    "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "screen-height"
+    ],
+    "wheres": [
+     "#score section.sec \"How the score works Five signals\""
+    ]
+   },
+   {
+    "check": "neighbour",
+    "where": "#score section.sec \"How the score works Five signals\"",
+    "msg": "framed, 203px of #coach section.sec.coach \"AI coach & breathing Meet Ripple\" shows",
+    "fix": "keep the next section's heading and picture out of this screen",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "neighbour"
+    ],
+    "wheres": [
+     "#score section.sec \"How the score works Five signals\""
+    ]
+   },
+   {
+    "check": "screen-height",
+    "where": "#trends section.sec.trends \"Trends See the week behind the n\"",
+    "msg": "893px, 1.07 screens; a section is exactly one or two (--h)",
+    "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "screen-height"
+    ],
+    "wheres": [
+     "#trends section.sec.trends \"Trends See the week behind the n\""
+    ]
+   },
+   {
+    "check": "screen-short",
+    "where": "#watch section.sec \"Apple Watch Your score on your w\"",
+    "msg": "804px tall; one screen under the nav is 831px",
+    "fix": "make the section one full screen (--h: 1, layout-v4.md section 2)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "screen-short",
+     "screen-height"
+    ],
+    "wheres": [
+     "#watch section.sec \"Apple Watch Your score on your w\""
+    ]
+   },
+   {
+    "check": "neighbour-ground",
+    "where": "#watch section.sec \"Apple Watch Your score on your w\"",
+    "msg": "framed, 27px of #widgets section.sec.widgets \"Watch faces & widgets Your score\"'s ground shows",
+    "fix": "end the ground with the section",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "neighbour-ground"
+    ],
+    "wheres": [
+     "#watch section.sec \"Apple Watch Your score on your w\""
+    ]
+   },
+   {
+    "check": "screen-height",
+    "where": "#widgets section.sec.widgets \"Watch faces & widgets Your score\"",
+    "msg": "1019px, 1.23 screens; a section is exactly one or two (--h)",
+    "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "screen-height"
+    ],
+    "wheres": [
+     "#widgets section.sec.widgets \"Watch faces & widgets Your score\""
+    ]
+   },
+   {
+    "check": "screen-height",
+    "where": "#privacy section.sec.privacy \"Privacy Your health data stays h\"",
+    "msg": "1058px, 1.27 screens; a section is exactly one or two (--h)",
+    "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "screen-height"
+    ],
+    "wheres": [
+     "#privacy section.sec.privacy \"Privacy Your health data stays h\""
+    ]
+   },
+   {
+    "check": "neighbour",
+    "where": "#pricing section.sec \"Pricing Start free. Go further w\"",
+    "msg": "framed, 80px of #faq section.sec.faq \"FAQ Good questions. Anything els\" shows",
+    "fix": "keep the next section's heading and picture out of this screen",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "neighbour"
+    ],
+    "wheres": [
+     "#pricing section.sec \"Pricing Start free. Go further w\""
+    ]
+   },
+   {
+    "check": "neighbour",
+    "where": "#faq section.sec.faq \"FAQ Good questions. Anything els\"",
+    "msg": "framed, 92px of #ratings section.ratings \"Ratings New on the App Store. If\" shows",
+    "fix": "keep the next section's heading and picture out of this screen",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "neighbour"
+    ],
+    "wheres": [
+     "#faq section.sec.faq \"FAQ Good questions. Anything els\""
+    ]
+   },
+   {
+    "check": "neighbour",
+    "where": "#ratings section.ratings \"Ratings New on the App Store. If\"",
+    "msg": "framed, 134px of #closing section.closing \"Know your number. Then take two \" shows",
+    "fix": "keep the next section's heading and picture out of this screen",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "neighbour"
+    ],
+    "wheres": [
+     "#ratings section.ratings \"Ratings New on the App Store. If\""
+    ]
+   },
+   {
+    "check": "screen-short",
+    "where": "#closing section.closing \"Know your number. Then take two \"",
+    "msg": "665px tall; one screen under the nav is 831px",
+    "fix": "make the section one full screen (--h: 1, layout-v4.md section 2)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "screen-short",
+     "screen-height"
+    ],
+    "wheres": [
+     "#closing section.closing \"Know your number. Then take two \""
+    ]
+   },
+   {
+    "check": "neighbour",
+    "where": "#closing section.closing \"Know your number. Then take two \"",
+    "msg": "framed, 166px of the footer shows",
+    "fix": "keep the next section's heading and picture out of this screen",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "neighbour"
+    ],
+    "wheres": [
+     "#closing section.closing \"Know your number. Then take two \""
+    ]
+   },
+   {
+    "check": "hero-fold",
+    "where": "#top section.hero \"Stress AI Coach The stress monit\"",
+    "msg": "ends at y 1051, past the fold (900): 1.18 screens tall",
+    "fix": "the hero fills the first screen alone, its button inside it",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "hero-fold"
+    ],
+    "wheres": [
+     "#top section.hero \"Stress AI Coach The stress monit\""
+    ]
+   },
+   {
+    "check": "neighbour",
+    "where": "#trends section.sec.trends \"Trends See the week behind the n\"",
+    "msg": "framed, 101px of #watch section.sec \"Apple Watch Your score on your w\" shows",
+    "fix": "keep the next section's heading and picture out of this screen",
+    "widths": [
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "neighbour"
+    ],
+    "wheres": [
+     "#trends section.sec.trends \"Trends See the week behind the n\""
+    ]
+   },
+   {
+    "check": "neighbour",
+    "where": "#watch section.sec \"Apple Watch Your score on your w\"",
+    "msg": "framed, 67px of #widgets section.sec.widgets \"Watch faces & widgets Your score\" shows",
+    "fix": "keep the next section's heading and picture out of this screen",
+    "widths": [
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "neighbour"
+    ],
+    "wheres": [
+     "#watch section.sec \"Apple Watch Your score on your w\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{AVG}}\" in \"{{AVG}}\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{AVG}}\" in \"{{AVG}}\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{COUNT}}\" in \"{{COUNT}} ratings on the App Store\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{COUNT}}\" in \"{{COUNT}} ratings on the App Store\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{REVIEW_1_TITLE}}\" in \"{{REVIEW_1_TITLE}}\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{REVIEW_1_TITLE}}\" in \"{{REVIEW_1_TITLE}}\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{REVIEW_1_BODY}}\" in \"{{REVIEW_1_BODY}}\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{REVIEW_1_BODY}}\" in \"{{REVIEW_1_BODY}}\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{REVIEW_1_AUTHOR}}\" in \"{{REVIEW_1_AUTHOR}}\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{REVIEW_1_AUTHOR}}\" in \"{{REVIEW_1_AUTHOR}}\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{REVIEW_2_TITLE}}\" in \"{{REVIEW_2_TITLE}}\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{REVIEW_2_TITLE}}\" in \"{{REVIEW_2_TITLE}}\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{REVIEW_2_BODY}}\" in \"{{REVIEW_2_BODY}}\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{REVIEW_2_BODY}}\" in \"{{REVIEW_2_BODY}}\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{REVIEW_2_AUTHOR}}\" in \"{{REVIEW_2_AUTHOR}}\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{REVIEW_2_AUTHOR}}\" in \"{{REVIEW_2_AUTHOR}}\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{REVIEW_3_TITLE}}\" in \"{{REVIEW_3_TITLE}}\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{REVIEW_3_TITLE}}\" in \"{{REVIEW_3_TITLE}}\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{REVIEW_3_BODY}}\" in \"{{REVIEW_3_BODY}}\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{REVIEW_3_BODY}}\" in \"{{REVIEW_3_BODY}}\""
+    ]
+   },
+   {
+    "check": "copy-residue",
+    "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+    "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy \"{{REVIEW_3_AUTHOR}}\" in \"{{REVIEW_3_AUTHOR}}\"",
+    "ids": [
+     "copy-residue"
+    ],
+    "wheres": [
+     "copy \"{{REVIEW_3_AUTHOR}}\" in \"{{REVIEW_3_AUTHOR}}\""
+    ]
+   },
+   {
+    "check": "copy-two-fragment",
+    "msg": "two-fragment headings \"X. Y.\": 4, budget 1 (a tic, not a device)",
+    "fix": "spend it once where it lands hardest; give the other headings a plain label, a claim or the thing they name (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy x4: \"Five signals in. One ...\", \"Your score on your wr...\", \"Start free....",
+    "exact": true,
+    "ids": [
+     "copy-two-fragment"
+    ],
+    "wheres": [
+     "copy x4: \"Five signals in. One ...\", \"Your score on your wr...\", \"Start free...."
     ]
    }
   ],
   "warns": [
    {
-    "check": "cut-text",
-    "where": "p.t-stat.mo-cr > span.mo-cr__col > span.mo-cr__strip > span:nth-of-type(2) \"4\"",
-    "msg": "cut 40px at the bottom by the overflow of div.stats > div.stat:nth-of-type(1) > p.t-stat.mo-cr > span.mo-cr__col (inside a held section or scroll scene, whose motion --quick does not check) (and 1 more like it: \"8\")",
-    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "check": "caption",
+    "where": "div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps > div:nth-of-type(1) \"Live score Your stress readout and Rippl\"",
+    "msg": "5 lines of words sit right under a picture, like \"Live score Your stress readout and Rippl\": the section's text says it, or the picture speaks for itself",
+    "fix": "no line under a picture: never how it was made, what it shows, what is missing or what will follow (credits: one footer line)",
     "widths": [
      1440
     ],
     "from": "consistency"
    },
    {
-    "check": "cut-text",
-    "where": "p.t-stat.mo-cr > span.mo-cr__col:nth-of-type(1) > span.mo-cr__strip > span:nth-of-type(2) \"3\"",
-    "msg": "cut 40px at the bottom by the overflow of div.stats > div.stat:nth-of-type(3) > p.t-stat.mo-cr > span.mo-cr__col:nth-of-type(1) (inside a held section or scroll scene, whose motion --quick does not check) (and 3 more like it: \"1\", \"2\", \"5\")",
-    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "check": "fold-cut",
+    "where": "div.wrap > div.hero-visual.reveal > p.breath-cap > span:nth-of-type(2) \"Box breathing\"",
+    "msg": "a line of the hero text is sliced by the bottom of the first screen",
+    "fix": "size the hero so the heading ends above the fold, or starts below it",
     "widths": [
      1440
     ],
     "from": "consistency"
    },
    {
-    "check": "scroll-reveal",
-    "where": "section#coach > div.wrap > div.stats \"3 4 5 6 7 8 9 0 1 2 3 guided breathing p\"",
-    "msg": "starts an animation (1.4 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-cr__strip (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
-    "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+    "check": "fold-cut",
+    "where": "b#phase \"Hold\"",
+    "msg": "a line of the hero text is sliced by the bottom of the first screen",
+    "fix": "size the hero so the heading ends above the fold, or starts below it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fold-cut",
+    "where": "span#count \"1\"",
+    "msg": "a line of the hero text is sliced by the bottom of the first screen",
+    "fix": "size the hero so the heading ends above the fold, or starts below it",
     "widths": [
      1440
     ],
@@ -95,9 +1716,39 @@
    },
    {
     "check": "no-visual",
-    "where": "main#top > section.hero.hero--split \"Stress monitor for iPhone and Apple Watc\"",
+    "where": "section#score \"Five signals in. One calm number out.\"",
     "msg": "pictures, effects and mocks cover 19% of this section; a feature section needs a visual (about 25% or more)",
     "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "no-visual",
+    "where": "section#trends \"See the week behind the number.\"",
+    "msg": "pictures, effects and mocks cover 22% of this section; a feature section needs a visual (about 25% or more)",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "no-visual",
+    "where": "section#watch \"Your score on your wrist. A reset one ta\"",
+    "msg": "pictures, effects and mocks cover 17% of this section; a feature section needs a visual (about 25% or more)",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "text-only",
+    "where": "section#faq \"Good questions.\"",
+    "msg": "the section is only text: no picture, icon, mock or effect in it",
+    "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
     "widths": [
      1440,
      390
@@ -105,29 +1756,83 @@
     "from": "consistency"
    },
    {
-    "check": "no-visual",
-    "where": "section#patterns \"Trends that show your stress patterns\"",
-    "msg": "pictures, effects and mocks cover 18% of this section; a feature section needs a visual (about 25% or more)",
-    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "check": "cta",
+    "where": "section#coach \"Meet Ripple, a coach that already knows \"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-actions",
+    "where": "header#nav > div.wrap > a.btn-ghost \"Get the app\"",
+    "msg": "3 labels for one target /app/id6778478266: \"Get the app\", \"Download on the App Store\", \"Upgrade inside the app\"",
+    "fix": "few actions, one wording: at most 2 in the hero, the main action word for word in nav, hero and close",
     "widths": [
      1440
     ],
     "from": "consistency"
    },
    {
-    "check": "copy-headings",
-    "where": "div.grid.grid--top > div.faq.span-6 > div.faq__item:nth-of-type(4) > h3 \"How do I cancel the Plus subscription?\"",
-    "msg": "\"How do I cancel the Plus subscription?\" names no product, part, place or section (the one brand line a page may have)",
-    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "check": "heading-scale",
+    "where": "section#closing > div.wrap > h2.reveal.d1 \"Know your number. Then take two minutes \"",
+    "msg": "h2 headings in 2 sizes, 49.6px (\"Five signals in. One cal\") to 64px (x1.29)",
+    "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
     "widths": [
      1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "heading-scale",
+    "where": "div#flow > div.score-node > div > b \"0–100\"",
+    "msg": "figures in 3 sizes, 29, 53, 54px (\"01\" at 28.8px, \"0–100\" at 54.4px)",
+    "fix": "set the page's figures (stats, measures, prices) in one or two sizes",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "col-edge",
+    "where": "section#faq > div.wrap.split > div.reveal.d1 \"Do I need an Apple Watch? What does the \"",
+    "msg": "the second column starts at 6 places: 660px (section#faq), 694px (section#pricing), 712px (section#trends), 756px (section#ratings), 763px (section#coach), 782px (section#top)",
+    "fix": "start the second column of every split on the same one or two grid columns",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tilt",
+    "where": "div#ring > svg",
+    "msg": "rotated -90.0°",
+    "fix": "set it straight",
+    "widths": [
+     1440,
+     390
     ],
     "from": "consistency"
    },
    {
     "check": "section-gaps",
-    "where": "main#top > section.hero.hero--split / section#score",
-    "msg": "180px between these sections, -39% against the median 293px",
+    "where": "section#faq / section#ratings",
+    "msg": "271px between these sections, +43% against the median 189px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#closing / footer",
+    "msg": "uneven space at the edge of a band: 57px outside its edge, 146px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440,
@@ -137,8 +1842,8 @@
    },
    {
     "check": "photo-set",
-    "where": "div.wrap > div.frame > picture.watches > img \"watches-3.webp\"",
-    "msg": "2 photographs in more than one look: saturation from 0.32 to 0.76; the odd one out is watches-3.webp",
+    "where": "div.slots > figure.slot.reveal:nth-of-type(2) > div.slot-stage > img \"lockscreen.webp\"",
+    "msg": "10 photographs in more than one look: lightness from 0.06 to 0.47; the odd one out is lockscreen.webp",
     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
     "widths": [
      1440
@@ -146,10 +1851,61 @@
     "from": "consistency"
    },
    {
-    "check": "label-centre",
-    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"Download on the App Store\"",
-    "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: \"Start the free trial\")",
-    "fix": "centre the label in its button, or fill the empty side with an icon",
+    "check": "nav-labels",
+    "where": "div.wrap > ul.nav-links > li:nth-of-type(1) > a \"How it works\"",
+    "msg": "\"How it works\" opens a section headed \"Five signals in. One calm number out.\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "div.wrap > ul.nav-links > li:nth-of-type(3) > a \"Apple Watch\"",
+    "msg": "\"Apple Watch\" opens a section headed \"Your score on your wrist. A reset one tap away.\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "div.wrap > ul.nav-links > li:nth-of-type(4) > a \"Pricing\"",
+    "msg": "\"Pricing\" opens a section headed \"Start free. Go further when you want to.\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "div.wrap > ul.nav-links > li:nth-of-type(5) > a \"FAQ\"",
+    "msg": "\"FAQ\" opens a section headed \"Good questions.\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "heading-align",
+    "where": "section#watch > div.wrap > div.sec-head.reveal > h2 \"Your score on your wrist. A reset one ta\"",
+    "msg": "8 section headings sit on the left, 2 centred: \"Your score on your wrist\", \"Know your number. Then t\"",
+    "fix": "set every section heading in one place: all on the left grid, or all centred",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "orphan",
+    "where": "div.wrap.split > div.split-copy > ul.patterns.reveal > li:nth-of-type(3) \"03 Body scan A guided body scan, the thi\"",
+    "msg": "its last line holds only \"app.\"",
+    "fix": "rebalance the text (text-wrap: pretty, or a shorter line) so the last line holds more than one short word",
     "widths": [
      1440
     ],
@@ -157,8 +1913,8 @@
    },
    {
     "check": "copy-length",
-    "where": "section#faq \"Questions\"",
-    "msg": "2 sections over 90 words a screen outside the UI mocks (\"Questions\" 149, \"Plans and pricing\" 116); 72 words a screen across the page (506 words in 7 screens): a tech page says it in about 80 or fewer",
+    "where": "section#faq \"Good questions.\"",
+    "msg": "4 sections over 90 words a screen outside the UI mocks (\"Good questions.\" 155, \"Your health data stays h\" 119, \"Start free. Go further w\" 106); 86 words a screen across the page (1121 words in 13.1 screens): a tech page says it in about 80 or fewer",
     "fix": "cut every section to its heading, one line and the product UI: the UI says the rest; no second paragraph, no list of feature sentences",
     "widths": [
      1440
@@ -167,8 +1923,8 @@
    },
    {
     "check": "nav-current",
-    "where": "header.nav.nav--centre",
-    "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
+    "where": "header#nav",
+    "msg": "the nav stays on screen with 5 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
     "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls",
     "widths": [
      1440
@@ -176,10 +1932,10 @@
     "from": "consistency"
    },
    {
-    "check": "visual-caption",
-    "where": "div.wrap > div.stats > div.stat:nth-of-type(1) > p.t-small \"guided breathing patterns\"",
-    "msg": "a muted 14px line of 1 row sits 0px under the picture 3-chat-480.webp: it reads as a caption: \"guided breathing patterns\"; no caption or description under any image, render or visual (house rule)",
-    "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+    "check": "button-contrast",
+    "where": "a#hero-cta \"Download on the App Store\"",
+    "msg": "the button \"Download on the App Store\" (#1c2a24) stands only 1.25:1 off the ground around it: it reads as part of the ground, or as switched off",
+    "fix": "give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink",
     "widths": [
      1440,
      390
@@ -187,9 +1943,40 @@
     "from": "consistency"
    },
    {
+    "check": "button-contrast",
+    "where": "section#closing > div.wrap > div.reveal.d2 > a.appstore \"Download on the App Store\"",
+    "msg": "the button \"Download on the App Store\" (#1c2a24) stands only 1.12:1 off the ground around it: it reads as part of the ground, or as switched off",
+    "fix": "give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "split-align",
+    "where": "section#trends > div.wrap.split \"See the week behind the number.\"",
+    "msg": "the splits sit two ways: 1 to the middle of the taller side (\"See the week behind th\"); 1 to the top of the taller side (\"Free\")",
+    "fix": "set every split one way: the text to the top of its visual, or every one centred on it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "one-screen",
+    "where": "section#faq \"Good questions.\"",
+    "msg": "2 sections are shorter than the screen, so the next one's heading or picture shows with them: \"Good questions.\" is 495px of the 831px under the nav, and \"New on the App Store.\" shows below it (\"Know your number. Th\")",
+    "fix": "give each section the screen (min-height: 100svh less the nav, its content centred), or join two short ones into one",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
     "check": "visual-caption",
-    "where": "div.wrap > div.stats > div.stat:nth-of-type(3) > p.t-small \"AI coach messages a month, free\"",
-    "msg": "a muted 14px line of 1 row sits 0px under the picture 4-breathing-480.webp: it reads as a caption: \"AI coach messages a month, free\"; no caption or description under any image, render or visual (house rule)",
+    "where": "section#score > div.wrap > p.flow-src.reveal \"All five signals come from Apple Health.\"",
+    "msg": "a muted 14px line of 1 row sits 16px under the drawing (svg): it reads as a caption: \"All five signals come from Apple Health.\"; no caption or description under any image, render or visual (house rule)",
     "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
     "widths": [
      1440
@@ -197,111 +1984,1734 @@
     "from": "consistency"
    },
    {
-    "check": "action-repeat",
-    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2) \"download on the app store\"",
-    "msg": "\"download on the app store\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-    "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
+    "check": "section-tile",
+    "where": "section#watch \"Your score on your wrist. A reset one ta\"",
+    "msg": "the section is 804px tall (0.89 screens at 1440x900), shorter than the screen: its tile (the screen from its top) shows 736px of it and only 95px of the next section's ground (\"Your score, without opening th\"), none of its content",
+    "fix": "set every section after the hero to one screen or two (height: calc(var(--h,1) * 100vh)) and fit its content above --padb",
     "widths": [
      1440
     ],
     "from": "consistency"
    },
    {
-    "check": "cta",
-    "where": "section#coach \"A coach and resets for stressful moments\"",
-    "msg": "a section over 1.5 screens long with no link or button in it",
-    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "check": "heading-order",
+    "where": "div.wrap > div.foot > div:nth-of-type(2) > h4 \"Learn\"",
+    "msg": "\"Learn\" is an h4 after an h2: a level is skipped (in the header or footer)",
+    "fix": "step down one level at a time (h1, h2, h3): change the tag, not the look; a footer's column heads are h3",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-air",
+    "where": "section#coach \"AI coach & breathing Meet Ripple, a coac\"",
+    "msg": "the content fills 49.9% of the section's height (708 of 1419px): 55% or more (40% WARN) (SR-3)",
+    "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "header#nav > div.wrap > a.brand \"Stress AI Coach\"",
+    "msg": "a 169x34px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
     "widths": [
      390
     ],
     "from": "consistency"
    },
    {
-    "check": "busy-ground",
-    "where": "div.section-head.grid > div.span-6.start-7 > p > a.link \"subscription terms\"",
-    "msg": "text over a busy part of a effect (its luminance varies by 0.18 under the words)",
-    "fix": "move the text to a calm part of the picture, or put it on a panel",
+    "check": "tap-size",
+    "where": "div.wrap > div.hero-copy > div.hero-cta.reveal > a.tlink \"See how the score works →\"",
+    "msg": "a 213x26px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "div.wrap > div.foot > div:nth-of-type(1) > a.brand \"Stress AI Coach\"",
+    "msg": "a 350x34px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "heading-scale",
+    "where": "div.plans > article.plan.reveal:nth-of-type(1) > div.plan-top > h3 \"Free\"",
+    "msg": "h3 headings in 3 sizes, 21.6px (\"Computed on your iPhone\") to 28px (x1.30)",
+    "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
     "widths": [
      390
     ],
     "from": "consistency"
    },
    {
-    "check": "section-gaps",
-    "where": "section#plus / section#patterns",
-    "msg": "466px between these sections, +52% against the median 306px",
-    "fix": "use one gap between sections (all within 25% of each other)",
+    "check": "tilt",
+    "where": "div.wrap > div.vault > div.bridge.reveal > svg",
+    "msg": "rotated 90.0°",
+    "fix": "set it straight",
     "widths": [
      390
     ],
     "from": "consistency"
    },
    {
-    "check": "section-gaps",
-    "where": "section#faq / footer#contact",
-    "msg": "402px between these sections, +31% against the median 306px",
-    "fix": "use one gap between sections (all within 25% of each other)",
+    "check": "button-contrast",
+    "where": "div#mbar > a.appstore \"Download on the App Store\"",
+    "msg": "the button \"Download on the App Store\" (#1c2a24) stands only 1.13:1 off the ground around it: it reads as part of the ground, or as switched off",
+    "fix": "give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink",
     "widths": [
      390
     ],
     "from": "consistency"
    },
    {
-    "check": "photo-set",
-    "where": "div.wrap > div.frame > picture.watches > img \"watches-2.webp\"",
-    "msg": "2 photographs in more than one look: saturation from 0.34 to 0.76; the odd one out is watches-2.webp",
-    "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
-    "widths": [
-     390
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "label-centre",
-    "where": "div.wrap > div.grid:nth-of-type(2) > article.card.card--plan:nth-of-type(2) > a.btn.btn--primary \"Start the free trial\"",
-    "msg": "its label sits 18px off-centre (77px of room at the left, 95px at the right)",
-    "fix": "centre the label in its button, or fill the empty side with an icon",
-    "widths": [
-     390
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "copy-stat-strip",
-    "msg": "stat strip x1",
-    "fix": "a strip only of figures the brief gives (a price, hours, a count); otherwise put each number in the sentence it proves, or leave it out (references/copy-tells.md)",
+    "check": "copy-negation",
+    "msg": "negation runs \"No X, no Y\": 2, budget 1",
+    "fix": "keep one, and only if each item is a refusal a buyer can check (references/copy-tells.md)",
     "widths": [],
     "from": "copy",
-    "where": "copy x1: \"3 / 7 / 20 / 14\"",
+    "where": "copy x2: \"No ads. No selling\", \"No ads, no advertisin...\"",
+    "exact": false
+   },
+   {
+    "check": "copy-eyebrows",
+    "msg": "11 eyebrow or kicker labels",
+    "fix": "one or two a page; a heading that names the thing needs no label over it (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "(the copy)",
     "exact": false
    }
   ],
   "crashed": [],
   "seconds": {
-   "consistency": 128,
-   "layout": 5
+   "consistency": 193,
+   "layout": 15
   }
  },
- "open": [],
- "waived": [
+ "open": [
   {
-   "check": "scroll-reveal",
-   "where": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary \"Download on the App Store\"",
-   "msg": "starts \"color\" (0.1 s) the moment it is scrolled into view (an IntersectionObserver)",
-   "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+   "check": "checker-gaming",
+   "where": ".vitepress/dist/index.html (inline script)",
+   "msg": "the page's own code tests for navigator.webdriver: the page must behave the same for the checker as for a visitor",
+   "fix": "delete that branch; fix what the check found instead",
+   "widths": [],
+   "ids": [
+    "checker-gaming"
+   ],
+   "wheres": [
+    ".vitepress/dist/index.html (inline script)"
+   ]
+  },
+  {
+   "check": "flush",
+   "where": "div.wrap > div.ratings-none > div.split-copy.reveal > a.btn-ghost \"Rate Stress AI Coach\"",
+   "msg": "its button sits 0px above the lower edge of section#ratings, where the ground changes to section#closing",
+   "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
    "widths": [
     1440
    ],
    "from": "consistency",
    "ids": [
-    "scroll-reveal"
+    "flush"
    ],
    "wheres": [
-    "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary \"Download on the App Store\""
+    "div.wrap > div.ratings-none > div.split-copy.reveal > a.btn-ghost \"Rate Stress AI Coach\""
+   ]
+  },
+  {
+   "check": "spill",
+   "where": "div.hero-visual.reveal > div.phone > picture > img \"img: Stress AI Coach home screen: stress\"",
+   "msg": "runs 65px past the bottom edge of the panel it sits on (div#orb > div.ripple:nth-of-type(2))",
+   "fix": "keep the box inside the panel it starts on: shrink it, or grow the panel to hold it",
+   "widths": [
+    1440,
+    390
    ],
-   "reason": "Nothing reveals this button on scroll: the kit's actionbar observer watches it as a twin of the phone bar and only toggles the bar's data-bar (the bar is hidden at 1440); the 0.1 s colour is the button's own hover transition."
+   "from": "consistency",
+   "ids": [
+    "spill"
+   ],
+   "wheres": [
+    "div.hero-visual.reveal > div.phone > picture > img \"img: Stress AI Coach home screen: stress\""
+   ]
+  },
+  {
+   "check": "no-visual",
+   "where": "section#privacy \"Your health data stays home.\"",
+   "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+   "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "no-visual"
+   ],
+   "wheres": [
+    "section#privacy \"Your health data stays home.\""
+   ]
+  },
+  {
+   "check": "no-visual",
+   "where": "section#ratings \"New on the App Store.\"",
+   "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+   "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "no-visual"
+   ],
+   "wheres": [
+    "section#ratings \"New on the App Store.\""
+   ]
+  },
+  {
+   "check": "copy-headings",
+   "where": "section#score > div.wrap > div.sec-head.reveal > h2 \"Five signals in. One calm number out.\"",
+   "msg": "\"Five signals in. One calm number out.\" names no product, part, place or section (8 headings like it; at most one brand line per page) (and 7 more like it: \"Names what moved it\", \"Small check-ins that add\", \"See the week behind the \", \"Your score on your wrist\", ...)",
+   "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "copy-headings"
+   ],
+   "wheres": [
+    "section#score > div.wrap > div.sec-head.reveal > h2 \"Five signals in. One calm number out.\""
+   ]
+  },
+  {
+   "check": "heading-scale",
+   "where": "div.wrap.habits > div.habits-head.reveal > div > h3 \"Small check-ins that add up.\"",
+   "msg": "h3 headings in 3 sizes, 21.6px (\"Computed on your iPhone\") to 32px (x1.48)",
+   "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "heading-scale"
+   ],
+   "wheres": [
+    "div.wrap.habits > div.habits-head.reveal > div > h3 \"Small check-ins that add up.\""
+   ]
+  },
+  {
+   "check": "heading-scale",
+   "where": "div#flow > div.score-node > div > b \"0–100\"",
+   "msg": "the figure \"0–100\" is set at 54.4px, larger than the section headings (h2 49.6px)",
+   "fix": "set figures at the h2 size or under: a stat reads as data, not as the heading",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "heading-scale"
+   ],
+   "wheres": [
+    "div#flow > div.score-node > div > b \"0–100\""
+   ]
+  },
+  {
+   "check": "top-stagger",
+   "where": "section#coach > div.wrap.split > div.duo.reveal",
+   "msg": "2 boxes side by side start at different heights (+0, +72px)",
+   "fix": "align the tops of the boxes in the row (one floor, one ceiling)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "top-stagger"
+   ],
+   "wheres": [
+    "section#coach > div.wrap.split > div.duo.reveal"
+   ]
+  },
+  {
+   "check": "centre-axis",
+   "where": "section#watch > div.wrap > div.sec-head.reveal > span.eyebrow \"APPLE WATCH\"",
+   "msg": "centred text 16px right of the middle of its page (736px against 720px)",
+   "fix": "centre the block on its container (margin-inline: auto), or set it on the left grid",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "centre-axis"
+   ],
+   "wheres": [
+    "section#watch > div.wrap > div.sec-head.reveal > span.eyebrow \"APPLE WATCH\""
+   ]
+  },
+  {
+   "check": "visual-caption",
+   "where": "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live score Your stress readout and Rippl\"",
+   "msg": "a figcaption under the picture watch-home.webp: \"Live score Your stress readout and Rippl...\"; no caption or description under any image, render or visual (house rule)",
+   "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "visual-caption"
+   ],
+   "wheres": [
+    "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live score Your stress readout and Rippl\""
+   ]
+  },
+  {
+   "check": "visual-caption",
+   "where": "div.wrap > div.slots > figure.slot.reveal:nth-of-type(1) > figcaption \"Watch face complications Circular, recta\"",
+   "msg": "a figcaption under the picture watch-complications.webp: \"Watch face complications Circular, recta...\"; no caption or description under any image, render or visual (house rule)",
+   "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "visual-caption"
+   ],
+   "wheres": [
+    "div.wrap > div.slots > figure.slot.reveal:nth-of-type(1) > figcaption \"Watch face complications Circular, recta\""
+   ]
+  },
+  {
+   "check": "visual-caption",
+   "where": "div.wrap > div.slots > figure.slot.reveal:nth-of-type(2) > figcaption \"Lock Screen widgets Rectangular, circula\"",
+   "msg": "a figcaption under the picture lockscreen.webp: \"Lock Screen widgets Rectangular, circula...\"; no caption or description under any image, render or visual (house rule)",
+   "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "visual-caption"
+   ],
+   "wheres": [
+    "div.wrap > div.slots > figure.slot.reveal:nth-of-type(2) > figcaption \"Lock Screen widgets Rectangular, circula\""
+   ]
+  },
+  {
+   "check": "visual-caption",
+   "where": "div.wrap > div.slots > figure.slot.reveal:nth-of-type(3) > figcaption \"Home Screen widget Your score, its tier \"",
+   "msg": "a figcaption under the picture widgets-dark.webp: \"Home Screen widget Your score, its tier ...\"; no caption or description under any image, render or visual (house rule)",
+   "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "visual-caption"
+   ],
+   "wheres": [
+    "div.wrap > div.slots > figure.slot.reveal:nth-of-type(3) > figcaption \"Home Screen widget Your score, its tier \""
+   ]
+  },
+  {
+   "check": "section-tile",
+   "where": "section#score \"Five signals in. One calm number out.\"",
+   "msg": "the section is 1256px tall (1.40 screens at 1440x900), not one screen or two: the screen one screen on from its top (scroll 1951px) shows 287px of it and 544px of the next section, its heading \"Meet Ripple, a coach that alre\" on screen",
+   "fix": "set every section after the hero to one screen or two (height: calc(var(--h,1) * 100vh)) and fit its content above --padb",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-tile"
+   ],
+   "wheres": [
+    "section#score \"Five signals in. One calm number out.\""
+   ]
+  },
+  {
+   "check": "section-tile",
+   "where": "section#widgets \"Your score, without opening the app.\"",
+   "msg": "the section is 1019px tall (1.13 screens at 1440x900), not one screen or two: the screen one screen on from its top (scroll 6324px) shows 49px of it and 782px of the next section, its heading \"Your health data stays home.\" on screen",
+   "fix": "set every section after the hero to one screen or two (height: calc(var(--h,1) * 100vh)) and fit its content above --padb",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-tile"
+   ],
+   "wheres": [
+    "section#widgets \"Your score, without opening the app.\""
+   ]
+  },
+  {
+   "check": "section-tile",
+   "where": "section#privacy \"Your health data stays home.\"",
+   "msg": "the section is 1058px tall (1.18 screens at 1440x900), not one screen or two: the screen one screen on from its top (scroll 7342px) shows 89px of it and 742px of the next section, its heading \"Start free. Go further when yo\" on screen",
+   "fix": "set every section after the hero to one screen or two (height: calc(var(--h,1) * 100vh)) and fit its content above --padb",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-tile"
+   ],
+   "wheres": [
+    "section#privacy \"Your health data stays home.\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "section#score > div.wrap > div.sec-links.reveal:nth-of-type(4) > a.tlink:nth-of-type(1) \"Read how the score works →\"",
+   "msg": "Tab stop 11, a \"Read how the score works →\": the focus lands on something you cannot see",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "section#score > div.wrap > div.sec-links.reveal:nth-of-type(4) > a.tlink:nth-of-type(1) \"Read how the score works →\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "section#score > div.wrap > div.sec-links.reveal:nth-of-type(4) > a.tlink:nth-of-type(2) \"What is HRV? →\"",
+   "msg": "Tab stop 12, a \"What is HRV? →\": the focus lands on something you cannot see",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "section#score > div.wrap > div.sec-links.reveal:nth-of-type(4) > a.tlink:nth-of-type(2) \"What is HRV? →\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "section#trends > div.wrap.split > div.split-copy:nth-of-type(2) > a.tlink.reveal \"Open the user guide →\"",
+   "msg": "Tab stop 13, a \"Open the user guide →\": the focus lands on something you cannot see",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "section#trends > div.wrap.split > div.split-copy:nth-of-type(2) > a.tlink.reveal \"Open the user guide →\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "section#widgets > div.wrap > div.widgets-foot.reveal:nth-of-type(3) > a.tlink \"Set up your watch face →\"",
+   "msg": "Tab stop 14, a \"Set up your watch face →\": the focus lands on something you cannot see",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "section#widgets > div.wrap > div.widgets-foot.reveal:nth-of-type(3) > a.tlink \"Set up your watch face →\""
+   ]
+  },
+  {
+   "check": "run-on",
+   "where": "section#top > div.wrap > div.hero-copy:nth-of-type(1) > h1.reveal.d1 \"The stress monitor for iPhone and Apple \"",
+   "msg": "\"s monitor for iPhone and | Apple Watch\": the heading runs its first sentence into the grey second one with no stop",
+   "fix": "end the heading's first sentence with a full stop before its grey second one (\"Rooms and prices. Breakfast included.\")",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "run-on"
+   ],
+   "wheres": [
+    "section#top > div.wrap > div.hero-copy:nth-of-type(1) > h1.reveal.d1 \"The stress monitor for iPhone and Apple \""
+   ]
+  },
+  {
+   "check": "hero-enter",
+   "where": "section#top",
+   "msg": "the hero does not enter on load: no data-enter on the hero and no head line setting html.m-enter (motion.md, The hero's entrance)",
+   "fix": "put data-enter on the hero <section> and keep the head line from starter.html that sets html.m-enter",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-enter"
+   ],
+   "wheres": [
+    "section#top"
+   ]
+  },
+  {
+   "check": "moment-none",
+   "where": "(the page)",
+   "msg": "a software page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+   "fix": "deal one (moments.mjs pick --page software) and mount it in its own section",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "moment-none"
+   ],
+   "wheres": [
+    "(the page)"
+   ]
+  },
+  {
+   "check": "hero-screen",
+   "where": "section#top \"Stress AI Coach The stress monitor for i\"",
+   "msg": "the hero ends at 1051px on a 900px screen, 151px below the fold: it ends at the fold, 1px either way (SR-1)",
+   "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-screen"
+   ],
+   "wheres": [
+    "section#top \"Stress AI Coach The stress monitor for i\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "section#ratings \"Ratings New on the App Store. If you are\"",
+   "msg": "the section is 389px tall (0.4 screens), 511px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height",
+    "screen-short",
+    "screen-height"
+   ],
+   "wheres": [
+    "section#ratings \"Ratings New on the App Store. If you are\"",
+    "#ratings section.ratings \"Ratings New on the App Store. If\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "footer \"Stress AI Coach A stress monitor for iPh\"",
+   "msg": "the section is 397px tall (0.4 screens), 503px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "footer \"Stress AI Coach A stress monitor for iPh\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "section#faq \"FAQ Good questions. Anything else: suppo\"",
+   "msg": "the section is 495px tall (0.5 screens), 405px short of one screen (900px): every section after the hero is one screen or two, 2px either way (and 8 more like it: \"AI coach & breathing Mee\", \"How the score works Five\", \"Pricing Start free. Go f\") (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height",
+    "screen-short",
+    "screen-height"
+   ],
+   "wheres": [
+    "section#faq \"FAQ Good questions. Anything else: suppo\"",
+    "#faq section.sec.faq \"FAQ Good questions. Anything els\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "section#coach \"AI coach & breathing Meet Ripple, a coac\"",
+   "msg": "the section starts at 2307px, 393px above the screen grid (3 x 900px): sections start on whole screens (SR-2)",
+   "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height",
+    "screen-height"
+   ],
+   "wheres": [
+    "section#coach \"AI coach & breathing Meet Ripple, a coac\"",
+    "#coach section.sec.coach \"AI coach & breathing Meet Ripple\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "section#pricing \"Pricing Start free. Go further when you \"",
+   "msg": "the section starts at 7500px, 300px below the screen grid (8 x 900px): sections start on whole screens (and 8 more like it: \"Stress AI Coach A stress\", \"How the score works Five\", \"Privacy Your health data\") (SR-2)",
+   "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height",
+    "screen-height"
+   ],
+   "wheres": [
+    "section#pricing \"Pricing Start free. Go further when you \"",
+    "#pricing section.sec \"Pricing Start free. Go further w\""
+   ]
+  },
+  {
+   "check": "section-air",
+   "where": "section#coach / section#trends",
+   "msg": "709px of air between the content of these two sections: 128-480px (64-600px WARN) (SR-3)",
+   "fix": "keep 128-480px of air between the content of neighbouring sections (112-420px on a phone): the sections' padding (--padt, --padb)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-air"
+   ],
+   "wheres": [
+    "section#coach / section#trends"
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "section#coach > div.wrap.split > div.split-copy > h2.reveal.d1 \"Meet Ripple, a coach that already knows \"",
+   "msg": "the screen at scroll 1800px (stride 2) shows 393px of section 3 and the heading of section 3 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+   "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section",
+    "neighbour"
+   ],
+   "wheres": [
+    "section#coach > div.wrap.split > div.split-copy > h2.reveal.d1 \"Meet Ripple, a coach that already knows \"",
+    "#coach section.sec.coach \"AI coach & breathing Meet Ripple\""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "div.wrap > div.ratings-none > div.split-copy.reveal > h2 \"New on the App Store.\"",
+   "msg": "the screen at scroll 8998px (the top of section 9) shows 389px of section 10 and the heading of section 10 whole and the content of 2 sections, over 24px each beside section 9: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+   "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "div.wrap > div.ratings-none > div.split-copy.reveal > h2 \"New on the App Store.\""
+   ]
+  },
+  {
+   "check": "one-heading",
+   "where": "div.wrap > div.ratings-none > div.split-copy.reveal > h2 \"New on the App Store.\"",
+   "msg": "headings of two sections show whole on one screen at 8 of 201 scroll positions (4%; at scroll 8850, 8900, 8950, 9000px), here with \"Good questions.\": at most 3% on a desktop (SR-5)",
+   "fix": "make the sections one screen tall so their headings sit a screen apart and two never share one",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-heading"
+   ],
+   "wheres": [
+    "div.wrap > div.ratings-none > div.split-copy.reveal > h2 \"New on the App Store.\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "header#nav \"Stress AI Coach How it works Ripple Appl\"",
+   "msg": "the nav's first box starts at 160px and its last ends at 1280px, not on its .wrap at 120-1320px (SR-6)",
+   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "header#nav \"Stress AI Coach How it works Ripple Appl\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "a.skip \"Skip to content\"",
+   "msg": "a <a> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "a.skip \"Skip to content\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "footer \"Stress AI Coach A stress monitor for iPh\"",
+   "msg": "a <footer> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (and 2 more like it: \"Stress AI Coach The stre\", \"AI coach & breathing Mee\") (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "footer \"Stress AI Coach A stress monitor for iPh\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "section#top > div.wrap > div.hero-visual.reveal > p.breath-cap \"Box breathing·Hold3\"",
+   "msg": "1 text block starts on a left line at x 924, 804px from the container's left: text starts on the container's left, or on one split line (x 630, 732, 834) (SR-6)",
+   "fix": "start the text on the container's left, or on the one split line every split shares",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "section#top > div.wrap > div.hero-visual.reveal > p.breath-cap \"Box breathing·Hold3\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.split-copy > ul.checks.reveal > li:nth-of-type(1) > span \"Daily stress over 7, 30 or 90 days\"",
+   "msg": "4 text blocks start on a left line at x 748, 628px from the container's left: text starts on the container's left, or on one split line (x 630, 732, 834) (also \"Time spent in each stress tier\", \"A weekly calendar of your scores\", \"Pattern insights: your best, ave\") (and 19 more like it: x 712, \"See the week behind the \", x 543) (SR-6)",
+   "fix": "start the text on the container's left, or on the one split line every split shares",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.split-copy > ul.checks.reveal > li:nth-of-type(1) > span \"Daily stress over 7, 30 or 90 days\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "section#closing > div.wrap > h2.reveal.d1 \"Know your number. Then take two minutes \"",
+   "msg": "\"Know your number. Then take two \" is set centred across 896px, over half the 1200px container: text that wide is set left (SR-6)",
+   "fix": "set the text left (text-align: start)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "section#closing > div.wrap > h2.reveal.d1 \"Know your number. Then take two minutes \""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live scoreYour stress readout and Ripple\"",
+   "msg": "\"Live scoreYour stress readout an\" is set centred across 700px, over half the 1200px container: text that wide is set left (and 1 more like it: \"Your score on your wrist\") (SR-6)",
+   "fix": "set the text left (text-align: start)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live scoreYour stress readout and Ripple\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "section#watch > div.wrap > div.watch-wrap > figure.watch-tray.reveal \"Live scoreYour stress readout and Ripple\"",
+   "msg": "a box over half the container wide runs 280-1160px, not on the container's lines at 120-1320px (and 2 more like it: \"Free and Plus, side by s\", \"Apple, Apple Watch, iPho\") (SR-6)",
+   "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "section#watch > div.wrap > div.watch-wrap > figure.watch-tray.reveal \"Live scoreYour stress readout and Ripple\""
+   ]
+  },
+  {
+   "check": "row-lines",
+   "where": "div.wrap > div.watch-wrap > figure.watch-tray.reveal > div.watch-row",
+   "msg": "a row of 3 items: its first item starts at 373px, the container's left line at 120px; its last item ends at 1067px, the container's right line at 1320px (2px either way) (SR-7)",
+   "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "row-lines"
+   ],
+   "wheres": [
+    "div.wrap > div.watch-wrap > figure.watch-tray.reveal > div.watch-row"
+   ]
+  },
+  {
+   "check": "row-lines",
+   "where": "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live scoreYour stress readout and Ripple\"",
+   "msg": "a row of 3 items: its first item starts at 370px, the container's left line at 120px; its last item ends at 1070px, the container's right line at 1320px (2px either way) (SR-7)",
+   "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "row-lines"
+   ],
+   "wheres": [
+    "div.wrap > div.watch-wrap > figure.watch-tray.reveal > figcaption.watch-caps \"Live scoreYour stress readout and Ripple\""
+   ]
+  },
+  {
+   "check": "row-lines",
+   "where": "section#score > div.wrap > div.facts3 \"Computed on your iPhoneThe score is calc\"",
+   "msg": "a row of 3 items: its first item starts at 160px, the container's left line at 120px; its last item ends at 1280px, the container's right line at 1320px (2px either way) (and 6 more like it: \"Stress AI Coach A stress\", \"Mood check-insCheck in o\", \"Watch face complications\") (SR-7)",
+   "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "row-lines"
+   ],
+   "wheres": [
+    "section#score > div.wrap > div.facts3 \"Computed on your iPhoneThe score is calc\""
+   ]
+  },
+  {
+   "check": "split-pair",
+   "where": "section#coach > div.wrap.split \"AI coach & breathing Meet Ripple, a coac\"",
+   "msg": "the two columns of the split start 72px apart at the top: a split's columns are top-aligned, 8px either way (SR-8)",
+   "fix": "top-align both columns of the split (align-items: start)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "split-pair"
+   ],
+   "wheres": [
+    "section#coach > div.wrap.split \"AI coach & breathing Meet Ripple, a coac\""
+   ]
+  },
+  {
+   "check": "split-pair",
+   "where": "section#trends > div.wrap.split \"Trends See the week behind the number. 7\"",
+   "msg": "the two columns of the split start 56px apart at the top (centred on each other): a split's columns are top-aligned, 8px either way (SR-8)",
+   "fix": "top-align both columns of the split (align-items: start)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "split-pair"
+   ],
+   "wheres": [
+    "section#trends > div.wrap.split \"Trends See the week behind the number. 7\""
+   ]
+  },
+  {
+   "check": "split-pair",
+   "where": "section#top > div.wrap \"Stress AI Coach The stress monitor for i\"",
+   "msg": "the two columns of the split start 8px apart at the top: a split's columns are top-aligned, 8px either way (SR-8)",
+   "fix": "top-align both columns of the split (align-items: start)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "split-pair"
+   ],
+   "wheres": [
+    "section#top > div.wrap \"Stress AI Coach The stress monitor for i\""
+   ]
+  },
+  {
+   "check": "flush",
+   "where": "section#ratings > div.wrap > div.ratings-none > div.empty-review.reveal \"No ratings yet. We will not show stars o\"",
+   "msg": "its last line sits 0px above the lower edge of section#ratings, where the ground changes to section#closing",
+   "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "flush"
+   ],
+   "wheres": [
+    "section#ratings > div.wrap > div.ratings-none > div.empty-review.reveal \"No ratings yet. We will not show stars o\""
+   ]
+  },
+  {
+   "check": "nav-covers",
+   "where": "div#mbar \"Stress AI Coach Free plan · iOS 18.6+ Do\"",
+   "msg": "sits on top of the text \"Names what moved it\" while the page scrolls: part of the line shows beside it",
+   "fix": "make the fixed nav one opaque band across the whole screen, or let it scroll away with the page",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "nav-covers"
+   ],
+   "wheres": [
+    "div#mbar \"Stress AI Coach Free plan · iOS 18.6+ Do\""
+   ]
+  },
+  {
+   "check": "no-visual",
+   "where": "section#score \"Five signals in. One calm number out.\"",
+   "msg": "pictures, effects and mocks cover 8% of this section; a feature section needs a visual (about 25% or more)",
+   "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "no-visual"
+   ],
+   "wheres": [
+    "section#score \"Five signals in. One calm number out.\""
+   ]
+  },
+  {
+   "check": "no-visual",
+   "where": "section#watch \"Your score on your wrist. A reset one ta\"",
+   "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+   "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "no-visual"
+   ],
+   "wheres": [
+    "section#watch \"Your score on your wrist. A reset one ta\""
+   ]
+  },
+  {
+   "check": "off-grid",
+   "where": "div.wrap.split > div.reveal.d1 > details.qa:nth-of-type(1) > summary \"Do I need an Apple Watch?\"",
+   "msg": "left edge at 24px, 4px off the page margin at 20px (95 elements, like p.lede); 3 more in this section off the grid too (summary at 24px, summary at 24px, summary at 24px)",
+   "fix": "move it onto the page margin, or the column edge its section uses",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "off-grid"
+   ],
+   "wheres": [
+    "div.wrap.split > div.reveal.d1 > details.qa:nth-of-type(1) > summary \"Do I need an Apple Watch?\""
+   ]
+  },
+  {
+   "check": "contrast",
+   "where": "section#coach > div.wrap.split > div.split-copy > p.lede.reveal \"Ripple is the app’s water otter companio\"",
+   "msg": "body text over a effect reads at 1.5:1 at its worst tenth (needs 4.5:1), on a busy ground",
+   "fix": "put the text on a calm part of the picture, or on a solid panel",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "contrast"
+   ],
+   "wheres": [
+    "section#coach > div.wrap.split > div.split-copy > p.lede.reveal \"Ripple is the app’s water otter companio\""
+   ]
+  },
+  {
+   "check": "section-tile",
+   "where": "section#watch \"Your score on your wrist. A reset one ta\"",
+   "msg": "the section is 522px tall (0.62 screens at 390x844), shorter than the screen: its tile (the screen from its top) shows 453px of it and 322px of the next section, its heading \"Your score, without opening th\" on screen",
+   "fix": "set every section after the hero to one screen or two (height: calc(var(--h,1) * 100vh)) and fit its content above --padb",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-tile"
+   ],
+   "wheres": [
+    "section#watch \"Your score on your wrist. A reset one ta\""
+   ]
+  },
+  {
+   "check": "off-viewport",
+   "where": "a.skip \"Skip to content\"",
+   "msg": "at 320px wide it runs 999px past the screen's left edge (cut there: the page clips what runs past it)",
+   "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
+   "widths": [
+    320
+   ],
+   "from": "consistency",
+   "ids": [
+    "off-viewport"
+   ],
+   "wheres": [
+    "a.skip \"Skip to content\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#top div.hero-visual.reveal \"Box breathing·Hold2\"",
+   "msg": "starts at x 782.2; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#top div.hero-visual.reveal \"Box breathing·Hold2\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#top p.breath-cap \"Box breathing·Hold2\"",
+   "msg": "starts at x 905.2; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#top p.breath-cap \"Box breathing·Hold2\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#score h3 \"Names what moved it\"",
+   "msg": "starts at x 935.5; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#score h3 \"Names what moved it\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#score p \"Each reading points to the facto\"",
+   "msg": "starts at x 935.5; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#score p \"Each reading points to the facto\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#coach div.duo.reveal",
+   "msg": "starts at x 763.2; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#coach div.duo.reveal"
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#trends div.phone.reveal",
+   "msg": "starts at x 242.5; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#trends div.phone.reveal"
+   ]
+  },
+  {
+   "check": "edge-right",
+   "where": "#trends div.phone.reveal",
+   "msg": "ends at x 542.5; the right line is 1280",
+   "fix": "end it on the .wrap right line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-right"
+   ],
+   "wheres": [
+    "#trends div.phone.reveal"
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#trends div.split-copy \"Trends See the week behind the n\"",
+   "msg": "starts at x 711.5; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#trends div.split-copy \"Trends See the week behind the n\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#trends h2.reveal.d1 \"See the week behind the number.\"",
+   "msg": "starts at x 711.5; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#trends h2.reveal.d1 \"See the week behind the number.\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#trends ul.checks.reveal \"Daily stress over 7, 30 or 90 da\"",
+   "msg": "starts at x 711.5; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#trends ul.checks.reveal \"Daily stress over 7, 30 or 90 da\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#trends p.note.reveal \"The Free plan keeps up to 14 day\"",
+   "msg": "starts at x 711.5; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#trends p.note.reveal \"The Free plan keeps up to 14 day\""
+   ]
+  },
+  {
+   "check": "edge-right",
+   "where": "#widgets figure.slot.reveal \"Watch face complicationsCircular\"",
+   "msg": "ends at x 520; the right line is 1280",
+   "fix": "end it on the .wrap right line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-right"
+   ],
+   "wheres": [
+    "#widgets figure.slot.reveal \"Watch face complicationsCircular\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#widgets figure.slot.reveal \"Home Screen widgetYour score, it\"",
+   "msg": "starts at x 920; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#widgets figure.slot.reveal \"Home Screen widgetYour score, it\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#pricing h3 \"Plus\"",
+   "msg": "starts at x 734.8; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#pricing h3 \"Plus\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#pricing p.trial \"Includes a 14-day free trial\"",
+   "msg": "starts at x 734.8; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#pricing p.trial \"Includes a 14-day free trial\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#pricing p.plan-sum \"Everything in Free, plus unlimit\"",
+   "msg": "starts at x 734.8; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#pricing p.plan-sum \"Everything in Free, plus unlimit\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#faq div.reveal.d1 \"Do I need an Apple Watch? Stress\"",
+   "msg": "starts at x 659.8; the lines are 160 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#faq div.reveal.d1 \"Do I need an Apple Watch? Stress\""
+   ]
+  },
+  {
+   "check": "screen-height",
+   "where": "#score section.sec \"How the score works Five signals\"",
+   "msg": "1256px, 1.51 screens; a section is exactly one or two (--h)",
+   "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "screen-height"
+   ],
+   "wheres": [
+    "#score section.sec \"How the score works Five signals\""
+   ]
+  },
+  {
+   "check": "neighbour",
+   "where": "#score section.sec \"How the score works Five signals\"",
+   "msg": "framed, 203px of #coach section.sec.coach \"AI coach & breathing Meet Ripple\" shows",
+   "fix": "keep the next section's heading and picture out of this screen",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "neighbour"
+   ],
+   "wheres": [
+    "#score section.sec \"How the score works Five signals\""
+   ]
+  },
+  {
+   "check": "screen-height",
+   "where": "#trends section.sec.trends \"Trends See the week behind the n\"",
+   "msg": "893px, 1.07 screens; a section is exactly one or two (--h)",
+   "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "screen-height"
+   ],
+   "wheres": [
+    "#trends section.sec.trends \"Trends See the week behind the n\""
+   ]
+  },
+  {
+   "check": "screen-short",
+   "where": "#watch section.sec \"Apple Watch Your score on your w\"",
+   "msg": "804px tall; one screen under the nav is 831px",
+   "fix": "make the section one full screen (--h: 1, layout-v4.md section 2)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "screen-short",
+    "screen-height"
+   ],
+   "wheres": [
+    "#watch section.sec \"Apple Watch Your score on your w\""
+   ]
+  },
+  {
+   "check": "neighbour-ground",
+   "where": "#watch section.sec \"Apple Watch Your score on your w\"",
+   "msg": "framed, 27px of #widgets section.sec.widgets \"Watch faces & widgets Your score\"'s ground shows",
+   "fix": "end the ground with the section",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "neighbour-ground"
+   ],
+   "wheres": [
+    "#watch section.sec \"Apple Watch Your score on your w\""
+   ]
+  },
+  {
+   "check": "screen-height",
+   "where": "#widgets section.sec.widgets \"Watch faces & widgets Your score\"",
+   "msg": "1019px, 1.23 screens; a section is exactly one or two (--h)",
+   "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "screen-height"
+   ],
+   "wheres": [
+    "#widgets section.sec.widgets \"Watch faces & widgets Your score\""
+   ]
+  },
+  {
+   "check": "screen-height",
+   "where": "#privacy section.sec.privacy \"Privacy Your health data stays h\"",
+   "msg": "1058px, 1.27 screens; a section is exactly one or two (--h)",
+   "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "screen-height"
+   ],
+   "wheres": [
+    "#privacy section.sec.privacy \"Privacy Your health data stays h\""
+   ]
+  },
+  {
+   "check": "neighbour",
+   "where": "#pricing section.sec \"Pricing Start free. Go further w\"",
+   "msg": "framed, 80px of #faq section.sec.faq \"FAQ Good questions. Anything els\" shows",
+   "fix": "keep the next section's heading and picture out of this screen",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "neighbour"
+   ],
+   "wheres": [
+    "#pricing section.sec \"Pricing Start free. Go further w\""
+   ]
+  },
+  {
+   "check": "neighbour",
+   "where": "#faq section.sec.faq \"FAQ Good questions. Anything els\"",
+   "msg": "framed, 92px of #ratings section.ratings \"Ratings New on the App Store. If\" shows",
+   "fix": "keep the next section's heading and picture out of this screen",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "neighbour"
+   ],
+   "wheres": [
+    "#faq section.sec.faq \"FAQ Good questions. Anything els\""
+   ]
+  },
+  {
+   "check": "neighbour",
+   "where": "#ratings section.ratings \"Ratings New on the App Store. If\"",
+   "msg": "framed, 134px of #closing section.closing \"Know your number. Then take two \" shows",
+   "fix": "keep the next section's heading and picture out of this screen",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "neighbour"
+   ],
+   "wheres": [
+    "#ratings section.ratings \"Ratings New on the App Store. If\""
+   ]
+  },
+  {
+   "check": "screen-short",
+   "where": "#closing section.closing \"Know your number. Then take two \"",
+   "msg": "665px tall; one screen under the nav is 831px",
+   "fix": "make the section one full screen (--h: 1, layout-v4.md section 2)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "screen-short",
+    "screen-height"
+   ],
+   "wheres": [
+    "#closing section.closing \"Know your number. Then take two \""
+   ]
+  },
+  {
+   "check": "neighbour",
+   "where": "#closing section.closing \"Know your number. Then take two \"",
+   "msg": "framed, 166px of the footer shows",
+   "fix": "keep the next section's heading and picture out of this screen",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "neighbour"
+   ],
+   "wheres": [
+    "#closing section.closing \"Know your number. Then take two \""
+   ]
+  },
+  {
+   "check": "hero-fold",
+   "where": "#top section.hero \"Stress AI Coach The stress monit\"",
+   "msg": "ends at y 1051, past the fold (900): 1.18 screens tall",
+   "fix": "the hero fills the first screen alone, its button inside it",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "hero-fold"
+   ],
+   "wheres": [
+    "#top section.hero \"Stress AI Coach The stress monit\""
+   ]
+  },
+  {
+   "check": "neighbour",
+   "where": "#trends section.sec.trends \"Trends See the week behind the n\"",
+   "msg": "framed, 101px of #watch section.sec \"Apple Watch Your score on your w\" shows",
+   "fix": "keep the next section's heading and picture out of this screen",
+   "widths": [
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "neighbour"
+   ],
+   "wheres": [
+    "#trends section.sec.trends \"Trends See the week behind the n\""
+   ]
+  },
+  {
+   "check": "neighbour",
+   "where": "#watch section.sec \"Apple Watch Your score on your w\"",
+   "msg": "framed, 67px of #widgets section.sec.widgets \"Watch faces & widgets Your score\" shows",
+   "fix": "keep the next section's heading and picture out of this screen",
+   "widths": [
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "neighbour"
+   ],
+   "wheres": [
+    "#watch section.sec \"Apple Watch Your score on your w\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{AVG}}\" in \"{{AVG}}\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{AVG}}\" in \"{{AVG}}\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{COUNT}}\" in \"{{COUNT}} ratings on the App Store\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{COUNT}}\" in \"{{COUNT}} ratings on the App Store\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{REVIEW_1_TITLE}}\" in \"{{REVIEW_1_TITLE}}\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{REVIEW_1_TITLE}}\" in \"{{REVIEW_1_TITLE}}\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{REVIEW_1_BODY}}\" in \"{{REVIEW_1_BODY}}\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{REVIEW_1_BODY}}\" in \"{{REVIEW_1_BODY}}\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{REVIEW_1_AUTHOR}}\" in \"{{REVIEW_1_AUTHOR}}\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{REVIEW_1_AUTHOR}}\" in \"{{REVIEW_1_AUTHOR}}\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{REVIEW_2_TITLE}}\" in \"{{REVIEW_2_TITLE}}\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{REVIEW_2_TITLE}}\" in \"{{REVIEW_2_TITLE}}\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{REVIEW_2_BODY}}\" in \"{{REVIEW_2_BODY}}\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{REVIEW_2_BODY}}\" in \"{{REVIEW_2_BODY}}\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{REVIEW_2_AUTHOR}}\" in \"{{REVIEW_2_AUTHOR}}\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{REVIEW_2_AUTHOR}}\" in \"{{REVIEW_2_AUTHOR}}\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{REVIEW_3_TITLE}}\" in \"{{REVIEW_3_TITLE}}\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{REVIEW_3_TITLE}}\" in \"{{REVIEW_3_TITLE}}\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{REVIEW_3_BODY}}\" in \"{{REVIEW_3_BODY}}\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{REVIEW_3_BODY}}\" in \"{{REVIEW_3_BODY}}\""
+   ]
+  },
+  {
+   "check": "copy-residue",
+   "msg": "chatbot residue, a template token, markdown or a [NEED] left on the page",
+   "fix": "write the real words from the brief, or leave the element out and list what is missing in the report (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy \"{{REVIEW_3_AUTHOR}}\" in \"{{REVIEW_3_AUTHOR}}\"",
+   "ids": [
+    "copy-residue"
+   ],
+   "wheres": [
+    "copy \"{{REVIEW_3_AUTHOR}}\" in \"{{REVIEW_3_AUTHOR}}\""
+   ]
+  },
+  {
+   "check": "copy-two-fragment",
+   "msg": "two-fragment headings \"X. Y.\": 4, budget 1 (a tic, not a device)",
+   "fix": "spend it once where it lands hardest; give the other headings a plain label, a claim or the thing they name (references/copy-tells.md)",
+   "widths": [],
+   "from": "copy",
+   "where": "copy x4: \"Five signals in. One ...\", \"Your score on your wr...\", \"Start free....",
+   "exact": true,
+   "ids": [
+    "copy-two-fragment"
+   ],
+   "wheres": [
+    "copy x4: \"Five signals in. One ...\", \"Your score on your wr...\", \"Start free...."
+   ]
   }
  ],
- "warnCount": 21,
- "at": "2026-11-23T11:06:58.494Z"
+ "waived": [],
+ "warnCount": 41,
+ "at": "2026-11-23T17:27:26.073Z",
+ "openTold": true
 }

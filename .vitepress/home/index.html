@@ -12,7 +12,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#F5F1EA">
+<meta name="theme-color" content="#F1F1E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B1411" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
 <!-- <link rel="canonical" href="https://[final domain]/"> : the final domain is not chosen yet -->
 <link rel="alternate" hreflang="vi" href="vi/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,27 +22,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg: oklch(0.962 0.014 82);
-  --surface: oklch(0.985 0.008 85);
-  --sand: oklch(0.928 0.022 78);
-  --fg: oklch(0.25 0.035 225);
-  --muted: oklch(0.47 0.025 225);
-  --border: oklch(0.875 0.018 80);
-  --accent: oklch(0.53 0.19 257);
-  --sky: oklch(0.87 0.075 232);
-  --sky-soft: oklch(0.93 0.04 225);
-  --ink: oklch(0.24 0.035 225);
-  --ink-2: oklch(0.32 0.035 225);
-  --on-ink: oklch(0.955 0.012 85);
-  --on-ink-muted: oklch(0.78 0.02 225);
+  /* UI V2 palette (light): paper #F1F1E8, forest #206A5D, sage #BFDCAE, lime #81B214 (fills only) */
+  --bg:#F1F1E8;
+  --surface:#FCFCF8;
+  --sand:#E6EADC;
+  --sand-2:#D9DFCD;
+  --fg:#13211D;
+  --muted:#44524C;
+  --border:#D2D8C9;
+  --border-2:#B9C2B1;
+  --accent:#206A5D;
+  --sky:#BFDCAE;
+  --sky-soft:#DCEBD2;
+  --lime:#81B214;
+  --band-accent:#BFDCAE;
+  --ink:#13211D;
+  --ink-2:#1E3530;
+  --on-ink:#F1F1E8;
+  --on-ink-muted:#B9C5B8;
+  --shadow:19 33 29;
   --font-display: "Bricolage Grotesque", "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
-  --calm: oklch(0.5 0.13 150);
-  --calm-bright: oklch(0.8 0.17 150);
+  --calm:#206A5D;
+  --calm-bright:#81B214;
   --font-body: "Be Vietnam Pro", "Segoe UI", system-ui, -apple-system, sans-serif;
   --r-lg: 28px; --r-md: 18px;
   --wrap: 1200px;
   --pad: clamp(20px, 4vw, 40px);
   --ease: cubic-bezier(.22,.7,.2,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    /* UI V2 palette (dark): canvas #0B1411, accent #5FBFA9, lime #9CCB3A (fills only) */
+    --bg:#0B1411;
+    --surface:#14201B;
+    --sand:#1C2A24;
+    --sand-2:#26362F;
+    --fg:#EEF1E6;
+    --muted:#B9C5B8;
+    --border:#2A3A33;
+    --border-2:#3A4C44;
+    --accent:#5FBFA9;
+    --sky:#2C6B5C;
+    --sky-soft:#1F3830;
+    --lime:#9CCB3A;
+    --band-accent:#5FBFA9;
+    --ink:#1C2A24;
+    --ink-2:#26362F;
+    --on-ink:#EEF1E6;
+    --on-ink-muted:#B9C5B8;
+    --shadow:0 0 0;
+    --calm:#5FBFA9;
+    --calm-bright:#9CCB3A;
+    color-scheme:dark;
+  }
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -63,13 +98,13 @@ p{margin:0;text-wrap:pretty}
 .lede{font-size:clamp(1.05rem,1rem + .3vw,1.2rem);color:var(--muted);max-width:34em}
 .eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor;opacity:.6}
-.tlink{font-weight:500;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px;text-decoration-color:color-mix(in oklch,var(--fg) 35%,transparent);transition:text-decoration-color .2s}
+.tlink{font-weight:500;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,var(--fg) 35%,transparent);transition:text-decoration-color .2s}
 .tlink:hover{text-decoration-color:var(--fg)}
 .tlink .arr{display:inline-block;transition:transform .25s var(--ease)}
 .tlink:hover .arr{transform:translateX(3px)}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:40;background:color-mix(in oklch,var(--bg) 82%,transparent);backdrop-filter:saturate(1.2) blur(14px);-webkit-backdrop-filter:saturate(1.2) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.2) blur(14px);-webkit-backdrop-filter:saturate(1.2) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
 .nav.scrolled{border-bottom-color:var(--border)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;letter-spacing:-0.01em}
@@ -81,10 +116,11 @@ p{margin:0;text-wrap:pretty}
 .btn-ghost:hover{background:var(--fg);color:var(--bg)}
 
 /* App Store button (the one primary) */
-.appstore{display:inline-flex;align-items:center;gap:12px;min-height:58px;padding:0 24px 0 20px;border-radius:16px;background:var(--ink);color:var(--on-ink);text-decoration:none;box-shadow:0 1px 0 oklch(1 0 0 / .08) inset,0 10px 24px -12px oklch(0.24 0.035 225 / .55);transition:background .2s,transform .2s var(--ease),box-shadow .2s}
-.appstore:hover{background:var(--ink-2);transform:translateY(-2px);box-shadow:0 1px 0 oklch(1 0 0 / .08) inset,0 16px 30px -14px oklch(0.24 0.035 225 / .6)}
+.appstore{display:inline-flex;align-items:center;gap:12px;min-height:58px;padding:0 24px 0 20px;border-radius:16px;background:var(--ink);color:var(--on-ink);text-decoration:none;box-shadow:0 1px 0 rgb(255 255 255 / .08) inset,0 10px 24px -12px rgb(var(--shadow) / .55);transition:background .2s,transform .2s var(--ease),box-shadow .2s}
+.appstore:hover{background:var(--ink-2);transform:translateY(-2px);box-shadow:0 1px 0 rgb(255 255 255 / .08) inset,0 16px 30px -14px rgb(var(--shadow) / .6)}
 .appstore:active{transform:translateY(0)}
 .appstore svg{width:26px;height:26px;flex:none}
+@media (prefers-color-scheme:dark){.appstore{box-shadow:0 0 0 1px var(--border-2)}.btn-ghost{border-color:var(--fg)}}
 .appstore span{display:flex;flex-direction:column;line-height:1.1}
 .appstore small{font-size:11.5px;letter-spacing:.02em;opacity:.85}
 .appstore b{font-size:20px;font-weight:600;letter-spacing:-0.01em}
@@ -92,24 +128,10 @@ p{margin:0;text-wrap:pretty}
 /* phone frame */
 /* device frames: everything inside scales with the frame width (container units + SVG viewBox) */
 :root{--font-device:-apple-system,"SF Pro Rounded","SF Pro Text",system-ui,"Segoe UI",Roboto,sans-serif;--font-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
-.phone{position:relative;width:var(--pw,300px);container-type:inline-size;flex:none}
-.phone-body{padding:2.7cqw;border-radius:15cqw;background:linear-gradient(160deg,oklch(0.36 0.025 230),oklch(0.2 0.02 230));box-shadow:0 0 0 1px oklch(0.15 0.02 230),0 40px 70px -30px oklch(0.25 0.04 230 / .45),0 18px 30px -18px oklch(0.25 0.04 230 / .35)}
-.screen{position:relative;border-radius:12.6cqw;overflow:hidden;background:#fff;isolation:isolate}
-.screen > svg,.watch-screen > svg{display:block;width:100%;height:auto}
-.island{position:absolute;top:2.6cqw;left:50%;translate:-50% 0;width:29cqw;height:8.4cqw;border-radius:999px;background:#0B0B0D}
-.sv{font-family:var(--font-device);font-variant-numeric:tabular-nums}
-.sv .m{font-family:var(--font-mono)}
-.sv .b{font-weight:700}.sv .s{font-weight:600}.sv .md{font-weight:500}
-.sv-arc{stroke-dasharray:100;animation:svArc 1.8s .6s cubic-bezier(.22,.7,.2,1) both}
-@keyframes svArc{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
-.sv-breath{transform-box:fill-box;transform-origin:center;animation:svBreath 4s ease-in-out infinite alternate}
-@keyframes svBreath{from{transform:scale(.9)}to{transform:scale(1.06)}}
+.phone{position:relative;width:var(--pw,300px);flex:none}
+.phone img,.watch img{display:block;width:100%;height:auto;filter:drop-shadow(0 28px 34px rgb(var(--shadow) / .22)) drop-shadow(0 8px 12px rgb(var(--shadow) / .12))}
 .watch-row{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,3vw,40px);max-width:700px;margin:0 auto;justify-items:center}
-.watch{width:100%;max-width:200px;container-type:inline-size}
-.watch-body{position:relative;padding:6cqw;border-radius:24cqw;background:linear-gradient(160deg,oklch(0.42 0.015 240),oklch(0.2 0.012 240));box-shadow:0 0 0 1px oklch(0.15 0.01 240),0 24px 40px -24px oklch(0.25 0.04 230 / .55)}
-.watch-body::before{content:"";position:absolute;right:-2.6cqw;top:24cqw;width:4.6cqw;height:16cqw;border-radius:2cqw;background:oklch(0.4 0.015 240)}
-.watch-body::after{content:"";position:absolute;right:-1.8cqw;top:48cqw;width:3cqw;height:20cqw;border-radius:2cqw;background:oklch(0.33 0.015 240)}
-.watch-screen{border-radius:18cqw;overflow:hidden;background:#F2F2F7}
+.watch{width:100%;max-width:200px}
 
 section{position:relative}
 section[id]{scroll-margin-top:84px}
@@ -124,13 +146,13 @@ section[id]{scroll-margin-top:84px}
 .hero-meta{font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;padding:0;margin:0}
 .hero-meta li{display:flex;align-items:center;gap:8px}
 .hero-meta li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--muted);opacity:.6}
-.scorecard{display:flex;align-items:center;gap:18px;padding:16px 22px 16px 16px;background:color-mix(in oklch,var(--surface) 85%,transparent);border:1px solid var(--border);border-radius:var(--r-md);max-width:430px}
+.scorecard{display:flex;align-items:center;gap:18px;padding:16px 22px 16px 16px;background:color-mix(in srgb,var(--surface) 85%,transparent);border:1px solid var(--border);border-radius:var(--r-md);max-width:430px}
 .ring{position:relative;width:88px;height:88px;flex:none}
 .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
 .ring .track{stroke:var(--sand)}
-.ring .val{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:251.33;stroke-dashoffset:188.5;transition:stroke-dashoffset 1.6s var(--ease)}
+.ring .val{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:251.33;stroke-dashoffset:170.9;transition:stroke-dashoffset 1.6s var(--ease)}
 .js-anim .ring .val{stroke-dashoffset:251.33}
-.js-anim .ring.on .val{stroke-dashoffset:188.5}
+.js-anim .ring.on .val{stroke-dashoffset:170.9}
 .ring-num{position:absolute;inset:0;display:grid;place-items:center;text-align:center;line-height:1}
 .ring-num b{font-family:var(--font-display);font-weight:600;font-size:30px;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
 .ring-num small{display:block;font-size:11px;color:var(--muted);margin-top:3px;letter-spacing:.02em}
@@ -140,21 +162,21 @@ section[id]{scroll-margin-top:84px}
 .hero-visual{position:relative;display:grid;justify-items:center;padding:40px 0 10px}
 .orb-field{position:absolute;left:50%;top:46%;width:min(560px,118%);aspect-ratio:1;translate:-50% -50%;pointer-events:none}
 .orb,.ripple{position:absolute;inset:0;border-radius:50%}
-.orb{background:radial-gradient(circle at 50% 46%,oklch(0.95 0.035 220) 0%,var(--sky) 42%,oklch(0.9 0.05 215 / .5) 60%,transparent 71%);transform:scale(.86)}
-.ripple{border:1.5px solid oklch(0.7 0.09 240 / .28);transform:scale(.72)}
-.ripple.r2{border-color:oklch(0.7 0.09 240 / .16)}
+.orb{background:radial-gradient(circle at 50% 46%,var(--sky-soft) 0%,var(--sky) 42%,color-mix(in srgb,var(--sky) 50%,transparent) 60%,transparent 71%);transform:scale(.86)}
+.ripple{border:1.5px solid color-mix(in srgb,var(--accent) 30%,transparent);transform:scale(.72)}
+.ripple.r2{border-color:color-mix(in srgb,var(--accent) 16%,transparent)}
 .breathing .orb{animation:breathe 16s infinite}
 .breathing .ripple{animation:ripple 16s infinite}
 .breathing .ripple.r2{animation-delay:-.9s}
 @keyframes breathe{0%{transform:scale(.8);animation-timing-function:cubic-bezier(.45,0,.35,1)}25%{transform:scale(1)}50%{transform:scale(1);animation-timing-function:cubic-bezier(.45,0,.35,1)}75%{transform:scale(.8)}100%{transform:scale(.8)}}
 @keyframes ripple{0%{transform:scale(.74);opacity:.9;animation-timing-function:cubic-bezier(.45,0,.35,1)}25%{transform:scale(.98);opacity:1}50%{transform:scale(.98);opacity:1;animation-timing-function:cubic-bezier(.45,0,.35,1)}75%{transform:scale(.74);opacity:.7}100%{transform:scale(.74);opacity:.7}}
 .hero .phone{--pw:clamp(248px,22vw,312px);z-index:1}
-.breath-cap{position:relative;z-index:1;margin-top:26px;display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:color-mix(in oklch,var(--surface) 80%,transparent);border:1px solid var(--border);font-size:14px;color:var(--muted)}
+.breath-cap{position:relative;z-index:1;margin-top:26px;display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:color-mix(in srgb,var(--surface) 80%,transparent);border:1px solid var(--border);font-size:14px;color:var(--muted)}
 .breath-cap b{color:var(--fg);font-weight:600;min-width:3.3em;display:inline-block}
 .breath-cap .sep{color:var(--muted);margin:0 -2px}
-.breath-cap .cnt{font-variant-numeric:tabular-nums;color:var(--fg);font-weight:600;font-size:13px;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--sky);display:inline-grid;place-items:center;line-height:1}
+.breath-cap .cnt{font-variant-numeric:tabular-nums;color:var(--fg);font-weight:600;font-size:13px;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--accent);display:inline-grid;place-items:center;line-height:1}
 .breath-cap .cnt[hidden]{display:none}
-.breath-dot{width:9px;height:9px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 3px var(--sky-soft)}
+.breath-dot{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px var(--sky-soft)}
 
 /* score section */
 .flow{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:minmax(220px,300px) 1fr minmax(220px,280px);align-items:center;gap:0}
@@ -163,10 +185,10 @@ section[id]{scroll-margin-top:84px}
 .signal-list li:last-child{border-bottom:1px solid var(--border)}
 .signal-list li::before{content:"0" counter(s);font-family:var(--font-body);font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--muted);width:24px}
 .flow-lines{height:320px;width:100%}
-.flow-lines path{fill:none;stroke:oklch(0.62 0.09 245 / .55);stroke-width:1.5;stroke-dasharray:3 7;vector-effect:non-scaling-stroke}
+.flow-lines path{fill:none;stroke:color-mix(in srgb,var(--accent) 60%,transparent);stroke-width:1.5;stroke-dasharray:3 7;vector-effect:non-scaling-stroke}
 .flowing .flow-lines path{animation:dash 1.6s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-20}}
-.score-node{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 40%,var(--surface),var(--sky-soft) 70%);border:1px solid var(--border);box-shadow:0 30px 60px -30px oklch(0.4 0.08 240 / .35)}
+.score-node{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 40%,var(--surface),var(--sky-soft) 70%);border:1px solid var(--border);box-shadow:0 30px 60px -30px rgb(var(--shadow) / .35)}
 .score-node b{display:block;font-family:var(--font-display);font-weight:700;font-size:clamp(2.5rem,1.9rem + 2vw,3.4rem);letter-spacing:-0.04em;line-height:1}
 .score-node span{display:block;margin-top:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .flow-src{margin-top:16px;font-size:14px;color:var(--muted)}
@@ -195,7 +217,7 @@ section[id]{scroll-margin-top:84px}
 .trends .phone{--pw:clamp(250px,24vw,300px);justify-self:center}
 .seg{display:inline-flex;padding:5px;border-radius:999px;background:var(--sand);gap:4px;font-weight:600;font-size:15px}
 .seg span{padding:8px 16px;border-radius:999px}
-.seg span:first-child{background:var(--surface);box-shadow:0 2px 6px -2px oklch(0.3 0.03 225 / .25)}
+.seg span:first-child{background:var(--surface);box-shadow:0 2px 6px -2px rgb(var(--shadow) / .25)}
 .checks{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .checks li{display:grid;grid-template-columns:22px 1fr;gap:14px;align-items:start}
 .checks svg{width:20px;height:20px;margin-top:4px;color:var(--fg)}
@@ -203,7 +225,7 @@ section[id]{scroll-margin-top:84px}
 
 /* watch */
 .watch-wrap{margin-top:56px;display:grid;justify-items:center;gap:0}
-.watch-tray{width:100%;max-width:880px;background:oklch(1 0 0);border-radius:var(--r-lg);padding:clamp(22px,3.5vw,44px) clamp(14px,3vw,52px) 0;border:1px solid var(--border);box-shadow:0 30px 60px -40px oklch(0.3 0.04 230 / .4)}
+.watch-tray{width:100%;max-width:880px;background:var(--surface);border-radius:var(--r-lg);padding:clamp(22px,3.5vw,44px) clamp(14px,3vw,52px) 0;border:1px solid var(--border);box-shadow:0 30px 60px -40px rgb(var(--shadow) / .4)}
 .watch-caps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,3vw,40px);max-width:700px;margin:0 auto;padding:18px 0 26px;text-align:center}
 .watch-caps strong{display:block;font-weight:600;font-size:15.5px}
 .watch-caps span{font-size:14px;color:var(--muted)}
@@ -213,9 +235,9 @@ section[id]{scroll-margin-top:84px}
 /* privacy (dark band) */
 .privacy{background:var(--ink);color:var(--on-ink);overflow:hidden}
 .privacy h2{color:var(--on-ink)}
-.privacy .hl{color:var(--sky)}
+.privacy .hl{color:var(--band-accent)}
 .privacy .eyebrow,.privacy .lede{color:var(--on-ink-muted)}
-.privacy .tlink{text-decoration-color:oklch(0.95 0.012 85 / .4)}
+.privacy .tlink{text-decoration-color:color-mix(in srgb,var(--on-ink) 40%,transparent)}
 .privacy .tlink:hover{text-decoration-color:var(--on-ink)}
 .vault{margin-top:clamp(48px,6vw,72px);display:grid;grid-template-columns:1.25fr auto 1fr;gap:clamp(16px,2.5vw,32px);align-items:stretch}
 .zone{border-radius:var(--r-lg);padding:clamp(24px,3vw,36px);display:grid;gap:18px;align-content:start}
@@ -230,14 +252,16 @@ section[id]{scroll-margin-top:84px}
 .zone.coachz .chip{border-color:var(--border);background:var(--surface)}
 .zone p{font-size:15.5px;color:var(--on-ink-muted)}
 .zone.coachz p{color:var(--muted)}
+@media (prefers-color-scheme:dark){.zone.coachz{background:var(--surface);border:1px solid var(--border-2)}}
 .bridge{display:grid;place-items:center;color:var(--on-ink-muted);font-size:13px;text-align:center;gap:10px;align-content:center}
 .bridge svg{width:56px;height:24px}
 .priv-foot{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;color:var(--on-ink-muted);font-size:15.5px}
+.priv-foot .tlink,.plan-cta .tlink,.sec-links .tlink,.widgets-foot .tlink,.split-copy > .tlink{display:inline-flex;align-items:center;min-height:44px}
 
 /* pricing */
 .plans{margin-top:56px;display:grid;grid-template-columns:1fr 1.15fr;gap:24px;align-items:stretch}
 .plan{border-radius:var(--r-lg);padding:clamp(26px,3vw,40px);display:grid;gap:22px;align-content:start;border:1px solid var(--border);background:var(--surface)}
-.plan.plus{background:linear-gradient(170deg,var(--surface) 0%,var(--sky-soft) 120%);border-color:oklch(0.8 0.04 235)}
+.plan.plus{background:linear-gradient(170deg,var(--surface) 0%,var(--sky-soft) 120%);border-color:var(--sky)}
 .plan-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .plan h3{font-size:1.75rem}
 .price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
@@ -248,7 +272,7 @@ section[id]{scroll-margin-top:84px}
 .billing legend{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .billing input{position:absolute;opacity:0;pointer-events:none}
 .billing label{padding:8px 16px;border-radius:999px;font-size:14px;font-weight:600;letter-spacing:.01em;cursor:pointer;min-height:44px;display:flex;align-items:center;transition:background .2s}
-.billing label:hover{background:oklch(0.88 0.025 78)}
+.billing label:hover{background:var(--sand-2)}
 .billing input:checked + label{background:var(--fg);color:var(--bg)}
 .billing input:focus-visible + label{outline:2.5px solid var(--accent);outline-offset:2px}
 .plan .checks li{font-size:16px}
@@ -271,7 +295,7 @@ section[id]{scroll-margin-top:84px}
 /* closing */
 .closing{padding:clamp(90px,10vw,150px) 0;text-align:center;background:radial-gradient(50% 70% at 50% 100%,var(--sky-soft),transparent 75%)}
 .closing .wrap{display:grid;justify-items:center;gap:26px}
-.closing img.icon{width:84px;height:84px;border-radius:20px;box-shadow:0 20px 40px -20px oklch(0.35 0.1 245 / .5)}
+.closing img.icon{width:84px;height:84px;border-radius:20px;box-shadow:0 20px 40px -20px rgb(var(--shadow) / .5)}
 .closing h2{max-width:14em;font-size:clamp(2.3rem,1.4rem + 3vw,4rem)}
 .closing .meta{font-size:14px;color:var(--muted)}
 
@@ -310,74 +334,17 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
 .slot figcaption span{font-size:15px;color:var(--muted)}
 .slot-note{margin-top:22px;font-size:13.5px;color:var(--muted)}
 .widgets-foot{margin-top:32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;align-items:baseline}
-/* app tokens, scoped to this section (from brief/WATCH-UI.md) */
-.widgets{--app-ink:#101223;--app-sub:#6B6E7B;--app-grey:#F2F2F7;--r-primary:#4FC3F7;--r-deep:#0288D1;--r-light:#E1F2FC;--t-relaxed:#00A000}
-.widgets .eyebrow::before{background:var(--r-deep);opacity:1}
-.widgets .tlink{text-decoration-color:var(--r-deep)}
-.widgets .tlink .arr{color:var(--r-deep)}
-.mood{display:inline-block;flex:none}
-.gauge{position:relative;display:grid;place-items:center;flex:none}
-.gauge svg.arc{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
-.gauge .arc circle{fill:none;stroke-linecap:round}
-.gauge .arc .t{stroke:currentColor;opacity:.15}
-.gauge .arc .v{stroke:var(--t-relaxed)}
-.num{font-family:var(--font-device);font-weight:700;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;line-height:1}
-/* watch face */
-.slot-stage.dark{background:radial-gradient(70% 70% at 50% 40%,oklch(0.36 0.04 230),var(--ink))}
-.wface{position:relative;width:198px;height:240px;border-radius:56px;padding:10px;background:linear-gradient(160deg,oklch(0.44 0.015 240),oklch(0.22 0.012 240));box-shadow:0 30px 50px -20px oklch(0 0 0 / .6)}
-.wface .crown{position:absolute;right:-6px;top:60px;width:7px;height:32px;border-radius:3px;background:oklch(0.4 0.015 240)}
-.wface .btn{position:absolute;right:-4px;top:112px;width:5px;height:40px;border-radius:3px;background:oklch(0.34 0.015 240)}
-.wscreen{font-family:var(--font-device);height:100%;border-radius:46px;background:var(--app-grey);color:var(--app-ink);padding:18px 14px 16px;display:grid;align-content:space-between}
-.c-inline{display:flex;align-items:center;justify-content:center;gap:3px;font-size:12px;font-weight:600;color:var(--t-relaxed)}
-.c-inline .mood{width:16px;height:16px}
-.w-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.c-circ{width:48px;height:48px;color:var(--app-ink)}
-.c-circ .arc circle{stroke-width:2.6}
-.c-circ .inner{display:grid;justify-items:center;gap:1px}
-.c-circ .num{font-size:16px;color:var(--t-relaxed)}
-.c-circ small{font-size:6.5px;font-weight:600;color:var(--app-sub);letter-spacing:.02em}
-.wtime{font-family:var(--font-device);font-weight:600;font-size:36px;line-height:1;letter-spacing:-0.04em;font-variant-numeric:tabular-nums}
-.c-rect{display:flex;align-items:center;gap:6px;background:oklch(1 0 0);border-radius:14px;padding:7px 8px;min-width:0}
-.c-rect .tier-ico{width:24px;height:24px}
-.c-rect .tier-ico .mood{width:18px;height:18px}
-.tier-ico{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--t-relaxed) 16%,white);color:var(--t-relaxed);flex:none}
-.tier-ico .mood{width:20px;height:20px}
-.c-rect .l1{display:flex;align-items:baseline;gap:6px;line-height:1}
-.c-rect .l1 span{font-size:10px;font-weight:600;color:var(--app-sub)}
-.c-rect .l1 .num{font-size:20px;color:var(--t-relaxed)}
-.c-rect .l2{font-size:9.5px;color:var(--app-sub);white-space:nowrap;margin-top:3px}
-.c-rect .l2 b{font-weight:600;color:var(--app-ink)}
-/* lock screen */
-.lock{position:absolute;top:26px;left:50%;translate:-50% 0;width:234px;height:430px;padding:8px;border-radius:40px;background:linear-gradient(160deg,oklch(0.36 0.025 230),oklch(0.2 0.02 230));box-shadow:0 30px 60px -24px oklch(0.25 0.04 230 / .5)}
-.lock-screen{font-family:var(--font-device);height:100%;border-radius:33px;background:linear-gradient(180deg,var(--r-light) 0%,#B3E5FC 52%,var(--r-primary) 100%);color:var(--app-ink);display:grid;justify-items:center;align-content:start;padding:12px 14px;text-align:center}
-.lock-island{display:block;flex:none;width:64px;height:18px;border-radius:999px;background:oklch(0.1 0 0)}
-.l-inline{margin-top:16px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:4px;opacity:.85}
-.ltime{font-family:var(--font-device);font-weight:700;font-size:64px;line-height:.95;letter-spacing:-0.045em;font-variant-numeric:tabular-nums}
-.lwidgets{margin-top:14px;display:flex;gap:8px;align-items:stretch}
-.lw{background:oklch(1 0 0 / .5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.lw.circ{width:58px;height:58px;border-radius:50%;color:var(--app-ink)}
-.lw.circ .arc circle{stroke-width:3}
-.lw.circ .emo{font-size:20px;line-height:1}
-.lw.rect{border-radius:16px;padding:8px 12px;text-align:left;display:grid;align-content:center;gap:2px;min-width:112px}
-.lw.rect .lab{font-size:12px;font-weight:600;color:var(--t-relaxed);white-space:nowrap;display:flex;gap:4px;align-items:center}
-.lw.rect .num{font-size:24px}
-.emo{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
-/* home screen widget */
-.slot-stage.home{background:linear-gradient(160deg,var(--r-light),#B3E5FC 65%,oklch(0.82 0.08 230))}
-.home-grid{display:flex;align-items:flex-start;gap:22px}
-.hwidget{font-family:var(--font-device);width:152px;height:152px;border-radius:32px;background:oklch(1 0 0);box-shadow:0 18px 36px -20px oklch(0.3 0.06 240 / .55);padding:14px 16px 14px;display:grid;grid-template-rows:auto 1fr auto;color:var(--app-ink)}
-.hwidget .hw-top{display:flex;justify-content:space-between;align-items:center}
-.hwidget .hw-top img{width:30px;height:30px}
-.hwidget .hw-top span{font-size:10.5px;font-weight:600;color:var(--app-sub)}
-.hwidget .num{font-size:52px;letter-spacing:-0.04em;align-self:end}
-.hwidget .hw-tier{font-size:14px;font-weight:600;color:var(--t-relaxed);margin-top:4px}
-.happ{display:grid;justify-items:center;gap:6px;font-size:11.5px;font-weight:500;color:var(--app-ink)}
-.happ img{width:62px;height:62px;border-radius:15px;box-shadow:0 10px 20px -12px oklch(0.3 0.06 240 / .6)}
+.widgets .eyebrow::before{background:var(--accent);opacity:1}
+.slot-stage img{display:block;max-width:86%;max-height:86%;width:auto;height:auto;border-radius:24px}
+.slot-stage.dark{background:radial-gradient(70% 70% at 50% 40%,#2C4A40,#0E1A16)}
+.slot-stage.dark img{border-radius:0;filter:drop-shadow(0 24px 30px rgb(0 0 0 / .45))}
+.slot-stage.home{background:linear-gradient(160deg,#DCEBD2,#EFE9D6)}
+@media (prefers-color-scheme:dark){.slot-stage.home{background:linear-gradient(160deg,#0F2A23,#1A1C14)}}
 
 /* privacy points */
 .ppoints{margin-top:clamp(40px,5vw,56px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.5vw,36px);list-style:none;padding:0}
 .ppoints li{border-top:1px solid oklch(1 0 0 / .18);padding-top:20px;display:grid;gap:10px;align-content:start}
-.ppoints svg{width:26px;height:26px;color:var(--sky)}
+.ppoints svg{width:26px;height:26px;color:var(--band-accent)}
 .ppoints strong{font-family:var(--font-display);font-weight:600;font-size:1.2rem;letter-spacing:-0.02em;color:var(--on-ink);line-height:1.25}
 .ppoints p{font-size:15.5px;color:var(--on-ink-muted);line-height:1.55}
 
@@ -390,7 +357,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
 .compare thead th{font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
 .compare tbody th{font-weight:500;width:38%}
 .compare td{width:31%}
-.compare .c-plus{background:color-mix(in oklch,var(--sky-soft) 55%,var(--surface))}
+.compare .c-plus{background:color-mix(in srgb,var(--sky-soft) 55%,var(--surface))}
 .compare thead .c-plus{background:var(--sky-soft)}
 .compare td svg{width:20px;height:20px;color:var(--fg);vertical-align:-4px}
 .compare .price-row td,.compare .price-row th{font-weight:600}
@@ -399,7 +366,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
 .ratings{padding:clamp(72px,8vw,120px) 0 0}
 .ratings-none{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:center}
 .ratings-none .split-copy{justify-items:start}
-.empty-review{border:1.5px dashed oklch(0.78 0.03 80);border-radius:var(--r-lg);padding:clamp(28px,4vw,48px);display:grid;gap:14px;justify-items:start;background:color-mix(in oklch,var(--surface) 55%,transparent)}
+.empty-review{border:1.5px dashed var(--border-2);border-radius:var(--r-lg);padding:clamp(28px,4vw,48px);display:grid;gap:14px;justify-items:start;background:color-mix(in srgb,var(--surface) 55%,transparent)}
 .empty-review svg{width:36px;height:36px;color:var(--muted)}
 .empty-review strong{font-family:var(--font-display);font-weight:600;font-size:1.35rem;letter-spacing:-0.02em}
 .empty-review p{color:var(--muted);font-size:15.5px}
@@ -424,7 +391,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
 /* sticky mobile bar */
 .mbar{display:none}
 @media (max-width:720px){
-  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:50;align-items:center;gap:12px;padding:10px 10px 10px 12px;border-radius:20px;background:color-mix(in oklch,var(--surface) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--border);box-shadow:0 18px 40px -18px oklch(0.25 0.04 230 / .45);transform:translateY(140%);transition:transform .45s var(--ease)}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:50;align-items:center;gap:12px;padding:10px 10px 10px 12px;border-radius:20px;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--border);box-shadow:0 18px 40px -18px rgb(var(--shadow) / .35);transform:translateY(140%);transition:transform .45s var(--ease)}
   .mbar.show{transform:none}
   .mbar img{width:40px;height:40px;border-radius:10px}
   .mbar div{flex:1;min-width:0;line-height:1.25}
@@ -465,7 +432,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
   .signal-list{width:100%;max-width:420px}
   .flow-src{text-align:center}
   .flow-lines{display:none}
-  .flow-down{display:block;width:2px;height:56px;margin:18px auto;background:repeating-linear-gradient(to bottom,oklch(0.62 0.09 245 / .6) 0 4px,transparent 4px 10px)}
+  .flow-down{display:block;width:2px;height:56px;margin:18px auto;background:repeating-linear-gradient(to bottom,color-mix(in srgb,var(--accent) 60%,transparent) 0 4px,transparent 4px 10px)}
   .score-node{width:220px}
   .facts3{grid-template-columns:1fr}
   .duo .phone:nth-child(2){margin-top:44px}
@@ -553,17 +520,17 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
         <li>Works best with Apple Watch</li>
       </ul>
       <div class="scorecard reveal d4" data-od-id="hero-scorecard">
-        <div class="ring" id="ring" role="img" aria-label="Example reading: stress 25 out of 100, Mild">
+        <div class="ring" id="ring" role="img" aria-label="Example reading: stress 32 out of 100, Mild">
           <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="40" fill="none" stroke-width="8"/><circle class="val" cx="50" cy="50" r="40" fill="none" stroke-width="8"/></svg>
-          <div class="ring-num" aria-hidden="true"><div><b id="ring-n">25</b><small>of 100</small></div></div>
+          <div class="ring-num" aria-hidden="true"><div><b id="ring-n">32</b><small>of 100</small></div></div>
         </div>
-        <p><strong>One number a day, from 0 to 100.</strong> Example reading from the app: stress 25, Mild. Each reading shows its confidence and the factor that moved it.</p>
+        <p><strong>One number a day, from 0 to 100.</strong> Example reading from the app: stress 32, Mild. Each reading shows its confidence and the factor that moved it.</p>
       </div>
     </div>
 
     <div class="hero-visual reveal d2" data-od-id="hero-visual">
       <div class="orb-field" id="orb" aria-hidden="true"><div class="orb"></div><div class="ripple"></div><div class="ripple r2"></div></div>
-      <div class="phone" role="img" aria-label="Stress AI Coach home screen: current stress Mild, focused and steady, 95% confidence from a 5-factor analysis, with HRV, heart rate and breathing rate readings and Ripple the otter."><div class="phone-body"><div class="screen"><svg class="sv" viewBox="0 0 330 674" aria-hidden="true" focusable="false"><defs><linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EAF4FB"/><stop offset="1" stop-color="#F7F8F1"/></linearGradient><linearGradient id="hcard" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F9FD"/><stop offset="1" stop-color="#E4F2FA"/></linearGradient></defs><rect width="330" height="674" fill="url(#hbg)"/><text x="34" y="28" font-size="11.5" fill="#101223" class="s">9:41</text><g fill="#101223"><rect x="254" y="20" width="3" height="5" rx="1"/><rect x="259" y="18" width="3" height="7" rx="1"/><rect x="264" y="16" width="3" height="9" rx="1"/><rect x="269" y="14" width="3" height="11" rx="1"/><rect x="280" y="14" width="20" height="11" rx="3" fill="none" stroke="#101223" stroke-opacity=".45"/><rect x="282" y="16" width="14" height="7" rx="1.5"/><rect x="301" y="17.5" width="1.6" height="4" rx=".8" fill-opacity=".45"/></g><g transform="translate(0,46)"><rect x="14" y="18" width="302" height="251" rx="22" fill="url(#hcard)" stroke="#CFE7F5"/><text x="30" y="42" font-size="8.5" fill="#555A66" class="m s" letter-spacing="1.6">CURRENT STRESS</text><text x="300" y="42" font-size="8" fill="#555A66" text-anchor="end" class="m">measured 7:25 AM</text><circle cx="288" cy="51" r="6" fill="none" stroke="#555A66"/><text x="288" y="54" font-size="7" fill="#555A66" text-anchor="middle" class="s">i</text><path d="M78 156 A87 87 0 1 1 252 156" fill="none" stroke="#E4E6E8" stroke-width="10" stroke-linecap="round"/><path class="sv-arc" pathLength="100" d="M78 156 A87 87 0 0 1 104 94" fill="none" stroke="#1E86F2" stroke-width="10" stroke-linecap="round"/><circle cx="104" cy="94" r="5" fill="#007AFF" stroke="#fff" stroke-width="2"/><image href="assets/brand/ripple.svg" x="122" y="92" width="86" height="86"/><text x="155" y="216" font-size="25" fill="#0A7AF0" text-anchor="middle" class="b" letter-spacing="-.5">Mild</text><circle cx="191" cy="208" r="7" fill="#000"/><text x="165" y="238" font-size="10.5" fill="#6B6E7B" text-anchor="middle" class="md">Focused · steady</text><text x="165" y="256" font-size="8" fill="#6E7180" text-anchor="middle" class="m" letter-spacing=".6">95% confidence · 5-factor analysis</text><g transform="translate(0,-82)"><rect x="14" y="370" width="302" height="80" rx="16" fill="#fff" stroke="none"/><path d="M117 390 V430 M214 390 V430" stroke="#E5E5EA"/><text x="48" y="403" font-size="20" fill="#2DBE7E" class="b">50</text><text x="76" y="403" font-size="9" fill="#6B6E7B">ms</text><text x="67" y="421" font-size="7.5" fill="#6B6E7B" text-anchor="middle" class="m" letter-spacing="1">HRV</text><text x="142" y="403" font-size="20" fill="#EE6A66" class="b">69</text><text x="170" y="403" font-size="9" fill="#6B6E7B">bpm</text><text x="165" y="421" font-size="7.5" fill="#6B6E7B" text-anchor="middle" class="m" letter-spacing="1">HEART</text><text x="236" y="403" font-size="20" fill="#007AFF" class="b">14</text><text x="261" y="403" font-size="9" fill="#6B6E7B">brpm</text><text x="262" y="421" font-size="7.5" fill="#6B6E7B" text-anchor="middle" class="m" letter-spacing="1">BREATH</text><rect x="14" y="470" width="302" height="130" rx="16" fill="#fff" stroke="none"/><text x="29" y="494" font-size="8" fill="#0288D1" class="m s" letter-spacing="1.4">RIPPLE ASKS</text><text x="29" y="510" font-size="11.5" fill="#101223" class="md">How are you feeling right now?</text><rect x="29" y="523" width="47" height="52" rx="11" fill="#ECF7EF" stroke="#CFEAD7"/><rect x="85" y="523" width="47" height="52" rx="11" fill="#EAF2FD" stroke="#C9DCF6"/><rect x="141" y="523" width="47" height="52" rx="11" fill="#F7F0E5" stroke="#E7DAC4"/><rect x="197" y="523" width="47" height="52" rx="11" fill="#F8EFE6" stroke="#EBD9C6"/><rect x="254" y="523" width="47" height="52" rx="11" fill="#FCEEEE" stroke="#F4D0D0"/><circle cx="52.5" cy="542" r="4.5" fill="none" stroke="#7CC28F" stroke-dasharray="1 1.4"/><circle cx="108.5" cy="542" r="7.5" fill="none" stroke="#2B7DE9" stroke-width="1.4"/><circle cx="108.5" cy="542" r="4.6" fill="none" stroke="#2B7DE9" stroke-width="1.4"/><circle cx="164.5" cy="542" r="7" fill="#F5DDB3" stroke="#3A2A08"/><path d="M164.5 535 A7 7 0 0 0 164.5 549 Z" fill="#6B4A12"/><circle cx="220.5" cy="542" r="7" fill="#F5DDB3" stroke="#3A2A08"/><path d="M220.5 535 A7 7 0 0 1 220.5 549 Z" fill="#B25400"/><circle cx="277.5" cy="542" r="7.5" fill="#F0453B"/></g><rect x="18" y="560" width="294" height="52" rx="26" fill="#fff" fill-opacity=".94" stroke="#E3E6E8"/><rect x="21" y="563" width="80" height="46" rx="23" fill="#E7ECEE"/><path d="M52 580 L61 571.5 L70 580 V589 H64 V583 H58 V589 H52 Z" fill="#007AFF"/><text x="61" y="602" font-size="8.5" fill="#007AFF" text-anchor="middle" class="s">Home</text><circle cx="130" cy="580" r="9.5" fill="#111"/><path d="M125.5 580 H134.5 M130 575.5 V584.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><text x="130" y="602" font-size="8.5" fill="#111" text-anchor="middle" class="s">Action</text><g fill="#111"><rect x="189" y="579" width="5.5" height="10" rx="1.2"/><rect x="196.25" y="575" width="5.5" height="14" rx="1.2"/><rect x="203.5" y="571" width="5.5" height="18" rx="1.2"/></g><text x="199" y="602" font-size="8.5" fill="#111" text-anchor="middle" class="s">Trends</text><circle cx="268" cy="580" r="7" fill="#111"/><circle cx="268" cy="580" r="8.6" fill="none" stroke="#111" stroke-width="3.4" stroke-dasharray="3.4 3.36"/><circle cx="268" cy="580" r="2.8" fill="#fff"/><text x="268" y="602" font-size="8.5" fill="#111" text-anchor="middle" class="s">Settings</text></g></svg><span class="island" aria-hidden="true"></span></div></div></div>
+      <div class="phone"><picture><source srcset="img/v2/phone-home-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/v2/phone-home-light.webp" width="826" height="1744" fetchpriority="high" alt="Stress AI Coach home screen: stress now 32 out of 100, Mild, focused and steady, 92% confidence from 5 factors, Ripple suggesting a 2-minute breath, and HRV 48 ms, resting heart rate 64 bpm and sleep 6 h 10 m."></picture></div>
       <p class="breath-cap" aria-live="off"><span class="breath-dot" aria-hidden="true"></span><span>Box breathing</span><span class="sep" aria-hidden="true">·</span><b id="phase">Inhale</b><span class="cnt" id="count" aria-label="seconds left">4</span></p>
     </div>
   </div>
@@ -617,8 +584,8 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
       </ul>
     </div>
     <div class="duo reveal d2" data-od-id="coach-screens">
-      <div class="phone" role="img" aria-label="Ripple chat screen: Ripple introduces itself as your water otter companion, with quick replies Why stressed?, Sleep impact and Analyze trends."><div class="phone-body"><div class="screen"><svg class="sv" viewBox="0 0 330 654" aria-hidden="true" focusable="false"><rect width="330" height="654" fill="#fff"/><text x="34" y="28" font-size="11.5" fill="#101223" class="s">9:41</text><g fill="#101223"><rect x="254" y="20" width="3" height="5" rx="1"/><rect x="259" y="18" width="3" height="7" rx="1"/><rect x="264" y="16" width="3" height="9" rx="1"/><rect x="269" y="14" width="3" height="11" rx="1"/><rect x="280" y="14" width="20" height="11" rx="3" fill="none" stroke="#101223" stroke-opacity=".45"/><rect x="282" y="16" width="14" height="7" rx="1.5"/><rect x="301" y="17.5" width="1.6" height="4" rx=".8" fill-opacity=".45"/></g><g transform="translate(0,46)"><circle cx="28" cy="25" r="15" fill="#DFF2FC"/><image href="assets/brand/ripple.svg" x="12" y="9" width="32" height="32"/><circle cx="39" cy="36" r="4" fill="#34C759" stroke="#fff" stroke-width="1.5"/><text x="54" y="24" font-size="13" fill="#101223" class="b">Ripple</text><text x="54" y="40" font-size="9.5" fill="#6B6E7B">Water Otter · stress 25 · Mild</text><g fill="#0288D1"><circle cx="300" cy="25" r="1.9"/><circle cx="307" cy="25" r="1.9"/><circle cx="314" cy="25" r="1.9"/></g><path d="M0 50.5 H330" stroke="#E5E5EA"/><text x="25" y="85" font-size="10.5" fill="#101223" class="s">Hi, I’m Ripple — your water</text><text x="25" y="99" font-size="10.5" fill="#101223" class="s">otter companion.</text><text x="25" y="119.0" font-size="10.5" fill="#7A7A82">I track your stress patterns and suggest</text><text x="25" y="135.5" font-size="10.5" fill="#7A7A82">quick resets. Ask me anything about</text><text x="25" y="152.0" font-size="10.5" fill="#7A7A82">your readings, or pick a quick reply</text><text x="25" y="168.5" font-size="10.5" fill="#7A7A82">below.</text><rect x="13" y="492" width="100" height="24" rx="12" fill="#fff" stroke="#D3E4EF"/><text x="63.0" y="508" font-size="10.5" fill="#0288D1" text-anchor="middle" class="md">Why stressed?</text><rect x="119" y="492" width="90" height="24" rx="12" fill="#fff" stroke="#D3E4EF"/><text x="164.0" y="508" font-size="10.5" fill="#0288D1" text-anchor="middle" class="md">Sleep impact</text><rect x="215" y="492" width="101" height="24" rx="12" fill="#fff" stroke="#D3E4EF"/><text x="265.5" y="508" font-size="10.5" fill="#0288D1" text-anchor="middle" class="md">Analyze trends</text><rect x="322" y="492" width="40" height="24" rx="12" fill="#fff" stroke="#D3E4EF"/><rect x="0" y="522" width="330" height="86" fill="#FAFAF4"/><rect x="12" y="533" width="262" height="32" rx="16" fill="#fff" stroke="#E2E2E2"/><text x="25" y="553" font-size="11" fill="#B4B4BA">Message Ripple…</text><circle cx="300" cy="549" r="18" fill="#D5D5D8"/><path d="M300 557 V542 M294 547.5 L300 541.5 L306 547.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span class="island" aria-hidden="true"></span></div></div></div>
-      <div class="phone" role="img" aria-label="Box breathing screen: inhale, hold, exhale, hold at 4 seconds each, duration 2 minutes, 7 cycles, haptic feedback on."><div class="phone-body"><div class="screen"><svg class="sv" viewBox="0 0 330 664" aria-hidden="true" focusable="false"><rect width="330" height="664" fill="#F2F2F7"/><text x="34" y="28" font-size="11.5" fill="#101223" class="s">9:41</text><g fill="#101223"><rect x="254" y="20" width="3" height="5" rx="1"/><rect x="259" y="18" width="3" height="7" rx="1"/><rect x="264" y="16" width="3" height="9" rx="1"/><rect x="269" y="14" width="3" height="11" rx="1"/><rect x="280" y="14" width="20" height="11" rx="3" fill="none" stroke="#101223" stroke-opacity=".45"/><rect x="282" y="16" width="14" height="7" rx="1.5"/><rect x="301" y="17.5" width="1.6" height="4" rx=".8" fill-opacity=".45"/></g><g transform="translate(0,46)"><rect x="115" y="38" width="30" height="30" rx="6" fill="none" stroke="#6CB8E6" stroke-width="2"/><rect x="186" y="38" width="30" height="30" rx="6" fill="none" stroke="#6CB8E6" stroke-width="2"/><rect x="115" y="110" width="30" height="30" rx="6" fill="none" stroke="#6CB8E6" stroke-width="2"/><rect x="186" y="110" width="30" height="30" rx="6" fill="none" stroke="#6CB8E6" stroke-width="2"/><g class="sv-breath"><circle cx="165" cy="89" r="17" fill="#0288D1"/><text x="165" y="88" font-size="6.8" fill="#fff" text-anchor="middle" class="b">4·4·4·</text><text x="155" y="96.5" font-size="6.8" fill="#fff" class="b">4</text></g><text x="165" y="212" font-size="24" fill="#101223" text-anchor="middle" class="b" letter-spacing="-.4">Box Breathing</text><text x="165" y="237" font-size="10.5" fill="#6B6E7B" text-anchor="middle">Navy SEAL pattern. Lowers stress,</text><text x="165" y="253" font-size="10.5" fill="#6B6E7B" text-anchor="middle">sharpens focus.</text><rect x="20" y="269" width="290" height="93" rx="16" fill="#fff" stroke="none"/><circle cx="64" cy="299" r="15" fill="#E1F2FC"/><text x="64" y="303.5" font-size="11" fill="#0288D1" text-anchor="middle" class="b">1</text><text x="64" y="330" font-size="10" fill="#101223" text-anchor="middle" class="s">Inhale</text><text x="64" y="346" font-size="8.5" fill="#0288D1" text-anchor="middle" class="m">4 sec</text><circle cx="131" cy="299" r="15" fill="#E1F2FC"/><text x="131" y="303.5" font-size="11" fill="#0288D1" text-anchor="middle" class="b">2</text><text x="131" y="330" font-size="10" fill="#101223" text-anchor="middle" class="s">Hold</text><text x="131" y="346" font-size="8.5" fill="#0288D1" text-anchor="middle" class="m">4 sec</text><circle cx="198" cy="299" r="15" fill="#E1F2FC"/><text x="198" y="303.5" font-size="11" fill="#0288D1" text-anchor="middle" class="b">3</text><text x="198" y="330" font-size="10" fill="#101223" text-anchor="middle" class="s">Exhale</text><text x="198" y="346" font-size="8.5" fill="#0288D1" text-anchor="middle" class="m">4 sec</text><circle cx="265" cy="299" r="15" fill="#E1F2FC"/><text x="265" y="303.5" font-size="11" fill="#0288D1" text-anchor="middle" class="b">4</text><text x="265" y="330" font-size="10" fill="#101223" text-anchor="middle" class="s">Hold</text><text x="265" y="346" font-size="8.5" fill="#0288D1" text-anchor="middle" class="m">4 sec</text><rect x="20" y="378" width="290" height="59" rx="16" fill="#fff" stroke="none"/><rect x="34" y="391" width="33" height="33" rx="8" fill="#38D08F"/><path d="M40 407.5 H45 L48 401 L52 414 L55 404 L57 407.5 H61" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><text x="77" y="409" font-size="16" fill="#101223" class="b">50 ms</text><text x="77" y="421" font-size="9" fill="#6B6E7B">Current HRV</text><rect x="20" y="452" width="290" height="78" rx="16" fill="#fff" stroke="none"/><text x="34" y="479" font-size="10.5" fill="#101223">Duration</text><text x="296" y="479" font-size="10.5" fill="#0288D1" text-anchor="end" class="s">2 min · 7 cycles</text><path d="M34 491.5 H296" stroke="#E5E5EA"/><text x="34" y="511" font-size="10.5" fill="#101223">Haptic feedback</text><text x="296" y="511" font-size="10.5" fill="#0288D1" text-anchor="end" class="s">On</text><rect x="20" y="545" width="290" height="30" rx="15" fill="#7CC8EE"/><rect x="18" y="551" width="294" height="52" rx="26" fill="#EAF7FC" fill-opacity=".94" stroke="#E3E6E8"/><rect x="90" y="554" width="80" height="46" rx="23" fill="#E7ECEE"/><path d="M52 571 L61 562.5 L70 571 V580 H64 V574 H58 V580 H52 Z" fill="#111"/><text x="61" y="593" font-size="8.5" fill="#111" text-anchor="middle" class="s">Home</text><circle cx="130" cy="571" r="9.5" fill="#007AFF"/><path d="M125.5 571 H134.5 M130 566.5 V575.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><text x="130" y="593" font-size="8.5" fill="#007AFF" text-anchor="middle" class="s">Action</text><g fill="#111"><rect x="189" y="570" width="5.5" height="10" rx="1.2"/><rect x="196.25" y="566" width="5.5" height="14" rx="1.2"/><rect x="203.5" y="562" width="5.5" height="18" rx="1.2"/></g><text x="199" y="593" font-size="8.5" fill="#111" text-anchor="middle" class="s">Trends</text><circle cx="268" cy="571" r="7" fill="#111"/><circle cx="268" cy="571" r="8.6" fill="none" stroke="#111" stroke-width="3.4" stroke-dasharray="3.4 3.36"/><circle cx="268" cy="571" r="2.8" fill="#fff"/><text x="268" y="593" font-size="8.5" fill="#111" text-anchor="middle" class="s">Settings</text><text x="165" y="614" font-size="10.5" fill="#BCD6E9" text-anchor="middle" class="md">Cancel</text></g></svg><span class="island" aria-hidden="true"></span></div></div></div>
+      <div class="phone"><picture><source srcset="img/v2/phone-chat-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/v2/phone-chat-light.webp" width="826" height="1744" loading="lazy" decoding="async" alt="Ripple chat sheet: Ripple sees today’s score of 32, Mild, and answers why the afternoon reading was Elevated, then offers 2 minutes of box breathing."></picture></div>
+      <div class="phone"><picture><source srcset="img/v2/phone-breatheIntro-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/v2/phone-breatheIntro-light.webp" width="826" height="1744" loading="lazy" decoding="async" alt="Box breathing screen: inhale, hold, exhale and hold for 4 seconds each, HRV before you start 48 ms, length 1, 2 or 5 minutes, haptic cues on, and a Begin session button."></picture></div>
     </div>
   </div>
   <div class="wrap habits" data-od-id="daily-habits">
@@ -637,7 +604,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
 <!-- TRENDS -->
 <section class="sec trends" id="trends" data-od-id="trends">
   <div class="wrap split">
-    <div class="phone reveal" data-od-id="trends-screen" role="img" aria-label="Trends screen with Week, Month and 3 Months tabs, a daily stress chart and time spent by tier."><div class="phone-body"><div class="screen"><svg class="sv" viewBox="0 0 330 674" aria-hidden="true" focusable="false"><defs><linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF5FA"/><stop offset="1" stop-color="#F7F8F2"/></linearGradient></defs><rect width="330" height="674" fill="url(#tbg)"/><text x="34" y="28" font-size="11.5" fill="#101223" class="s">9:41</text><g fill="#101223"><rect x="254" y="20" width="3" height="5" rx="1"/><rect x="259" y="18" width="3" height="7" rx="1"/><rect x="264" y="16" width="3" height="9" rx="1"/><rect x="269" y="14" width="3" height="11" rx="1"/><rect x="280" y="14" width="20" height="11" rx="3" fill="none" stroke="#101223" stroke-opacity=".45"/><rect x="282" y="16" width="14" height="7" rx="1.5"/><rect x="301" y="17.5" width="1.6" height="4" rx=".8" fill-opacity=".45"/></g><g transform="translate(0,46)"><rect x="13" y="21" width="53" height="25" rx="12.5" fill="#0288D1"/><text x="39.5" y="37.5" font-size="10" fill="#fff" text-anchor="middle" class="s">Week</text><rect x="73" y="21" width="56" height="25" rx="12.5" fill="#E9ECEE"/><text x="101" y="37.5" font-size="10" fill="#6E7180" text-anchor="middle" class="md">Month</text><rect x="137" y="21" width="72" height="25" rx="12.5" fill="#E9ECEE"/><text x="173" y="37.5" font-size="10" fill="#6E7180" text-anchor="middle" class="md">3 Months</text><text x="14" y="82" font-size="13.5" fill="#101223" class="md">Track for a full week to unlock your</text><text x="14" y="102" font-size="13.5" fill="#101223" class="md">trends story.</text><rect x="14" y="118" width="302" height="166" rx="18" fill="#fff" stroke="#EEF0F2"/><text x="27" y="143" font-size="11.5" fill="#101223" class="s">Daily stress</text><text x="302" y="143" font-size="8.5" fill="#7A7D88" text-anchor="end" class="m">avg 19 · 0–100</text><rect x="27" y="157" width="35" height="88" rx="5" fill="#F4F4F6"/><text x="44.5" y="257" font-size="7.5" fill="#8C8F99" text-anchor="middle" class="m" letter-spacing=".6">THU</text><text x="44.5" y="270" font-size="7.5" fill="#B7BAC2" text-anchor="middle" class="m">12</text><rect x="67" y="157" width="35" height="88" rx="5" fill="#F4F4F6"/><text x="84.5" y="257" font-size="7.5" fill="#8C8F99" text-anchor="middle" class="m" letter-spacing=".6">FRI</text><text x="84.5" y="270" font-size="7.5" fill="#B7BAC2" text-anchor="middle" class="m">13</text><rect x="107" y="157" width="35" height="88" rx="5" fill="#F4F4F6"/><text x="124.5" y="257" font-size="7.5" fill="#8C8F99" text-anchor="middle" class="m" letter-spacing=".6">SAT</text><text x="124.5" y="270" font-size="7.5" fill="#B7BAC2" text-anchor="middle" class="m">14</text><rect x="147" y="157" width="35" height="88" rx="5" fill="#F4F4F6"/><text x="164.5" y="257" font-size="7.5" fill="#8C8F99" text-anchor="middle" class="m" letter-spacing=".6">SUN</text><text x="164.5" y="270" font-size="7.5" fill="#B7BAC2" text-anchor="middle" class="m">15</text><rect x="187" y="157" width="35" height="88" rx="5" fill="#F4F4F6"/><text x="204.5" y="257" font-size="7.5" fill="#8C8F99" text-anchor="middle" class="m" letter-spacing=".6">MON</text><text x="204.5" y="270" font-size="7.5" fill="#B7BAC2" text-anchor="middle" class="m">16</text><rect x="228" y="157" width="35" height="88" rx="5" fill="#F4F4F6"/><text x="245.5" y="257" font-size="7.5" fill="#8C8F99" text-anchor="middle" class="m" letter-spacing=".6">TUE</text><text x="245.5" y="270" font-size="7.5" fill="#B7BAC2" text-anchor="middle" class="m">17</text><rect x="268" y="157" width="35" height="88" rx="5" fill="#F4F4F6"/><rect x="270" y="228" width="31" height="15" rx="3.5" fill="#00A000"/><rect x="268" y="157" width="35" height="88" rx="5" fill="none" stroke="#1A8DE0" stroke-width="1.6"/><text x="285.5" y="257" font-size="7.5" fill="#1A8DE0" text-anchor="middle" class="m s" letter-spacing=".6">WED</text><text x="285.5" y="270" font-size="7.5" fill="#1A8DE0" text-anchor="middle" class="m">18</text><text x="14" y="307" font-size="11.5" fill="#101223" class="s">Time spent by tier</text><text x="316" y="307" font-size="8.5" fill="#7A7D88" text-anchor="end" class="m">7 days</text><rect x="14" y="323" width="302" height="123" rx="18" fill="#fff" stroke="#EEF0F2"/><rect x="27" y="336" width="276" height="23" rx="4.5" fill="#00A000"/><text x="165" y="351" font-size="9" fill="#101223" text-anchor="middle" class="b">100%</text><rect x="27" y="376" width="7" height="7" rx="1.5" fill="#00A000"/><path d="M40 384.5 C40 376.5 45 373.5 52 373.5 C52 380.5 48 384.5 40 384.5 Z" fill="#000"/><text x="58" y="383" font-size="9.5" fill="#6E7180">Relaxed</text><text x="159" y="383" font-size="8.5" fill="#6E7180" text-anchor="end" class="m">1 day</text><rect x="172" y="376" width="7" height="7" rx="1.5" fill="#007AFF"/><circle cx="191" cy="379.5" r="6.5" fill="#000"/><text x="203" y="383" font-size="9.5" fill="#6E7180">Mild</text><text x="304" y="383" font-size="8.5" fill="#6E7180" text-anchor="end" class="m">0 days</text><rect x="27" y="398" width="7" height="7" rx="1.5" fill="#8A5A00"/><path d="M46 395.0 L53 407.0 H39 Z" fill="#000"/><text x="58" y="405" font-size="9.5" fill="#6E7180">Elevated</text><text x="159" y="405" font-size="8.5" fill="#6E7180" text-anchor="end" class="m">0 days</text><rect x="172" y="398" width="7" height="7" rx="1.5" fill="#E2B998"/><rect x="185" y="395.5" width="12" height="12" rx="2" fill="#8E8E93"/><text x="203" y="405" font-size="9.5" fill="#B7BAC2">High</text><text x="304" y="405" font-size="8.5" fill="#C8CAD0" text-anchor="end" class="m">0 days</text><text x="27" y="429" font-size="9.5" fill="#6B6E7B">Most days were Relaxed — great recovery this week.</text><rect x="14" y="458" width="302" height="170" rx="18" fill="#fff" stroke="#EEF0F2"/><text x="27" y="482" font-size="11.5" fill="#101223" class="s">November 2026</text><text x="302" y="482" font-size="8.5" fill="#7A7D88" text-anchor="end" class="m">daily score</text><text x="44" y="503" font-size="7.5" fill="#9A9DA6" text-anchor="middle" class="m">M</text><text x="84" y="503" font-size="7.5" fill="#9A9DA6" text-anchor="middle" class="m">T</text><text x="124" y="503" font-size="7.5" fill="#9A9DA6" text-anchor="middle" class="m">W</text><text x="204" y="503" font-size="7.5" fill="#9A9DA6" text-anchor="middle" class="m">F</text><text x="244" y="503" font-size="7.5" fill="#9A9DA6" text-anchor="middle" class="m">S</text><circle cx="285" cy="535" r="17" fill="#EFEFF1"/><text x="285" y="539" font-size="9" fill="#6E7180" text-anchor="middle" class="m">1</text><rect x="18" y="560" width="294" height="52" rx="26" fill="#fff" fill-opacity=".94" stroke="#E3E6E8"/><rect x="159" y="563" width="80" height="46" rx="23" fill="#E7ECEE"/><path d="M52 580 L61 571.5 L70 580 V589 H64 V583 H58 V589 H52 Z" fill="#111"/><text x="61" y="602" font-size="8.5" fill="#111" text-anchor="middle" class="s">Home</text><circle cx="130" cy="580" r="9.5" fill="#111"/><path d="M125.5 580 H134.5 M130 575.5 V584.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><text x="130" y="602" font-size="8.5" fill="#111" text-anchor="middle" class="s">Action</text><g fill="#007AFF"><rect x="189" y="579" width="5.5" height="10" rx="1.2"/><rect x="196.25" y="575" width="5.5" height="14" rx="1.2"/><rect x="203.5" y="571" width="5.5" height="18" rx="1.2"/></g><text x="199" y="602" font-size="8.5" fill="#007AFF" text-anchor="middle" class="s">Trends</text><circle cx="268" cy="580" r="7" fill="#111"/><circle cx="268" cy="580" r="8.6" fill="none" stroke="#111" stroke-width="3.4" stroke-dasharray="3.4 3.36"/><circle cx="268" cy="580" r="2.8" fill="#fff"/><text x="268" y="602" font-size="8.5" fill="#111" text-anchor="middle" class="s">Settings</text></g></svg><span class="island" aria-hidden="true"></span></div></div></div>
+    <div class="phone reveal" data-od-id="trends-screen"><picture><source srcset="img/v2/phone-trends-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/v2/phone-trends-light.webp" width="826" height="1744" loading="lazy" decoding="async" alt="Trends screen: Week, Month and 3 Months tabs, a calmer week averaging 40, Mild, and Plus charts for time in each tier, a monthly heatmap and HRV trend."></picture></div>
     <div class="split-copy">
       <span class="eyebrow reveal">Trends</span>
       <h2 class="reveal d1" data-od-id="trends-title">See the week behind the <span class="hl">number</span>.</h2>
@@ -663,7 +630,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
     </div>
     <div class="watch-wrap">
       <figure class="watch-tray reveal d1" style="margin:0" data-od-id="watch-screens">
-        <div class="watch-row"><div class="watch" role="img" aria-label="Apple Watch menu: Ripple with RELAXED 18, then Home (stress readout and companion), Breathe (4-7-8 guided breathing) and History."><div class="watch-body"><div class="watch-screen"><svg class="sv" viewBox="0 0 201 240" aria-hidden="true" focusable="false"><rect width="201" height="240" fill="#F2F2F7"/><text x="186" y="30" font-size="11" fill="#FFFFFF" text-anchor="end" class="md">10:10</text><image href="assets/brand/ripple.svg" x="10" y="46" width="52" height="52"/><text x="67" y="60" font-size="7.5" fill="#00A000" class="b" letter-spacing=".6">RELAXED</text><text x="66" y="85" font-size="22" fill="#00A000" class="b">18</text><circle cx="29" cy="129" r="14" fill="#DCEEFB"/><path d="M22.5 130 L29 124 L35.5 130 V135.5 H31 V131.5 H27 V135.5 H22.5 Z" fill="none" stroke="#2B8DE0" stroke-width="1.5" stroke-linejoin="round"/><text x="53" y="123" font-size="12" fill="#101223" class="b">Home</text><text x="53" y="136" font-size="8" fill="#6B6E7B">Stress readout</text><text x="53" y="146" font-size="8" fill="#6B6E7B">&amp; companion</text><path d="M181 125 L185 129 L181 133" fill="none" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="29" cy="187" r="14" fill="#DCE5F8"/><path d="M21 184 H31 A2.5 2.5 0 1 0 28.5 181.5 M21 188 H35 A2.5 2.5 0 1 1 32.5 190.5 M21 192 H27" fill="none" stroke="#3A6FD8" stroke-width="1.5" stroke-linecap="round"/><text x="53" y="186" font-size="12" fill="#101223" class="b">Breathe</text><text x="53" y="198" font-size="8" fill="#6B6E7B">4-7-8 guided breathing</text><path d="M181 183 L185 187 L181 191" fill="none" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="26" y="216" width="150" height="34" rx="12" fill="#E5E5EA"/><circle cx="47" cy="234" r="10" fill="#E8DDCB"/><circle cx="47" cy="234" r="5" fill="none" stroke="#6B4A12" stroke-width="1.3"/><path d="M47 231.5 V234 L48.8 235.3" stroke="#6B4A12" stroke-width="1.2" fill="none" stroke-linecap="round"/><text x="64" y="237" font-size="9" fill="#101223" class="b">History</text></svg></div></div></div><div class="watch" role="img" aria-label="Apple Watch Breathe screen: a ring marked Ready, 4 · 7 · 8 breathing, and a Begin button."><div class="watch-body"><div class="watch-screen"><svg class="sv" viewBox="0 0 201 240" aria-hidden="true" focusable="false"><rect width="201" height="240" fill="#F2F2F7"/><text x="100" y="32" font-size="11" fill="#6B6E7B" text-anchor="middle" class="b">Breathe</text><text x="186" y="26" font-size="11" fill="#FFFFFF" text-anchor="end" class="md">10:16</text><circle cx="100" cy="98" r="28" fill="none" stroke="#D8D8DD" stroke-width="5"/><path d="M91 93 H109" stroke="#4A4A50" stroke-width="2.5" stroke-linecap="round"/><text x="100" y="109" font-size="5.5" fill="#6B6E7B" text-anchor="middle" class="md">Ready</text><g fill="#C7C7CC"><circle cx="89" cy="161" r="3"/><circle cx="100" cy="161" r="3"/><circle cx="111" cy="161" r="3"/></g><text x="100" y="190" font-size="7.5" fill="#4A4A50" text-anchor="middle" class="m s" letter-spacing="1.3">4 · 7 · 8 BREATHING</text><rect x="14" y="200" width="172" height="32" rx="16" fill="#0288D1"/><text x="100" y="220" font-size="10.5" fill="#fff" text-anchor="middle" class="s">Begin</text></svg></div></div></div><div class="watch" role="img" aria-label="Apple Watch History screen: average 49, best 18, peak 88, the 7D view selected, and a weekly trend chart."><div class="watch-body"><div class="watch-screen"><svg class="sv" viewBox="0 0 201 240" aria-hidden="true" focusable="false"><rect width="201" height="240" fill="#F2F2F7"/><text x="186" y="24" font-size="11" fill="#FFFFFF" text-anchor="end" class="md">10:16</text><text x="186" y="50" font-size="13" fill="#8E8E93" text-anchor="end" class="b">History</text><rect x="16" y="64" width="54" height="44" rx="10" fill="#fff"/><text x="43" y="90" font-size="15" fill="#007AFF" text-anchor="middle" class="b">49</text><text x="43" y="102" font-size="6" fill="#6B6E7B" text-anchor="middle" class="s" letter-spacing=".4">AVG</text><rect x="74" y="64" width="54" height="44" rx="10" fill="#fff"/><text x="101" y="90" font-size="15" fill="#00A000" text-anchor="middle" class="b">18</text><text x="101" y="102" font-size="6" fill="#6B6E7B" text-anchor="middle" class="s" letter-spacing=".4">BEST</text><rect x="132" y="64" width="54" height="44" rx="10" fill="#fff"/><text x="159" y="90" font-size="15" fill="#B25400" text-anchor="middle" class="b">88</text><text x="159" y="102" font-size="6" fill="#6B6E7B" text-anchor="middle" class="s" letter-spacing=".4">PEAK</text><rect x="16" y="121" width="170" height="31" rx="12" fill="#fff"/><rect x="19" y="124" width="53" height="25" rx="9" fill="#0288D1"/><text x="45.5" y="140" font-size="8.5" fill="#fff" text-anchor="middle" class="b">7D</text><text x="100" y="140" font-size="8.5" fill="#101223" text-anchor="middle" class="s">30D</text><text x="155" y="140" font-size="8.5" fill="#101223" text-anchor="middle" class="s">90D</text><rect x="16" y="164" width="170" height="90" rx="12" fill="#fff"/><text x="23" y="187" font-size="6" fill="#6B6E7B" class="m" letter-spacing=".8">WEEKLY TREND</text><path d="M23 194 H180 M23 206 H180" stroke="#EFEFF2"/><rect x="50" y="204" width="16" height="16" rx="1.5" fill="#8A5A00"/><rect x="92" y="194" width="16" height="26" rx="1.5" fill="#B25400"/><rect x="114" y="207" width="16" height="13" rx="1.5" fill="#007AFF"/><rect x="136" y="207" width="16" height="13" rx="1.5" fill="#007AFF"/><rect x="158" y="214.5" width="16" height="5.5" rx="1.5" fill="#fff" stroke="#007AFF" stroke-width="1.2"/><text x="36" y="236" font-size="5" fill="#8E8E93" text-anchor="middle" class="m">M</text><text x="58" y="236" font-size="5" fill="#8E8E93" text-anchor="middle" class="m">T</text><text x="80" y="236" font-size="5" fill="#8E8E93" text-anchor="middle" class="m">W</text><text x="100" y="236" font-size="5" fill="#8E8E93" text-anchor="middle" class="m">T</text><text x="122" y="236" font-size="5" fill="#8E8E93" text-anchor="middle" class="m">F</text><text x="144" y="236" font-size="5" fill="#8E8E93" text-anchor="middle" class="m">S</text><text x="166" y="236" font-size="5" fill="#2B8DE0" text-anchor="middle" class="m">S</text></svg></div></div></div></div>
+        <div class="watch-row"><div class="watch"><img src="img/v2/watch-home.webp" width="452" height="532" loading="lazy" decoding="async" alt="Apple Watch home: Ripple over a stress gauge reading 32, Mild, out of 100."></div><div class="watch"><img src="img/v2/watch-breathe.webp" width="452" height="532" loading="lazy" decoding="async" alt="Apple Watch Breathe: a 4-7-8 session on Hold 5, cycle 2 of 4."></div><div class="watch"><img src="img/v2/watch-history.webp" width="452" height="532" loading="lazy" decoding="async" alt="Apple Watch History: this week’s daily bars with an average of 40, and the latest readings 32 Mild and 54 Elevated."></div></div>
         <figcaption class="watch-caps">
           <div><strong>Live score</strong><span>Your stress readout and Ripple</span></div>
           <div><strong>Breathe</strong><span>Start a session from the watch</span></div>
@@ -684,51 +651,15 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
     </div>
     <div class="slots">
       <figure class="slot reveal" data-od-id="slot-watch-face">
-        <div class="slot-stage dark">
-          <div class="wface" role="img" aria-label="Rendering of an Apple Watch face with Stress AI Coach complications: inline Mood 18, circular gauge 18 Relaxed, and a rectangular complication with Stress 18, HRV 52 ms and 64 bpm">
-            <span class="crown"></span><span class="btn"></span>
-            <div class="wscreen">
-              <div class="c-inline"><svg class="mood" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="10" r="1.5" fill="currentColor"/><circle cx="15" cy="10" r="1.5" fill="currentColor"/><path d="M9 15s1.5 1.5 3 1.5 3-1.5 3-1.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span>Mood: 18</span></div>
-              <div class="w-row">
-                <div class="gauge c-circ"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="t" cx="18" cy="18" r="15.5" pathLength="100"/><circle class="v" cx="18" cy="18" r="15.5" pathLength="100" stroke-dasharray="18 100"/></svg><div class="inner"><span class="num">18</span><small>Relaxed</small></div></div>
-                <span class="wtime">10:09</span>
-              </div>
-              <div class="c-rect">
-                <span class="tier-ico"><svg class="mood" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="10" r="1.5" fill="currentColor"/><circle cx="15" cy="10" r="1.5" fill="currentColor"/><path d="M9 15s1.5 1.5 3 1.5 3-1.5 3-1.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span>
-                <div><div class="l1"><span>Stress</span><span class="num">18</span></div><div class="l2"><b>HRV 52</b> ms · <b>64</b> bpm</div></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="slot-stage dark"><img src="img/v2/watch-complications.webp" width="452" height="532" loading="lazy" decoding="async" alt="Apple Watch face with Stress AI Coach complications: score 32 at the top, a rectangular Stress 32 Mild with HRV 48 ms, and a circular gauge reading 32."></div>
         <figcaption><strong>Watch face complications</strong><span>Circular, rectangular and inline: your score and tier, with HRV and heart rate.</span></figcaption>
       </figure>
       <figure class="slot reveal d1" data-od-id="slot-lock-screen">
-        <div class="slot-stage">
-          <div class="lock" role="img" aria-label="Rendering of an iPhone Lock Screen with Stress AI Coach widgets: inline Relaxed, a circular gauge, and a rectangular widget reading Relaxed 18">
-            <div class="lock-screen">
-              <span class="lock-island" aria-hidden="true"></span>
-              <span class="l-inline"><span class="emo">😌</span> Relaxed</span>
-              <span class="ltime">9:41</span>
-              <div class="lwidgets">
-                <div class="lw circ gauge"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="t" cx="18" cy="18" r="15.5" pathLength="100"/><circle class="v" cx="18" cy="18" r="15.5" pathLength="100" stroke-dasharray="18 100"/></svg><span class="emo">😌</span></div>
-                <div class="lw rect"><span class="lab"><span class="emo">😌</span> Relaxed</span><span class="num">18</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <figcaption><strong>Lock Screen widgets</strong><span>Rectangular, circular and inline, readable before you unlock.</span></figcaption>
+        <div class="slot-stage"><img src="img/v2/lockscreen.webp" width="786" height="600" loading="lazy" decoding="async" alt="iPhone Lock Screen with Stress AI Coach widgets: inline 32 Mild, a rectangular Ripple 32 Mild, a circular stress gauge reading 32 and an empty one with no data."></div>
+        <figcaption><strong>Lock Screen widgets</strong><span>Rectangular, circular and inline, readable before you open your iPhone.</span></figcaption>
       </figure>
       <figure class="slot reveal d2" data-od-id="slot-home-screen">
-        <div class="slot-stage home">
-          <div class="home-grid" role="img" aria-label="Rendering of the Stress AI Coach small Home Screen widget: score 18, Relaxed, measured 5 minutes ago, next to the app icon">
-            <div class="hwidget">
-              <div class="hw-top"><img src="assets/brand/ripple.svg" width="100" height="100" alt=""><span>5 min ago</span></div>
-              <span class="num">18</span>
-              <span class="hw-tier">Relaxed</span>
-            </div>
-            <div class="happ"><img src="assets/icon.png" width="256" height="256" alt="">Stress AI</div>
-          </div>
-        </div>
+        <div class="slot-stage home"><picture><source srcset="img/v2/widgets-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/v2/widgets-light.webp" width="1180" height="420" loading="lazy" decoding="async" alt="Stress AI Coach Home Screen widgets: a small widget with stress 32, Mild, measured 9:20 PM, and a medium widget with a 7-day line."></picture></div>
         <figcaption><strong>Home Screen widget</strong><span>Your score, its tier and when it was measured.</span></figcaption>
       </figure>
     </div>
@@ -951,7 +882,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
     setTimeout(function(){
       ring.classList.add('on');
       var t0 = performance.now(), dur = 1600;
-      (function tick(t){ var p = Math.min(1,(t - t0)/dur); n.textContent = Math.round(25 * (1 - Math.pow(1-p,3))); if (p < 1) requestAnimationFrame(tick); })(t0);
+      (function tick(t){ var p = Math.min(1,(t - t0)/dur); n.textContent = Math.round(32 * (1 - Math.pow(1-p,3))); if (p < 1) requestAnimationFrame(tick); })(t0);
     }, 650);
 
     /* flowing signal lines while visible */
