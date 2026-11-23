@@ -53,6 +53,8 @@ const viSidebar = {
 }
 
 export default defineConfig({
+  base: '/stress-coach-ai/',
+  cleanUrls: true,
   title: 'StressMonitor Help',
   description: 'User guide and documentation for StressMonitor',
   locales: {

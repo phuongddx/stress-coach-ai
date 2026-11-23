@@ -1,6 +1,6 @@
 # Điều khoản dịch vụ
 
-*Cập nhật lần cuối: 2026-11-23*
+*Cập nhật lần cuối: 23 tháng 11 năm 2026*
 
 ## Chấp nhận
 
@@ -25,8 +25,9 @@ StressMonitor tích hợp với Apple Health để đọc dữ liệu HRV và nh
 StressMonitor miễn phí khi tải và sử dụng. Gói đăng ký tùy chọn **StressMonitor Plus** mở thêm biểu đồ đầy đủ, xu hướng dài hạn và trò chuyện AI không giới hạn. Plus có gói tháng và gói năm, tự động gia hạn qua tài khoản App Store. Giá hiển thị trong App Store, theo đơn vị tiền tệ của bạn, trước khi bạn xác nhận mua.
 
 - **Dùng thử miễn phí:** gói năm có thể kèm 14 ngày dùng thử. Mỗi Apple ID chỉ được dùng thử một lần. Nếu không hủy ít nhất 24 giờ trước khi hết thời gian dùng thử, gói sẽ chuyển sang gói năm trả phí và Apple ID của bạn bị trừ tiền.
-- **Tự động gia hạn:** tiền được trừ vào Apple ID khi bạn xác nhận mua (hoặc khi hết thời gian dùng thử). Gói tự gia hạn cùng kỳ hạn và giá, trừ khi bạn tắt tự động gia hạn ít nhất 24 giờ trước khi kỳ hiện tại kết thúc. Nếu hủy, bạn vẫn dùng Plus đến hết kỳ hiện tại.
-- **Hủy gói:** vào **Cài đặt → tên của bạn → Đăng ký** trên iPhone (hoặc **App Store → hồ sơ → Đăng ký**), chọn StressMonitor và làm theo hướng dẫn. Việc thanh toán và hoàn tiền do Apple xử lý; chúng tôi không nhận hay lưu thông tin thanh toán của bạn.
+- **Tự động gia hạn:** tiền được trừ vào Apple ID khi bạn xác nhận mua (hoặc khi hết thời gian dùng thử). Gói tự gia hạn cùng kỳ hạn và giá, trừ khi bạn tắt tự động gia hạn ít nhất 24 giờ trước khi kỳ hiện tại kết thúc. Apple ID bị trừ tiền gia hạn trong vòng 24 giờ trước khi kỳ hiện tại kết thúc. Nếu hủy, bạn vẫn dùng Plus đến hết kỳ hiện tại.
+- **Hủy gói:** vào **Cài đặt → tên của bạn → Đăng ký** trên iPhone (hoặc **App Store → hồ sơ → Đăng ký**), chọn StressMonitor và làm theo hướng dẫn, hoặc nhờ hỗ trợ tại https://getsupport.apple.com. Việc thanh toán do Apple xử lý; chúng tôi không nhận hay lưu thông tin thanh toán của bạn.
+- **Hoàn tiền:** do Apple xử lý theo chính sách của Apple. Nếu bạn yêu cầu hoàn tiền qua ngân hàng (chargeback) hoặc đảo ngược thanh toán, chúng tôi có thể chấm dứt hoặc hạ cấp quyền truy cập Plus.
 
 ## Giới hạn trách nhiệm
 

@@ -1,6 +1,6 @@
 # Chính sách bảo mật
 
-*Cập nhật lần cuối: 2026-09-03*
+*Cập nhật lần cuối: 23 tháng 11 năm 2026*
 
 ## Tổng quan
 
@@ -32,6 +32,14 @@ Nếu bạn bật đồng bộ iCloud, lịch sử căng thẳng đồng bộ qu
 Khi bạn mở Trò Chuyện Cùng AI, ứng dụng gửi các giá trị đã xử lý đến máy chủ của StressMonitor để tạo phản hồi tư vấn: điểm căng thẳng, phân loại căng thẳng, độ tin cậy, xu hướng, và điểm số đã chuẩn hóa theo từng yếu tố cho HRV, nhịp tim, giấc ngủ, hoạt động và hồi phục. Dữ liệu HealthKit thô (ví dụ: giá trị HRV chính xác theo milisecond, nhịp tim chính xác theo bpm) không bao giờ được gửi kèm.
 
 Yêu cầu này được thực hiện qua một phiên đăng nhập xác thực (Bearer JWT, được thiết lập qua Firebase Auth — đăng nhập ẩn danh hoặc Google Sign-In). Tin nhắn trò chuyện và dữ liệu đã xử lý này được lưu giữ theo chính sách lưu trữ lịch sử trò chuyện của máy chủ, tách biệt với dữ liệu sức khỏe lưu trên thiết bị đã nêu trên. Nếu bạn đính kèm ảnh hoặc video trong trò chuyện, nội dung đó được gửi kèm tin nhắn và áp dụng chính sách lưu giữ tương tự.
+
+## Gói đăng ký StressMonitor Plus
+
+StressMonitor Plus là gói đăng ký tùy chọn (gói tháng hoặc gói năm, tự động gia hạn, gói năm có thể kèm 14 ngày dùng thử), mua qua App Store. Giá hiển thị trong App Store trước khi bạn xác nhận mua.
+
+- Việc thanh toán do Apple xử lý toàn bộ. Chúng tôi không thu thập tên, số điện thoại hay thông tin thanh toán của bạn, và không nhìn thấy thông tin thanh toán.
+- Chúng tôi chỉ nhận từ Apple xác nhận trạng thái đăng ký (đang có Plus hay không) để mở khóa tính năng Plus.
+- Bạn quản lý hoặc hủy gói trong **Cài đặt → tên của bạn → Đăng ký** trên iPhone. Hoàn tiền do Apple xử lý. Chi tiết xem Điều khoản dịch vụ.
 
 ## HealthKit
 
