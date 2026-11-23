@@ -392,7 +392,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
 /* sticky mobile bar */
 .mbar{display:none}
 @media (max-width:720px){
-  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:50;align-items:center;gap:12px;padding:10px 10px 10px 12px;border-radius:20px;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--border);box-shadow:0 18px 40px -18px rgb(var(--shadow) / .35);transform:translateY(140%);transition:transform .45s var(--ease)}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;align-items:center;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-radius:0;background:var(--surface);border-top:1px solid var(--border);box-shadow:0 -10px 30px -18px rgb(var(--shadow) / .35);transform:translateY(140%);transition:transform .45s var(--ease)}
   .mbar.show{transform:none}
   .mbar img{width:40px;height:40px;border-radius:10px}
   .mbar div{flex:1;min-width:0;line-height:1.25}
