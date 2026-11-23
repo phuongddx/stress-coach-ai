@@ -1,0 +1,25 @@
+{
+ "palettes": [
+  "white-link-blue"
+ ],
+ "types": [
+  "funnel"
+ ],
+ "dealt": [
+  "funnel",
+  "sora",
+  "manrope"
+ ],
+ "moments": [
+  {
+   "id": "line-carries-colour",
+   "at": "2026-11-23T08:50:16.399Z",
+   "seed": "b6c28130"
+  },
+  {
+   "id": "marquee-row",
+   "at": "2026-11-23T08:50:27.094Z",
+   "seed": "9798507e"
+  }
+ ]
+}

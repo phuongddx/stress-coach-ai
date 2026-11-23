@@ -55,8 +55,9 @@ const viSidebar = {
 export default defineConfig({
   base: '/stress-coach-ai/',
   cleanUrls: true,
-  title: 'StressMonitor Help',
-  description: 'User guide and documentation for StressMonitor',
+  srcExclude: ['public/**', 'scripts/**', 'AGENTS.md'],
+  title: 'Stress AI Coach Help',
+  description: 'User guide and documentation for Stress AI Coach',
   locales: {
     root: {
       label: 'English',
@@ -87,7 +88,7 @@ export default defineConfig({
   },
   themeConfig: {
     footer: {
-      copyright: 'Copyright © 2026 StressMonitor',
+      copyright: 'Copyright © 2026 Stress AI Coach',
     },
   },
 })

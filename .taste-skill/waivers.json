@@ -1,0 +1,3 @@
+[
+  {"check": "scroll-reveal", "target": "div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary", "reason": "Nothing reveals this button on scroll: the kit's actionbar observer watches it as a twin of the phone bar and only toggles the bar's data-bar (the bar is hidden at 1440); the 0.1 s colour is the button's own hover transition."}
+]
