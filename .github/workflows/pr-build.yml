@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Check the landing pages and hero video made it into the build
+        run: |
+          for f in index.html vi/index.html video/app-demo.mp4 video/app-demo.webm video/app-demo-poster.webp; do
+            test -s ".vitepress/dist/$f" || { echo "missing $f"; exit 1; }
+          done

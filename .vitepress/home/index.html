@@ -171,6 +171,10 @@ section[id]{scroll-margin-top:84px}
 @keyframes breathe{0%{transform:scale(.8);animation-timing-function:cubic-bezier(.45,0,.35,1)}25%{transform:scale(1)}50%{transform:scale(1);animation-timing-function:cubic-bezier(.45,0,.35,1)}75%{transform:scale(.8)}100%{transform:scale(.8)}}
 @keyframes ripple{0%{transform:scale(.74);opacity:.9;animation-timing-function:cubic-bezier(.45,0,.35,1)}25%{transform:scale(.98);opacity:1}50%{transform:scale(.98);opacity:1;animation-timing-function:cubic-bezier(.45,0,.35,1)}75%{transform:scale(.74);opacity:.7}100%{transform:scale(.74);opacity:.7}}
 .hero .phone{--pw:clamp(248px,22vw,312px);z-index:1}
+.phone-video{filter:drop-shadow(0 28px 34px rgb(var(--shadow) / .22)) drop-shadow(0 8px 12px rgb(var(--shadow) / .12))}
+.phone-video .phone-screen{padding:3.6%;background:#1b1d1c;border-radius:17.3% / 8.28%}
+.phone-video video,.phone-video .phone-poster{display:block;width:100%;height:auto;aspect-ratio:720/1566;border-radius:14.8% / 6.79%;background:#eeefe5;filter:none}
+.phone-video .phone-poster{display:none}
 .breath-cap{position:relative;z-index:1;margin-top:26px;display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:color-mix(in srgb,var(--surface) 80%,transparent);border:1px solid var(--border);font-size:14px;color:var(--muted)}
 .breath-cap b{color:var(--fg);font-weight:600;min-width:3.3em;display:inline-block}
 .breath-cap .sep{color:var(--muted);margin:0 -2px}
@@ -502,6 +506,8 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .phone-video video{display:none}
+  .phone-video .phone-poster{display:block}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
 </style>
@@ -554,7 +560,13 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
 
     <div class="hero-visual reveal d2" data-od-id="hero-visual">
       <div class="orb-field" id="orb" aria-hidden="true"><div class="orb"></div><div class="ripple"></div><div class="ripple r2"></div></div>
-      <div class="phone"><picture><source srcset="img/v2/phone-home-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/v2/phone-home-light.webp" width="826" height="1744" fetchpriority="high" alt="Stress AI Coach home screen: stress now 32 out of 100, Mild, focused and steady, 92% confidence from 5 factors, Ripple suggesting a 2-minute breath, and HRV 48 ms, resting heart rate 64 bpm and sleep 6 h 10 m."></picture></div>
+      <div class="phone phone-video"><div class="phone-screen">
+        <video autoplay muted loop playsinline preload="metadata" width="720" height="1566" poster="video/app-demo-poster.webp" aria-label="Screen recording of Stress AI Coach on iPhone: the home screen shows a stress score of 27, Mild, with a note from Ripple; the Action tab shows Ripple suggesting box breathing; a box breathing session starts, then the app returns to the home screen.">
+          <source src="video/app-demo.webm" type="video/webm">
+          <source src="video/app-demo.mp4" type="video/mp4">
+        </video>
+        <img class="phone-poster" src="video/app-demo-poster.webp" width="720" height="1566" alt="Screen recording of Stress AI Coach on iPhone: the home screen shows a stress score of 27, Mild, with a note from Ripple; the Action tab shows Ripple suggesting box breathing; a box breathing session starts, then the app returns to the home screen.">
+      </div></div>
       <p class="breath-cap" aria-live="off"><span class="breath-dot" aria-hidden="true"></span><span>Box breathing</span><span class="sep" aria-hidden="true">·</span><b id="phase">Inhale</b><span class="cnt" id="count" aria-label="seconds left">4</span></p>
     </div>
   </div>
@@ -926,6 +938,10 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
     var flow = document.getElementById('flow');
     new IntersectionObserver(function(es){ flow.classList.toggle('flowing', es[0].isIntersecting); }).observe(flow);
   }
+
+  /* hero app video: poster only when the visitor asks for less motion */
+  var heroVideo = document.querySelector('.phone-video video');
+  if (heroVideo && reduce) { heroVideo.removeAttribute('autoplay'); heroVideo.preload = 'none'; heroVideo.pause(); }
 
   /* breathing orb, synced to box breathing: 4s inhale, hold, exhale, hold */
   var phaseEl = document.getElementById('phase'), countEl = document.getElementById('count');
