@@ -1,15 +1,22 @@
 # Stress Levels
 
-StressMonitor categorizes physical stress into four levels based on your personal HRV and resting heart rate baseline.
+StressMonitor turns each reading into a stress score from 0 to 100 and places it on one of five levels. Ripple, the app's otter coach, changes its face with the level, so you can see where you are at a glance.
 
-| Level | Indicator | Meaning |
-|-------|-----------|---------|
-| Excellent State | 🟢 Green | High HRV, low resting HR — very low body pressure |
-| Normal State | 🔵 Blue | Normal HRV and resting HR — manageable pressure |
-| Attention Needed | 🟡 Yellow | Low HRV or elevated HR — consider lifestyle adjustments |
-| Pressure Overload | 🔴 Red | Significantly decreased HRV, significantly increased HR — high overload risk |
+<div class="level-table">
 
-All thresholds are personalized to your historical baseline — not fixed universal values. The same absolute HRV number may mean "Excellent" for one person and "Attention Needed" for another.
+| Ripple | Level | Score | Meaning |
+|--------|-------|-------|---------|
+| <img class="level-face" src="/img/ripple/relaxed-head.svg" width="48" height="48" alt="Ripple smiling with eyes closed"> | <span class="level-name"><span class="level-dot" style="background:#8CC12A"></span>**Relaxed**</span> | 0–25 | High HRV, low resting HR — very low body pressure |
+| <img class="level-face" src="/img/ripple/mild-head.svg" width="48" height="48" alt="Ripple with a small, calm smile"> | <span class="level-name"><span class="level-dot" style="background:#4FA89D"></span>**Mild**</span> | 25–50 | Normal HRV and resting HR — manageable pressure |
+| <img class="level-face" src="/img/ripple/elevated-head.svg" width="48" height="48" alt="Ripple looking uneasy, with a bead of sweat"> | <span class="level-name"><span class="level-dot" style="background:#F2BC50"></span>**Elevated**</span> | 50–75 | Lower HRV or raised resting HR — consider lifestyle adjustments |
+| <img class="level-face" src="/img/ripple/high-head.svg" width="48" height="48" alt="Ripple worried and frowning, with a bead of sweat"> | <span class="level-name"><span class="level-dot" style="background:#E2683C"></span>**High**</span> | 75–90 | Clearly lower HRV and higher resting HR — a good time for a break or a breathing session |
+| <img class="level-face" src="/img/ripple/severe-head.svg" width="48" height="48" alt="Ripple worried, with tears in its eyes"> | <span class="level-name"><span class="level-dot" style="background:#E46A80"></span>**Severe**</span> | 90–100 | Significantly decreased HRV, significantly increased resting HR — high overload risk |
+
+</div>
+
+A score that sits exactly on a boundary belongs to the higher level. For example, 25 is Mild and 90 is Severe.
+
+The score is personalized to your historical baseline — it is not based on fixed universal values. The same absolute HRV number may give a Relaxed score for one person and an Elevated score for another.
 
 ## How Levels Are Calculated
 
@@ -17,7 +24,7 @@ The stress score combines:
 - **HRV component** (70% weight) — deviation from your personal baseline
 - **Resting heart rate component** (30% weight) — deviation from your personal resting HR
 
-The combined 0–100 score maps to the four categories above.
+The combined 0–100 score maps to the five levels above.
 
 ## Why Personalization Matters
 
