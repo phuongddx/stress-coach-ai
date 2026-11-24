@@ -197,6 +197,24 @@ section[id]{scroll-margin-top:84px}
 .fact p{color:var(--muted);font-size:16px}
 .sec-links{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px 32px}
 
+/* five levels strip (Ripple v2) */
+.levels{margin-top:clamp(56px,6vw,88px);display:grid;gap:clamp(20px,2.4vw,28px)}
+.levels-head{display:grid;gap:10px;max-width:640px}
+.levels-head p{color:var(--muted);font-size:16px}
+.level-strip{--lv-chip:#206A5D;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.4vw,16px)}
+.level{display:grid;justify-items:center;align-content:start;gap:4px;padding:18px 8px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);text-align:center}
+.lv-face{width:76px;height:76px;border-radius:50%;background:var(--lv-chip);display:grid;place-items:center;margin-bottom:8px}
+.lv-face img{width:66px;height:66px}
+.lv-name{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-display);font-weight:600;font-size:1.12rem;letter-spacing:-0.015em;line-height:1.2}
+.lv-dot{width:10px;height:10px;border-radius:50%;background:var(--lv);flex:none}
+.lv-range{font-size:14px;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
+.levels-note{font-size:14px;color:var(--muted)}
+@media (prefers-color-scheme:dark){.level-strip{--lv-chip:#1F3830}}
+@media (prefers-reduced-motion:no-preference){.lv-face img{transition:transform .35s var(--ease)}.level:hover .lv-face img{transform:translateY(-3px)}}
+/* Ripple beside the coach copy */
+.meet{display:grid;grid-template-columns:clamp(112px,12vw,156px) 1fr;gap:clamp(16px,2vw,28px);align-items:center}
+.meet-ripple{width:100%;height:auto;aspect-ratio:1;border-radius:50%;padding:7%;background:radial-gradient(circle at 50% 40%,var(--surface),var(--sky-soft) 72%);border:1px solid var(--border)}
+
 /* split sections */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
 .split-copy{display:grid;gap:22px;align-content:center}
@@ -465,6 +483,12 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
   .compare th,.compare td,.compare caption{padding-left:18px;padding-right:18px}
 }
 @media (max-width:640px){
+  .level-strip{grid-template-columns:repeat(6,1fr)}
+  .level{grid-column:span 2;padding:16px 6px 14px}
+  .level:nth-child(4){grid-column:2 / span 2}
+  .lv-face{width:64px;height:64px}
+  .lv-face img{width:56px;height:56px}
+  .lv-name{font-size:1rem;gap:6px}
   .slots{grid-template-columns:1fr}
   .habit-grid{grid-template-columns:1fr}
   .ppoints{grid-template-columns:1fr}
@@ -557,6 +581,16 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
     </div>
     <p class="flow-src reveal">All five signals come from Apple Health.</p>
 
+    <div class="levels reveal" data-od-id="score-levels">
+      <div class="levels-head"><h3>Five levels, one for every reading.</h3><p>Each score lands on one of five levels, and Ripple’s face changes with it.</p></div>
+      <ul class="level-strip" aria-label="The five stress levels">
+        <li class="level" style="--lv:#8CC12A"><span class="lv-face"><img src="img/ripple/relaxed-head.svg" width="512" height="512" loading="lazy" decoding="async" alt="Ripple smiling with eyes closed"></span><span class="lv-name"><span class="lv-dot" aria-hidden="true"></span>Relaxed</span><span class="lv-range">0–25</span></li>
+        <li class="level" style="--lv:#4FA89D"><span class="lv-face"><img src="img/ripple/mild-head.svg" width="512" height="512" loading="lazy" decoding="async" alt="Ripple with a small, calm smile"></span><span class="lv-name"><span class="lv-dot" aria-hidden="true"></span>Mild</span><span class="lv-range">25–50</span></li>
+        <li class="level" style="--lv:#F2BC50"><span class="lv-face"><img src="img/ripple/elevated-head.svg" width="512" height="512" loading="lazy" decoding="async" alt="Ripple looking uneasy, with a bead of sweat"></span><span class="lv-name"><span class="lv-dot" aria-hidden="true"></span>Elevated</span><span class="lv-range">50–75</span></li>
+        <li class="level" style="--lv:#E2683C"><span class="lv-face"><img src="img/ripple/high-head.svg" width="512" height="512" loading="lazy" decoding="async" alt="Ripple worried and frowning, with a bead of sweat"></span><span class="lv-name"><span class="lv-dot" aria-hidden="true"></span>High</span><span class="lv-range">75–90</span></li>
+        <li class="level" style="--lv:#E46A80"><span class="lv-face"><img src="img/ripple/severe-head.svg" width="512" height="512" loading="lazy" decoding="async" alt="Ripple worried, with tears in its eyes"></span><span class="lv-name"><span class="lv-dot" aria-hidden="true"></span>Severe</span><span class="lv-range">90–100</span></li>
+      </ul>
+    </div>
     <div class="facts3">
       <div class="fact reveal" data-od-id="fact-iphone"><h3>Computed on your iPhone</h3><p>The score is calculated on the iPhone itself, from the readings your Apple Watch and Apple Health already collect.</p></div>
       <div class="fact reveal d1" data-od-id="fact-confidence"><h3>Honest about confidence</h3><p>Every reading shows how confident it is, so you know how much weight to give it.</p></div>
@@ -575,7 +609,10 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
     <div class="split-copy">
       <span class="eyebrow reveal">AI coach &amp; breathing</span>
       <h2 class="reveal d1" data-od-id="coach-title">Meet Ripple, a coach that already <span class="hl">knows</span> your day.</h2>
-      <p class="lede reveal d2">Ripple is the app’s water otter companion and your AI coach. It knows your stress context and suggests a reset that fits the moment.</p>
+      <div class="meet reveal d2" data-od-id="coach-ripple">
+        <img class="meet-ripple" src="img/ripple/base.svg" width="512" height="512" loading="lazy" decoding="async" alt="Ripple, the app’s otter mascot, smiling in a mint-green otter suit">
+        <p class="lede">Ripple is the app’s water otter companion and your AI coach. It knows your stress context and suggests a reset that fits the moment.</p>
+      </div>
       <div class="reset-tags reveal d2" aria-label="Kinds of reset"><span class="tag">Breathing</span><span class="tag">Movement</span><span class="tag">Reflection</span></div>
       <ul class="patterns reveal d3" data-od-id="breathing-patterns" aria-label="Guided breathing patterns">
         <li><span class="pn">01</span><strong>Box breathing</strong><span>Inhale, hold, exhale, hold, 4 seconds each. A session is 2 minutes, 7 cycles.</span></li>
@@ -816,7 +853,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;font-size:15px}
 <!-- CLOSING -->
 <section class="closing" id="closing" data-od-id="closing">
   <div class="wrap">
-    <img class="icon reveal" src="assets/icon.png" width="256" height="256" alt="Stress AI Coach app icon: Ripple the otter on blue">
+    <img class="icon reveal" src="assets/icon.png" width="256" height="256" alt="Stress AI Coach app icon: Ripple the otter on green">
     <h2 class="reveal d1" data-od-id="closing-title">Know your number. Then take <span class="hl">two minutes</span> to breathe.</h2>
     <div class="reveal d2"><a class="appstore" href="https://apps.apple.com/app/id6778478266" data-od-id="closing-cta">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>

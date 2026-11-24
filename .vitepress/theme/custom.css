@@ -47,3 +47,74 @@
   --vp-button-brand-active-text: #062A22;
   --vp-code-color: #9FD9C9;
 }
+
+/* Stress level table: Ripple head on a teal chip and a level colour dot. */
+.vp-doc img.level-face {
+  display: block;
+  width: 48px;
+  height: 48px;
+  max-width: none;
+  padding: 3px;
+  border-radius: 50%;
+  background: #206A5D;
+}
+.dark .vp-doc img.level-face {
+  background: #1F3830;
+}
+.vp-doc .level-dot {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  margin-right: 0.45em;
+  border-radius: 50%;
+  vertical-align: 0.02em;
+}
+.vp-doc .level-name,
+.vp-doc .level-table td:nth-child(3) {
+  white-space: nowrap;
+}
+/* On small screens each level becomes a row card instead of a scrolling table. */
+@media (max-width: 640px) {
+  .vp-doc .level-table table {
+    display: block;
+    overflow: visible;
+    margin: 20px 0;
+  }
+  .vp-doc .level-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .vp-doc .level-table tbody {
+    display: grid;
+    gap: 10px;
+  }
+  .vp-doc .level-table tr {
+    display: grid;
+    grid-template-columns: 54px 1fr auto;
+    align-items: center;
+    gap: 2px 14px;
+    padding: 12px 14px;
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 14px;
+    background: var(--vp-c-bg-soft);
+  }
+  .vp-doc .level-table td {
+    border: 0;
+    padding: 0;
+  }
+  .vp-doc .level-table td:nth-child(1) {
+    grid-row: span 2;
+  }
+  .vp-doc .level-table td:nth-child(3) {
+    color: var(--vp-c-text-2);
+  }
+  .vp-doc .level-table td:nth-child(4) {
+    grid-column: 2 / -1;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--vp-c-text-2);
+  }
+}
