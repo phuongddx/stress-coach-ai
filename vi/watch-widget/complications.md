@@ -15,9 +15,9 @@ StressMonitor có complication ở nhiều kích thước để hợp với các
 
 ## Mỗi complication hiển thị gì
 
-Mọi complication đều hiển thị:
-- **Mức căng thẳng hiện tại** (theo màu: xanh lá / xanh dương / vàng / đỏ)
-- **Nhãn phân loại căng thẳng** (Xuất sắc / Bình thường / Cần chú ý / Quá tải)
+Mọi complication đều hiển thị **mức căng thẳng hiện tại** theo màu: xanh lá / xanh dương / vàng / đỏ.
+
+Các kích thước có chỗ cho chữ (Graphic Corner, Modular Large) hiển thị thêm **nhãn phân loại căng thẳng** (Xuất sắc / Bình thường / Cần chú ý / Quá tải).
 
 Complication cỡ lớn hiển thị thêm:
 - Thời gian đo gần nhất
