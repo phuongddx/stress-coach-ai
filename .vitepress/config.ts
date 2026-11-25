@@ -55,7 +55,7 @@ const viSidebar = {
 export default defineConfig({
   base: '/stress-coach-ai/',
   cleanUrls: true,
-  srcExclude: ['public/**', 'scripts/**', 'AGENTS.md'],
+  srcExclude: ['public/**', 'scripts/**', 'AGENTS.md', 'README.md'],
   title: 'Stress AI Coach Help',
   description: 'User guide and documentation for Stress AI Coach',
   locales: {
