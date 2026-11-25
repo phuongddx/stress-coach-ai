@@ -64,14 +64,12 @@ public/assets/, .taste-skill/, docs/screenshots/
 ## Editing content
 
 - **Docs page.** Edit or add a `.md` file. If it is new, add it to the sidebar in `.vitepress/config.ts`. The English and Vietnamese sidebars are separate lists.
-- **Both languages.** When you change an English page, change the matching page under `vi/` in the same pull request.
+- **Both languages.** When you change an English page, change the matching page under `vi/` in the same pull request. One exception: `vi/` has no `manual-measurement` page; manual readings are covered in `vi/user-guide/measurement-frequency.md`.
 - **Landing page.** Edit both `.vitepress/home/index.html` and `.vitepress/home/vi.html`. They are plain HTML files, not Markdown.
 - **Assets.** Put images and video in `public/`. The landing pages use relative paths: `img/...` in `index.html` and `../img/...` in `vi.html`.
 
 Known gaps:
 
-- `user-guide/manual-measurement.md` and `watch-widget/complications.md` are linked from their section index pages but are not in the English sidebar.
-- `vi/` has no `watch-widget/complications.md`. Manual readings are covered inside `vi/user-guide/measurement-frequency.md` instead of a page of their own.
 - Most docs pages, `index.md` and `package.json` still use the old name "StressMonitor".
 
 ## Deploy

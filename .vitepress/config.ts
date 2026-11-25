@@ -14,10 +14,12 @@ const enSidebar = {
   ]}],
   '/user-guide/': [{ text: 'User Guide', items: [
     { text: 'Measurement Frequency', link: '/user-guide/measurement-frequency' },
+    { text: 'Manual Measurement', link: '/user-guide/manual-measurement' },
     { text: 'Watch Notification Issues', link: '/user-guide/notifications-troubleshoot' },
   ]}],
   '/watch-widget/': [{ text: 'Watch & Widget', items: [
     { text: 'Watch Face Setup', link: '/watch-widget/watch-face-setup' },
+    { text: 'Complications', link: '/watch-widget/complications' },
     { text: 'Watch Face Not Updating', link: '/watch-widget/widget-not-updating' },
   ]}],
   '/legal/': [{ text: 'Legal', items: [
@@ -44,6 +46,7 @@ const viSidebar = {
   ]}],
   '/vi/watch-widget/': [{ text: 'Watch & Widget', items: [
     { text: 'Cài mặt đồng hồ', link: '/vi/watch-widget/watch-face-setup' },
+    { text: 'Complications', link: '/vi/watch-widget/complications' },
     { text: 'Mặt đồng hồ không cập nhật', link: '/vi/watch-widget/widget-not-updating' },
   ]}],
   '/vi/legal/': [{ text: 'Pháp lý', items: [
