@@ -52,7 +52,7 @@ vi/                 Vietnamese copies of all of the above
 public/
   img/              app screenshots (img/v2) and Ripple artwork (img/ripple)
   video/            the landing hero recording (mp4, webm, poster)
-  share.jpg         1200x630 social preview image
+  share.jpg         2400x1260 social preview image
 scripts/home.mjs    copies the landing pages and get-started into the build output
 .github/workflows/  deploy.yml (Pages) and pr-build.yml (PR check)
 public/assets/, .taste-skill/, docs/screenshots/
