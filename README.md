@@ -15,6 +15,7 @@ The site is built with [VitePress](https://vitepress.dev/). Every page has an En
 | Path on the site | Source |
 |---|---|
 | `/` | Landing page, `.vitepress/home/index.html` |
+| `/get-started/` | One-minute check-in that ends in a starter plan and the App Store button, `.vitepress/home/get-started.html`. The same file serves `/vi/get-started/` |
 | `/principle/` | `principle/`: how the stress score works (HRV, resting heart rate, stress levels, FAQ) |
 | `/user-guide/` | `user-guide/`: measurement frequency, manual readings, notification problems |
 | `/watch-widget/` | `watch-widget/`: watch faces, complications, widgets |
@@ -40,7 +41,8 @@ The site's base is `/stress-coach-ai/`, so local URLs look like `http://localhos
 ```text
 .vitepress/
   config.ts         site config: base, locales, nav and sidebars (EN and VI)
-  home/             standalone landing pages: index.html (EN) and vi.html (VI)
+  home/             standalone landing pages: index.html (EN), vi.html (VI),
+                    get-started.html (check-in, EN and VI in one file)
   theme/            theme overrides; full page loads for the two landing pages
 principle/          docs pages, one folder per section
 user-guide/
@@ -51,7 +53,7 @@ public/
   img/              app screenshots (img/v2) and Ripple artwork (img/ripple)
   video/            the landing hero recording (mp4, webm, poster)
   share.jpg         2400x1260 social preview image
-scripts/home.mjs    copies the landing pages into the build output
+scripts/home.mjs    copies the landing pages and get-started into the build output
 .github/workflows/  deploy.yml (Pages) and pr-build.yml (PR check)
 public/assets/, .taste-skill/, docs/screenshots/
                     tools and checks used to build the landing page, not site content
@@ -76,7 +78,7 @@ Known gaps:
 
 Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and publishes `.vitepress/dist` to GitHub Pages. You can also run it by hand from the Actions tab.
 
-Each pull request to `main` runs `.github/workflows/pr-build.yml`. It runs `npm ci` and `npm run build`, then fails if the build output is missing `index.html`, `vi/index.html` or the hero video files (`video/app-demo.mp4`, `video/app-demo.webm`, `video/app-demo-poster.webp`).
+Each pull request to `main` runs `.github/workflows/pr-build.yml`. It runs `npm ci` and `npm run build`, then fails if the build output is missing `index.html`, `vi/index.html`, `get-started/index.html`, `vi/get-started/index.html` or the hero video files (`video/app-demo.mp4`, `video/app-demo.webm`, `video/app-demo-poster.webp`).
 
 ## Related
 
