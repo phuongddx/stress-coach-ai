@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Get started with Stress AI Coach: a one-minute check-in</title>
+<meta name="description" content="Answer a few quick questions and get a starter plan for Stress AI Coach: which features to try first on your iPhone and Apple Watch.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Get started with Stress AI Coach">
+<meta property="og:description" content="A one-minute check-in that builds your starter plan for the app.">
+<meta property="og:image" content="https://phuongddx.github.io/stress-coach-ai/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F1F1E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B1411" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<!--
+  One file serves /get-started/ and /vi/get-started/ (scripts/home.mjs copies it to both).
+  The language comes from the URL. Nothing typed or picked here leaves the page:
+  no form posts, no analytics, no storage.
+-->
+<style>
+:root{
+  --bg:#F1F1E8;--surface:#FCFCF8;--sand:#E6EADC;--sand-2:#D9DFCD;
+  --fg:#13211D;--muted:#44524C;--border:#D2D8C9;--border-2:#B9C2B1;
+  --accent:#206A5D;--sky:#BFDCAE;--sky-soft:#DCEBD2;--lime:#81B214;
+  --ink:#13211D;--ink-2:#1E3530;--on-ink:#F1F1E8;--shadow:19 33 29;
+  --font-display:"Bricolage Grotesque","Be Vietnam Pro","Segoe UI",system-ui,sans-serif;
+  --font-body:"Be Vietnam Pro","Segoe UI",system-ui,-apple-system,sans-serif;
+  --r-lg:28px;--r-md:18px;--ease:cubic-bezier(.22,.7,.2,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0B1411;--surface:#14201B;--sand:#1C2A24;--sand-2:#26362F;
+    --fg:#EEF1E6;--muted:#B9C5B8;--border:#2A3A33;--border-2:#3A4C44;
+    --accent:#5FBFA9;--sky:#2C6B5C;--sky-soft:#1F3830;--lime:#9CCB3A;
+    --ink:#1C2A24;--ink-2:#26362F;--on-ink:#EEF1E6;--shadow:0 0 0;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scrollbar-gutter:stable}
+[tabindex="-1"]:focus{outline:none}
+body{margin:0;min-height:100dvh;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:10px}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;margin:0;text-wrap:balance;letter-spacing:-0.025em}
+h1{font-size:clamp(2.1rem,1.4rem + 2.4vw,3.2rem);line-height:1.02;font-weight:700}
+h2{font-size:clamp(1.6rem,1.2rem + 1.4vw,2.2rem);line-height:1.1}
+h3{font-size:1.12rem;line-height:1.25;letter-spacing:-0.01em}
+p{margin:0;text-wrap:pretty}
+.muted{color:var(--muted)}
+.hl{color:var(--accent)}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.bar-in{max-width:640px;margin:0 auto;padding:14px 20px;display:grid;grid-template-columns:96px 1fr 96px;align-items:center;gap:14px}
+.icon-btn{width:44px;height:44px;border-radius:14px;border:1.5px solid var(--border);background:var(--surface);display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s,opacity .2s}
+.icon-btn:hover{border-color:var(--border-2)}
+.icon-btn[hidden]{display:grid;visibility:hidden}
+.icon-btn svg{width:20px;height:20px}
+.brand{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:600;font-size:15px}
+.brand img{width:28px;height:28px;border-radius:8px}
+.progress{grid-column:1/-1;height:6px;border-radius:99px;background:var(--sand);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--accent);border-radius:inherit;transition:width .45s var(--ease)}
+.lang{white-space:nowrap;font-size:13px;font-weight:600;text-decoration:none;justify-self:end;padding:8px 10px;border-radius:10px}
+.lang:hover{background:var(--sand)}
+
+main{flex:1;width:100%;max-width:640px;margin:0 auto;padding:12px 20px 40px}
+.step{animation:in .45s var(--ease) both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.step,.progress i,.ripple-bob{animation:none!important;transition:none!important}}
+
+/* intro */
+.intro{display:grid;gap:18px;justify-items:center;text-align:center;padding-top:8px}
+.ripple-hero{width:min(170px,44vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 58%,var(--sky-soft),transparent 70%)}
+.ripple-bob{animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.intro .lede{max-width:30em;color:var(--muted);font-size:1.05rem}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.facts li{font-size:13.5px;font-weight:500;padding:7px 12px;border-radius:99px;background:var(--surface);border:1px solid var(--border)}
+.legal-note{font-size:12.5px;color:var(--muted);max-width:32em}
+
+/* question */
+.q-count{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.q-lead{font-size:15px;color:var(--muted);margin-bottom:6px}
+.q-help{color:var(--muted);margin-top:10px}
+.opts{display:grid;gap:12px;margin-top:26px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;min-height:64px;padding:14px 18px;text-align:left;border-radius:var(--r-md);border:1.5px solid var(--border);background:var(--surface);cursor:pointer;transition:border-color .2s,background .2s,transform .15s var(--ease)}
+.opt:hover{border-color:var(--border-2)}
+.opt:active{transform:scale(.99)}
+.opt[aria-pressed="true"],.opt[aria-checked="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,var(--surface))}
+.opt .ic{flex:none;width:40px;height:40px;border-radius:12px;background:var(--sand);display:grid;place-items:center;color:var(--accent)}
+.opt .ic svg{width:22px;height:22px}
+.opt .t{display:grid;gap:2px}
+.opt .t b{font-weight:600}
+.opt .t small{color:var(--muted);font-size:14px}
+.opt .tick{margin-left:auto;flex:none;width:24px;height:24px;border-radius:8px;border:1.5px solid var(--border-2);display:grid;place-items:center}
+.opt[aria-checked="true"] .tick{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.opt .tick svg{width:14px;height:14px;opacity:0}
+.opt[aria-checked="true"] .tick svg{opacity:1}
+.scale{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+.scale .opt{flex-direction:column;justify-content:center;text-align:center;gap:8px;min-height:104px;padding:14px 8px}
+.dots{display:flex;gap:4px}
+.dots span{width:8px;height:8px;border-radius:50%;background:var(--border-2)}
+.dots span.on{background:var(--accent)}
+@media (max-width:460px){.scale{grid-template-columns:1fr 1fr}}
+
+/* buttons */
+.actions{margin-top:28px;display:grid;gap:12px;justify-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 30px;border:0;border-radius:16px;background:var(--accent);color:var(--bg);font-weight:600;font-size:17px;cursor:pointer;text-decoration:none;min-width:min(320px,100%);transition:transform .2s var(--ease),opacity .2s,filter .2s}
+.btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none;filter:none}
+.btn-text{background:none;border:0;padding:10px;font-weight:500;color:var(--muted);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+
+/* interstitial */
+.mid{display:grid;gap:18px;justify-items:center;text-align:center;padding-top:20px}
+.mid img{width:min(200px,50vw)}
+.checklist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px;text-align:left;width:min(360px,100%)}
+.checklist li{display:flex;align-items:center;gap:12px;color:var(--muted);transition:color .3s}
+.checklist li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--border-2);transition:background .3s,border-color .3s}
+.checklist li.done{color:var(--fg)}
+.checklist li.done::before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 4px var(--bg)}
+
+/* result */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:clamp(20px,4vw,28px)}
+.result-top{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.result-top img{width:96px;height:96px}
+.pill{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:99px;background:var(--sky-soft);color:var(--accent);margin-bottom:8px}
+.bars{display:grid;gap:14px;margin-top:22px}
+.bar-row{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center}
+.bar-row b{font-weight:600;font-size:15px}
+.meter{height:10px;border-radius:99px;background:var(--sand);overflow:hidden}
+.meter i{display:block;height:100%;border-radius:inherit;background:var(--accent);width:0;transition:width .8s var(--ease)}
+.bar-row small{grid-column:2;color:var(--muted);font-size:13.5px;margin-top:-6px}
+.disclaimer{font-size:13.5px;color:var(--muted);margin-top:18px;padding-top:16px;border-top:1px solid var(--border)}
+.stack{display:grid;gap:16px;margin-top:16px}
+.plan{display:grid;gap:12px}
+.plan-item{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:16px;border-radius:var(--r-md);background:var(--bg);border:1px solid var(--border)}
+.plan-item .n{width:44px;height:44px;border-radius:14px;background:var(--accent);color:var(--bg);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:18px}
+.plan-item p{color:var(--muted);font-size:15px;margin-top:4px}
+.shot{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}
+.shot img{border-radius:18px;filter:drop-shadow(0 16px 22px rgb(var(--shadow) / .18))}
+.price{font-size:15px;color:var(--muted)}
+.price b{color:var(--fg)}
+.appstore{display:inline-flex;align-items:center;gap:12px;min-height:60px;padding:0 26px 0 20px;border-radius:16px;background:var(--ink);color:var(--on-ink);text-decoration:none;box-shadow:0 10px 24px -12px rgb(var(--shadow) / .55);transition:background .2s,transform .2s var(--ease)}
+.appstore:hover{background:var(--ink-2);transform:translateY(-2px)}
+@media (prefers-color-scheme:dark){.appstore{box-shadow:0 0 0 1px var(--border-2)}}
+.appstore svg{width:26px;height:26px;flex:none}
+.appstore span{display:flex;flex-direction:column;line-height:1.1;text-align:left}
+.appstore small{font-size:11.5px;letter-spacing:.02em;opacity:.85}
+.appstore b{font-size:20px;font-weight:600}
+.cta-card{text-align:center;display:grid;gap:14px;justify-items:center}
+.sticky-cta{position:sticky;bottom:0;z-index:5;margin:18px -20px -40px;padding:12px 20px calc(12px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:14px}
+.sticky-cta p{font-size:14px;font-weight:600;line-height:1.3}
+.sticky-cta .appstore{min-height:48px;padding:0 16px 0 14px;border-radius:13px}
+.sticky-cta .appstore svg{width:20px;height:20px}
+.sticky-cta .appstore b{font-size:16px}
+.sticky-cta.gone{visibility:hidden}
+
+footer{max-width:640px;margin:0 auto;padding:18px 20px 28px;font-size:12.5px;color:var(--muted);text-align:center}
+footer a{text-underline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <button class="icon-btn" id="back" type="button" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      <span class="sr" data-t="back"></span>
+    </button>
+    <a class="brand" id="home-link" href="../"><img id="brand-icon" src="../assets/icon.png" width="256" height="256" alt="">Stress AI Coach</a>
+    <a class="lang" id="lang-link" href="#"></a>
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress"><i></i></div>
+  </div>
+</header>
+
+<main id="app" aria-live="polite"></main>
+
+<footer>
+  <span data-t="footer"></span>
+  <a id="terms-link" href="../legal/terms" data-t="terms"></a> ·
+  <a id="privacy-link" href="../legal/privacy" data-t="privacy"></a>
+</footer>
+
+<noscript><p style="text-align:center;padding:20px">This check-in needs JavaScript. <a href="https://apps.apple.com/app/id6778478266">Get Stress AI Coach on the App Store</a>.</p></noscript>
+
+<script>
+(() => {
+  const APP_STORE = 'https://apps.apple.com/app/id6778478266'
+  const VI = /\/vi\//.test(location.pathname)
+  // Relative root of the site from /get-started/ or /vi/get-started/.
+  const ROOT = VI ? '../../' : '../'
+  const LANG_ROOT = '../' // home page of the current language
+  document.documentElement.lang = VI ? 'vi' : 'en'
+  if (VI) {
+    document.title = 'Bắt đầu với Stress AI Coach: check-in một phút'
+    document.querySelector('meta[name="description"]').content = 'Trả lời vài câu hỏi nhanh để có kế hoạch bắt đầu với Stress AI Coach: nên thử tính năng nào trước trên iPhone và Apple Watch.'
+  }
+
+  const ICONS = {
+    watch: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 6l.7-3h4.6l.7 3M9 18l.7 3h4.6l.7-3M12 10v2.5l1.5 1"/></svg>',
+    phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>',
+    chart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M7 15l3-4 3 2 4-6"/></svg>',
+    wind: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 9h11a3 3 0 1 0-3-3M3 15h15a3 3 0 1 1-3 3M3 12h7"/></svg>',
+    chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>',
+    leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14zM5 19l7-7"/></svg>',
+    sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>',
+    brief: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/></svg>',
+    moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>',
+    shuffle: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h4v4M4 20L20 4M20 16v4h-4M14 14l6 6M4 4l5 5"/></svg>',
+    tick: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>',
+    apple: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>',
+  }
+
+  // All copy lives here, in both languages. Every claim about the app matches what it ships:
+  // see the landing page (.vitepress/home/index.html) and the iOS repo.
+  const T = {
+    en: {
+      back: 'Back', lang: 'Tiếng Việt',
+      footer: 'Your answers stay in this page and are not sent anywhere.',
+      terms: 'Terms of use', privacy: 'Privacy policy',
+      introEyebrow: 'One-minute check-in',
+      introTitle: 'Find your <span class="hl">starting point</span> with Stress AI Coach.',
+      introLede: 'Answer seven quick questions about your days. You get a short read on where stress shows up for you, and a starter plan for the app built from your answers.',
+      introFacts: ['About 1 minute', 'No sign-up', 'Free plan in the app'],
+      introStart: 'Start the check-in',
+      introNote: 'A wellness check-in, not a medical test. It does not diagnose anything.',
+      next: 'Continue', pickAny: 'Pick as many as you like.',
+      watchQ: 'Do you wear an Apple Watch?',
+      watchHelp: 'Stress AI Coach builds its score from the heart rate variability (HRV) your watch records.',
+      watchYes: ['Yes, every day', 'Including most nights'],
+      watchSome: ['Yes, now and then', 'Mostly during the day'],
+      watchNo: ['Not yet', 'Just an iPhone for now'],
+      goalQ: 'What would you like help with?',
+      goals: {
+        understand: ['Understand my stress', 'See what moves it day to day'],
+        calm: ['Calm down in the moment', 'A quick reset when it builds up'],
+        talk: ['Talk things through', 'A coach that knows my day'],
+        habits: ['Build small daily habits', 'Check-ins that add up'],
+      },
+      whenQ: 'When does stress tend to build up?',
+      when: {
+        morning: ['Mornings', 'Before the day gets going'],
+        work: ['During work or study', 'Meetings, deadlines, screens'],
+        evening: ['Evenings', 'When it is time to switch off'],
+        varies: ['It varies', 'No clear pattern yet'],
+      },
+      checkCount: (i) => `Check-in ${i} of 4`,
+      checkLead: 'Over the last two weeks…',
+      scale: ['Rarely', 'Sometimes', 'Often', 'Almost always'],
+      checks: {
+        body: 'My shoulders, jaw or stomach feel tight by the end of the day.',
+        mind: 'My mind keeps running when I try to slow down.',
+        rest: 'I wake up feeling like I did not really rest.',
+        move: 'I sit for hours without getting up to move.',
+      },
+      midTitle: 'Building your starter plan',
+      midSteps: ['Reading your answers', 'Matching them to the app', 'Picking where to start'],
+      resTitle: 'Your check-in',
+      areas: { body: 'Body', mind: 'Mind', rest: 'Rest', move: 'Movement' },
+      areaHint: {
+        body: 'Tension held in the body', mind: 'A mind that keeps going',
+        rest: 'Sleep that does not restore', move: 'Long stretches without moving',
+      },
+      levels: [
+        ['Mostly steady', 'Your answers point to a fairly steady couple of weeks. A daily score helps you keep it that way and spot a change early.'],
+        ['Some strain', 'Stress is showing up now and then. A daily score and a two-minute reset can help you catch it before it builds.'],
+        ['Running high', 'Your answers point to stress showing up often. Small, regular resets and a clear view of what moves it are a good place to start.'],
+        ['Running very high', 'Your answers point to a demanding stretch. Be kind to yourself, and if it keeps feeling like this, talking to someone you trust or a professional can help.'],
+      ],
+      topArea: (a) => `Shows up most in: <b>${a}</b>`,
+      disclaimer: 'This is a self check-in from your answers, not a measurement or a diagnosis. In the app, your stress score comes from your Apple Watch HRV, heart rate, sleep, activity and recovery in Apple Health.',
+      planTitle: 'Your starter plan',
+      planLede: 'Three things to try in your first week, picked from your answers.',
+      plan: {
+        score: ['Check your daily score', 'One number from 0 to 100, on one of five levels. Each reading shows its confidence and names the factor that moved it.'],
+        scoreNoWatch: ['Pair an Apple Watch for your score', 'The score is built from the HRV your watch records. Without one, you can still use Ripple, breathing, mood check-ins and habits.'],
+        box: ['Two minutes of box breathing', 'Inhale, hold, exhale, hold, four seconds each. A session is 2 minutes, 7 cycles.'],
+        watchBreathe: ['Breathe from your wrist', 'Start a box or 4-7-8 session from the Breathe screen on your Apple Watch.'],
+        bodyScan: ['Try the body scan', 'A guided body scan, one of the three breathing patterns in the app, for tension you carry around.'],
+        ripple: ['Talk it through with Ripple', 'Ripple, the app\'s otter coach, sees your stress score and its factors, never raw health data. The Free plan includes 20 messages a month.'],
+        sleep: ['Watch how sleep moves your score', 'Sleep is one of the five signals behind the score, and each reading names the factor that moved it.'],
+        walk: ['Take a Mini Walk', 'Ripple suggests movement resets too. A short walk is an easy break from a long sit.'],
+        habits: ['Add a mood check-in and a habit', 'Mood check-ins and habits are in the Free plan, next to your daily score.'],
+        glanceWatch: ['Keep your score on your watch face', 'Add a complication so you can see your score and level without opening the app.'],
+        glancePhone: ['Put your score on your Lock Screen', 'A Lock Screen or Home Screen widget shows your score before you open your iPhone.'],
+        trends: ['Look back at your week', 'Trends show daily stress and time in each level. The Free plan keeps 14 days.'],
+      },
+      ctaTitle: 'Start your plan in the app',
+      ctaLede: 'Stress AI Coach is free to download. The Free plan has the daily score, Ripple, breathing and habits.',
+      price: 'Want more later? <b>Plus</b> adds unlimited coach chat and 30- and 90-day trends: $25.99 a year with a 14-day free trial, or $4.99 a month. You upgrade inside the app.',
+      appSmall: 'Download on the', appBig: 'App Store',
+      req: 'Requires iOS 18.6 or later. Works best with Apple Watch.',
+      retake: 'Retake the check-in',
+      learn: 'How the score works',
+    },
+    vi: {
+      back: 'Quay lại', lang: 'English',
+      footer: 'Câu trả lời của bạn chỉ ở trong trang này, không gửi đi đâu.',
+      terms: 'Điều khoản sử dụng', privacy: 'Chính sách quyền riêng tư',
+      introEyebrow: 'Check-in một phút',
+      introTitle: 'Tìm <span class="hl">điểm bắt đầu</span> của bạn với Stress AI Coach.',
+      introLede: 'Trả lời bảy câu hỏi nhanh về ngày của bạn. Bạn sẽ thấy căng thẳng hay xuất hiện ở đâu, kèm kế hoạch bắt đầu dùng app dựa trên câu trả lời.',
+      introFacts: ['Khoảng 1 phút', 'Không cần đăng ký', 'App có gói Miễn phí'],
+      introStart: 'Bắt đầu check-in',
+      introNote: 'Đây là check-in sức khỏe tinh thần, không phải xét nghiệm y khoa. Nó không chẩn đoán điều gì.',
+      next: 'Tiếp tục', pickAny: 'Chọn bao nhiêu tuỳ bạn.',
+      watchQ: 'Bạn có đeo Apple Watch không?',
+      watchHelp: 'Stress AI Coach tính điểm từ biến thiên nhịp tim (HRV) mà đồng hồ ghi lại.',
+      watchYes: ['Có, mỗi ngày', 'Cả khi ngủ'],
+      watchSome: ['Có, thỉnh thoảng', 'Chủ yếu ban ngày'],
+      watchNo: ['Chưa có', 'Hiện chỉ dùng iPhone'],
+      goalQ: 'Bạn muốn được hỗ trợ điều gì?',
+      goals: {
+        understand: ['Hiểu căng thẳng của mình', 'Thấy điều gì làm nó thay đổi mỗi ngày'],
+        calm: ['Bình tĩnh lại ngay lúc đó', 'Một nhịp nghỉ nhanh khi căng thẳng dâng lên'],
+        talk: ['Có người để trò chuyện', 'Một huấn luyện viên hiểu ngày của mình'],
+        habits: ['Xây thói quen nhỏ mỗi ngày', 'Những lần check-in cộng dồn lại'],
+      },
+      whenQ: 'Căng thẳng thường dồn lên lúc nào?',
+      when: {
+        morning: ['Buổi sáng', 'Trước khi ngày mới bắt đầu'],
+        work: ['Khi làm việc hoặc học', 'Họp, deadline, màn hình'],
+        evening: ['Buổi tối', 'Lúc cần thả lỏng'],
+        varies: ['Không cố định', 'Chưa thấy quy luật'],
+      },
+      checkCount: (i) => `Check-in ${i} / 4`,
+      checkLead: 'Trong hai tuần qua…',
+      scale: ['Hiếm khi', 'Đôi khi', 'Thường xuyên', 'Gần như luôn luôn'],
+      checks: {
+        body: 'Vai, hàm hoặc bụng tôi thấy căng cứng vào cuối ngày.',
+        mind: 'Đầu óc tôi cứ chạy mãi khi tôi muốn chậm lại.',
+        rest: 'Tôi thức dậy mà cảm giác như chưa được nghỉ.',
+        move: 'Tôi ngồi hàng giờ liền không đứng dậy vận động.',
+      },
+      midTitle: 'Đang lập kế hoạch cho bạn',
+      midSteps: ['Đọc câu trả lời', 'Đối chiếu với tính năng của app', 'Chọn điểm bắt đầu'],
+      resTitle: 'Kết quả check-in',
+      areas: { body: 'Cơ thể', mind: 'Tâm trí', rest: 'Nghỉ ngơi', move: 'Vận động' },
+      areaHint: {
+        body: 'Cơ thể giữ lại sự căng', mind: 'Đầu óc không ngừng nghĩ',
+        rest: 'Giấc ngủ chưa hồi phục', move: 'Ngồi lâu không vận động',
+      },
+      levels: [
+        ['Khá ổn định', 'Câu trả lời cho thấy hai tuần khá ổn định. Điểm hằng ngày giúp bạn giữ nhịp và nhận ra thay đổi sớm.'],
+        ['Hơi căng', 'Căng thẳng thỉnh thoảng xuất hiện. Điểm hằng ngày và hai phút nghỉ có thể giúp bạn bắt kịp trước khi nó dồn lên.'],
+        ['Khá cao', 'Câu trả lời cho thấy căng thẳng xuất hiện thường xuyên. Những nhịp nghỉ nhỏ, đều đặn và biết rõ điều gì tác động là điểm khởi đầu tốt.'],
+        ['Rất cao', 'Câu trả lời cho thấy bạn đang qua giai đoạn nặng nề. Hãy nhẹ nhàng với bản thân; nếu cảm giác này kéo dài, trò chuyện với người bạn tin tưởng hoặc chuyên gia có thể giúp.'],
+      ],
+      topArea: (a) => `Rõ nhất ở: <b>${a}</b>`,
+      disclaimer: 'Đây là tự check-in dựa trên câu trả lời của bạn, không phải phép đo hay chẩn đoán. Trong app, điểm căng thẳng được tính từ HRV trên Apple Watch, nhịp tim, giấc ngủ, vận động và mức hồi phục trong Apple Health.',
+      planTitle: 'Kế hoạch bắt đầu',
+      planLede: 'Ba việc nên thử trong tuần đầu, chọn từ câu trả lời của bạn.',
+      plan: {
+        score: ['Xem điểm hằng ngày', 'Một con số từ 0 đến 100, thuộc một trong năm mức. Mỗi lần đo đều cho biết độ tin cậy và yếu tố đã tác động.'],
+        scoreNoWatch: ['Kết nối Apple Watch để có điểm', 'Điểm được tính từ HRV mà đồng hồ ghi lại. Chưa có đồng hồ, bạn vẫn dùng được Ripple, bài thở, check-in tâm trạng và thói quen.'],
+        box: ['Hai phút thở hộp', 'Hít vào, giữ, thở ra, giữ, mỗi nhịp bốn giây. Một phiên 2 phút, 7 vòng.'],
+        watchBreathe: ['Thở ngay trên cổ tay', 'Bắt đầu phiên thở hộp hoặc 4-7-8 từ màn hình Breathe trên Apple Watch.'],
+        bodyScan: ['Thử body scan', 'Bài quét cơ thể có hướng dẫn, một trong ba kiểu thở của app, cho những chỗ căng bạn mang theo.'],
+        ripple: ['Trò chuyện với Ripple', 'Ripple, chú rái cá huấn luyện viên của app, chỉ thấy điểm căng thẳng và các yếu tố của nó, không bao giờ thấy dữ liệu sức khỏe thô. Gói Miễn phí có 20 tin nhắn mỗi tháng.'],
+        sleep: ['Xem giấc ngủ tác động đến điểm', 'Giấc ngủ là một trong năm tín hiệu tạo nên điểm, và mỗi lần đo đều chỉ ra yếu tố đã tác động.'],
+        walk: ['Đi bộ ngắn với Mini Walk', 'Ripple cũng gợi ý các nhịp nghỉ vận động. Một chút đi bộ là cách dễ để nghỉ sau khi ngồi lâu.'],
+        habits: ['Thêm check-in tâm trạng và một thói quen', 'Check-in tâm trạng và thói quen có trong gói Miễn phí, ngay cạnh điểm hằng ngày.'],
+        glanceWatch: ['Đặt điểm lên mặt đồng hồ', 'Thêm complication để thấy điểm và mức căng thẳng mà không cần mở app.'],
+        glancePhone: ['Đặt điểm lên Màn hình khoá', 'Widget Màn hình khoá hoặc Màn hình chính hiện điểm trước khi bạn mở iPhone.'],
+        trends: ['Nhìn lại tuần của bạn', 'Xu hướng cho thấy căng thẳng mỗi ngày và thời gian ở từng mức. Gói Miễn phí lưu 14 ngày.'],
+      },
+      ctaTitle: 'Bắt đầu kế hoạch trong app',
+      ctaLede: 'Stress AI Coach tải miễn phí. Gói Miễn phí có điểm hằng ngày, Ripple, bài thở và thói quen.',
+      price: 'Muốn thêm sau này? <b>Plus</b> mở chat không giới hạn và xu hướng 30, 90 ngày: $25.99 một năm kèm 14 ngày dùng thử, hoặc $4.99 một tháng. Nâng cấp ngay trong app.',
+      appSmall: 'Tải về trên', appBig: 'App Store',
+      req: 'Cần iOS 18.6 trở lên. Dùng tốt nhất với Apple Watch.',
+      retake: 'Làm lại check-in',
+      learn: 'Cách tính điểm',
+    },
+  }
+  const t = T[VI ? 'vi' : 'en']
+
+  // Static links and labels.
+  document.querySelectorAll('[data-t]').forEach((el) => { el.textContent = t[el.dataset.t] })
+  const langLink = document.getElementById('lang-link')
+  langLink.textContent = t.lang
+  langLink.href = VI ? ROOT + 'get-started/' : ROOT + 'vi/get-started/'
+  langLink.lang = VI ? 'en' : 'vi'
+  document.getElementById('home-link').href = LANG_ROOT
+  document.getElementById('brand-icon').src = ROOT + 'assets/icon.png'
+  const legal = VI ? ROOT + 'vi/legal/' : ROOT + 'legal/'
+  document.getElementById('terms-link').href = legal + 'terms'
+  document.getElementById('privacy-link').href = legal + 'privacy'
+
+  const img = (name) => ROOT + 'img/' + name
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
+
+  // Flow: intro, watch, goals, when, 4 check-ins, interstitial, result.
+  const STEPS = ['intro', 'watch', 'goals', 'when', 'c:body', 'c:mind', 'c:rest', 'c:move', 'mid', 'result']
+  const QUESTION_STEPS = STEPS.filter((s) => !['intro', 'mid', 'result'].includes(s)).length
+  const state = { i: 0, watch: null, goals: new Set(), when: null, c: {} }
+  const app = document.getElementById('app')
+  const back = document.getElementById('back')
+  const progress = document.getElementById('progress')
+  let midTimer = null
+
+  back.addEventListener('click', () => go(state.i === STEPS.indexOf('result') ? STEPS.indexOf('c:move') : state.i - 1))
+
+  function go(i) {
+    clearTimeout(midTimer)
+    state.i = Math.max(0, Math.min(STEPS.length - 1, i))
+    render()
+    window.scrollTo({ top: 0 })
+    const h = app.querySelector('h1,h2')
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }) }
+  }
+  const next = () => go(state.i + 1)
+
+  function setProgress() {
+    const step = STEPS[state.i]
+    let pct = 0
+    if (step === 'mid' || step === 'result') pct = 100
+    else if (step !== 'intro') pct = Math.round((state.i / (QUESTION_STEPS + 1)) * 100)
+    progress.querySelector('i').style.width = pct + '%'
+    progress.setAttribute('aria-valuenow', String(pct))
+    back.hidden = step === 'intro' || step === 'mid'
+  }
+
+  function option({ key, icon, title, sub, pressed, multi }) {
+    return `<button type="button" class="opt" data-key="${key}" ${multi ? `role="checkbox" aria-checked="${pressed}"` : `aria-pressed="${pressed}"`}>
+      ${icon ? `<span class="ic" aria-hidden="true">${ICONS[icon]}</span>` : ''}
+      <span class="t"><b>${esc(title)}</b>${sub ? `<small>${esc(sub)}</small>` : ''}</span>
+      ${multi ? `<span class="tick" aria-hidden="true">${ICONS.tick}</span>` : ''}
+    </button>`
+  }
+
+  function single(title, help, items, current, onPick) {
+    app.innerHTML = `<section class="step">
+      <h2>${esc(title)}</h2>${help ? `<p class="q-help">${esc(help)}</p>` : ''}
+      <div class="opts">${items.map((o) => option({ ...o, pressed: current === o.key })).join('')}</div>
+    </section>`
+    app.querySelectorAll('.opt').forEach((b) => b.addEventListener('click', () => {
+      onPick(b.dataset.key)
+      b.setAttribute('aria-pressed', 'true')
+      setTimeout(next, 220)
+    }))
+  }
+
+  function render() {
+    setProgress()
+    const step = STEPS[state.i]
+
+    if (step === 'intro') {
+      app.innerHTML = `<section class="step intro">
+        <div class="ripple-hero"><img class="ripple-bob" src="${img('ripple/base-head.svg')}" width="512" height="512" alt="Ripple, the Stress AI Coach otter"></div>
+        <div><p class="q-count">${esc(t.introEyebrow)}</p><h1>${t.introTitle}</h1></div>
+        <p class="lede">${esc(t.introLede)}</p>
+        <ul class="facts">${t.introFacts.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
+        <div class="actions"><button type="button" class="btn" id="start">${esc(t.introStart)}</button></div>
+        <p class="legal-note">${esc(t.introNote)}</p>
+      </section>`
+      app.querySelector('#start').addEventListener('click', next)
+      return
+    }
+
+    if (step === 'watch') {
+      return single(t.watchQ, t.watchHelp, [
+        { key: 'daily', icon: 'watch', title: t.watchYes[0], sub: t.watchYes[1] },
+        { key: 'some', icon: 'watch', title: t.watchSome[0], sub: t.watchSome[1] },
+        { key: 'none', icon: 'phone', title: t.watchNo[0], sub: t.watchNo[1] },
+      ], state.watch, (k) => { state.watch = k })
+    }
+
+    if (step === 'goals') {
+      const icons = { understand: 'chart', calm: 'wind', talk: 'chat', habits: 'leaf' }
+      app.innerHTML = `<section class="step">
+        <h2>${esc(t.goalQ)}</h2><p class="q-help">${esc(t.pickAny)}</p>
+        <div class="opts" role="group">${Object.entries(t.goals).map(([k, [a, b]]) => option({ key: k, icon: icons[k], title: a, sub: b, pressed: state.goals.has(k), multi: true })).join('')}</div>
+        <div class="actions"><button type="button" class="btn" id="cont" ${state.goals.size ? '' : 'disabled'}>${esc(t.next)}</button></div>
+      </section>`
+      const cont = app.querySelector('#cont')
+      app.querySelectorAll('.opt').forEach((b) => b.addEventListener('click', () => {
+        const k = b.dataset.key
+        state.goals.has(k) ? state.goals.delete(k) : state.goals.add(k)
+        b.setAttribute('aria-checked', String(state.goals.has(k)))
+        cont.disabled = state.goals.size === 0
+      }))
+      cont.addEventListener('click', next)
+      return
+    }
+
+    if (step === 'when') {
+      const icons = { morning: 'sun', work: 'brief', evening: 'moon', varies: 'shuffle' }
+      return single(t.whenQ, '', Object.entries(t.when).map(([k, [a, b]]) => ({ key: k, icon: icons[k], title: a, sub: b })), state.when, (k) => { state.when = k })
+    }
+
+    if (step.startsWith('c:')) {
+      const key = step.slice(2)
+      const n = ['body', 'mind', 'rest', 'move'].indexOf(key) + 1
+      app.innerHTML = `<section class="step">
+        <p class="q-count">${esc(t.checkCount(n))}</p>
+        <p class="q-lead">${esc(t.checkLead)}</p>
+        <h2>${esc(t.checks[key])}</h2>
+        <div class="scale">${t.scale.map((label, v) => `<button type="button" class="opt" data-v="${v}" aria-pressed="${state.c[key] === v}">
+          <span class="dots" aria-hidden="true">${[0, 1, 2, 3].map((d) => `<span class="${d <= v ? 'on' : ''}"></span>`).join('')}</span>
+          <b>${esc(label)}</b></button>`).join('')}</div>
+      </section>`
+      app.querySelectorAll('.opt').forEach((b) => b.addEventListener('click', () => {
+        state.c[key] = Number(b.dataset.v)
+        app.querySelectorAll('.opt').forEach((o) => o.setAttribute('aria-pressed', String(o === b)))
+        setTimeout(next, 220)
+      }))
+      return
+    }
+
+    if (step === 'mid') {
+      app.innerHTML = `<section class="step mid">
+        <img class="ripple-bob" src="${img('ripple/thinking.svg')}" width="512" height="512" alt="">
+        <h2>${esc(t.midTitle)}</h2>
+        <ul class="checklist">${t.midSteps.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+      </section>`
+      const items = [...app.querySelectorAll('.checklist li')]
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+      const gap = reduce ? 150 : 650
+      items.forEach((li, k) => setTimeout(() => li.classList.add('done'), gap * (k + 1)))
+      midTimer = setTimeout(next, gap * (items.length + 1))
+      return
+    }
+
+    if (step === 'result') renderResult()
+  }
+
+  function buildPlan() {
+    const g = state.goals, c = state.c
+    const hasWatch = state.watch !== 'none'
+    const picks = []
+    const add = (k) => { if (!picks.includes(k) && picks.length < 3) picks.push(k) }
+
+    // 1. Always start with the score, or with getting a watch if there is none.
+    add(hasWatch ? 'score' : 'scoreNoWatch')
+    // 2. The strongest area decides the first reset.
+    const order = Object.entries(c).sort((a, b) => b[1] - a[1])
+    const [topKey, topVal] = order[0] || ['mind', 0]
+    if (g.has('talk')) add('ripple')
+    if (topVal >= 1) {
+      if (topKey === 'mind') add(hasWatch && state.when === 'work' ? 'watchBreathe' : 'box')
+      if (topKey === 'body') add('bodyScan')
+      if (topKey === 'rest') add(hasWatch ? 'sleep' : 'box')
+      if (topKey === 'move') add('walk')
+    }
+    if (g.has('calm')) add(hasWatch ? 'watchBreathe' : 'box')
+    if (g.has('habits')) add('habits')
+    if (g.has('understand')) add('trends')
+    // 3. Fill with a glanceable surface, matched to the time of day.
+    if (hasWatch && (state.when === 'work' || state.when === 'varies')) add('glanceWatch')
+    add('glancePhone')
+    add('box')
+    return picks
+  }
+
+  function renderResult() {
+    const c = state.c
+    const keys = ['body', 'mind', 'rest', 'move']
+    const total = keys.reduce((s, k) => s + (c[k] || 0), 0) // 0..12
+    const level = total <= 3 ? 0 : total <= 6 ? 1 : total <= 9 ? 2 : 3
+    const heads = ['relaxed-head.svg', 'mild-head.svg', 'elevated-head.svg', 'high-head.svg']
+    const top = keys.reduce((a, b) => ((c[b] || 0) > (c[a] || 0) ? b : a), keys[0])
+    const [lvlName, lvlText] = t.levels[level]
+    const plan = buildPlan()
+
+    app.innerHTML = `<section class="step">
+      <div class="card">
+        <div class="result-top">
+          <img src="${img('ripple/' + heads[level])}" width="512" height="512" alt="">
+          <div><span class="pill">${esc(t.resTitle)}</span><h2>${esc(lvlName)}</h2></div>
+        </div>
+        <p class="muted" style="margin-top:14px">${esc(lvlText)}</p>
+        ${total > 0 ? `<p style="margin-top:10px">${t.topArea(esc(t.areas[top]))}</p>` : ''}
+        <div class="bars">${keys.map((k) => `<div class="bar-row">
+          <b>${esc(t.areas[k])}</b>
+          <div class="meter" role="img" aria-label="${esc(t.areas[k])}: ${esc(t.scale[c[k] || 0])}"><i data-w="${((c[k] || 0) + 1) * 25}"></i></div>
+          <small>${esc(t.areaHint[k])} · ${esc(t.scale[c[k] || 0])}</small>
+        </div>`).join('')}</div>
+        <p class="disclaimer">${esc(t.disclaimer)}</p>
+      </div>
+
+      <div class="card stack">
+        <div><h2>${esc(t.planTitle)}</h2><p class="muted" style="margin-top:6px">${esc(t.planLede)}</p></div>
+        <div class="plan">${plan.map((k, n) => `<div class="plan-item"><span class="n">${n + 1}</span><div><h3>${esc(t.plan[k][0])}</h3><p>${esc(t.plan[k][1])}</p></div></div>`).join('')}</div>
+        <div class="shot" aria-hidden="true">
+          <picture><source srcset="${img('v2/phone-home-dark.webp')}" media="(prefers-color-scheme: dark)"><img src="${img('v2/phone-home-light.webp')}" alt="" loading="lazy"></picture>
+          <picture><source srcset="${img('v2/phone-breatheIntro-dark.webp')}" media="(prefers-color-scheme: dark)"><img src="${img('v2/phone-breatheIntro-light.webp')}" alt="" loading="lazy"></picture>
+        </div>
+      </div>
+
+      <div class="card stack cta-card">
+        <h2>${esc(t.ctaTitle)}</h2>
+        <p class="muted">${esc(t.ctaLede)}</p>
+        <a class="appstore" id="appstore-cta" href="${APP_STORE}">${ICONS.apple}<span><small>${esc(t.appSmall)}</small><b>${esc(t.appBig)}</b></span></a>
+        <p class="muted" style="font-size:14px">${esc(t.req)}</p>
+        <p class="price">${t.price}</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">
+          <button type="button" class="btn-text" id="retake">${esc(t.retake)}</button>
+          <a class="btn-text" href="${VI ? ROOT + 'vi/principle/' : ROOT + 'principle/'}">${esc(t.learn)}</a>
+        </div>
+      </div>
+
+      <div class="sticky-cta" id="sticky-cta">
+        <p>${esc(t.ctaTitle)}</p>
+        <a class="appstore" href="${APP_STORE}">${ICONS.apple}<span><small>${esc(t.appSmall)}</small><b>${esc(t.appBig)}</b></span></a>
+      </div>
+    </section>`
+    // Hide the sticky bar once the main App Store button is on screen.
+    const sticky = app.querySelector('#sticky-cta')
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => sticky.classList.toggle('gone', e.isIntersecting))
+        .observe(app.querySelector('#appstore-cta'))
+    }
+    requestAnimationFrame(() => app.querySelectorAll('.meter i').forEach((i) => { i.style.width = i.dataset.w + '%' }))
+    app.querySelector('#retake').addEventListener('click', () => {
+      state.watch = null; state.goals = new Set(); state.when = null; state.c = {}
+      go(0)
+    })
+  }
+
+  render()
+})()
+</script>
+</body>
+</html>
