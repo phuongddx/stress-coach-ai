@@ -18,8 +18,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - name: Check the landing pages and hero video made it into the build
+      - name: Check the landing pages, get-started and hero video made it into the build
         run: |
-          for f in index.html vi/index.html video/app-demo.mp4 video/app-demo.webm video/app-demo-poster.webp; do
+          for f in index.html vi/index.html get-started/index.html vi/get-started/index.html video/app-demo.mp4 video/app-demo.webm video/app-demo-poster.webp; do
             test -s ".vitepress/dist/$f" || { echo "missing $f"; exit 1; }
           done
