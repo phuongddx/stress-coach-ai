@@ -26,6 +26,12 @@ const enSidebar = {
     { text: 'Privacy Policy', link: '/legal/privacy' },
     { text: 'Terms of Service', link: '/legal/terms' },
   ]}],
+  '/support/': [{ text: 'Support', items: [
+    { text: 'Support', link: '/support/' },
+    { text: 'FAQ', link: '/principle/frequently-asked-questions' },
+    { text: 'Privacy Policy', link: '/legal/privacy' },
+    { text: 'Terms of Service', link: '/legal/terms' },
+  ]}],
 }
 
 const viSidebar = {
@@ -53,6 +59,12 @@ const viSidebar = {
     { text: 'Chính sách bảo mật', link: '/vi/legal/privacy' },
     { text: 'Điều khoản dịch vụ', link: '/vi/legal/terms' },
   ]}],
+  '/vi/support/': [{ text: 'Hỗ trợ', items: [
+    { text: 'Hỗ trợ', link: '/vi/support/' },
+    { text: 'Câu hỏi thường gặp', link: '/vi/principle/frequently-asked-questions' },
+    { text: 'Chính sách bảo mật', link: '/vi/legal/privacy' },
+    { text: 'Điều khoản dịch vụ', link: '/vi/legal/terms' },
+  ]}],
 }
 
 export default defineConfig({
@@ -71,6 +83,7 @@ export default defineConfig({
           { text: 'Principle', link: '/principle/' },
           { text: 'User Guide', link: '/user-guide/' },
           { text: 'Watch & Widget', link: '/watch-widget/' },
+          { text: 'Support', link: '/support/' },
         ],
         sidebar: enSidebar,
       },
@@ -84,6 +97,7 @@ export default defineConfig({
           { text: 'Nguyên lý', link: '/vi/principle/' },
           { text: 'Hướng dẫn', link: '/vi/user-guide/' },
           { text: 'Watch & Widget', link: '/vi/watch-widget/' },
+          { text: 'Hỗ trợ', link: '/vi/support/' },
         ],
         sidebar: viSidebar,
       },
