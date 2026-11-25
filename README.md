@@ -15,7 +15,7 @@ The site is built with [VitePress](https://vitepress.dev/). Every page has an En
 | Path on the site | Source |
 |---|---|
 | `/` | Landing page, `.vitepress/home/index.html` |
-| `/get-started/` | One-minute check-in that ends in a starter plan and the App Store button, `.vitepress/home/get-started.html`. The same file serves `/vi/get-started/` |
+| `/get-started/` | One-minute check-in that ends in a starter plan and the App Store button, `.vitepress/home/get-started.html`. The same file serves `/vi/get-started/`. Linked from the hero of both landing pages |
 | `/principle/` | `principle/`: how the stress score works (HRV, resting heart rate, stress levels, FAQ) |
 | `/user-guide/` | `user-guide/`: measurement frequency, manual readings, notification problems |
 | `/watch-widget/` | `watch-widget/`: watch faces, complications, widgets |
