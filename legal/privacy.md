@@ -96,7 +96,7 @@ The App and our documentation site may contain links to third-party websites and
 
 - **HealthKit permissions.** You may grant or revoke StressMonitor's access to Apple Health at any time in iOS Settings → Privacy & Security → Health.
 - **AI Coaching Chat.** You choose whether to use AI Coaching Chat. If you do not open it, no chat data is transmitted.
-- **Deleting your data.** You can delete all locally stored data at any time from StressMonitor → Settings → Data Management → Delete All Data. Deleting the App also removes locally stored data.
+- **Deleting your data.** You can delete all locally stored data at any time from StressMonitor → Settings → Data & support → Manage data → Delete all snapshots. Deleting the App also removes locally stored data.
 - **iCloud sync.** You may disable iCloud sync at any time in iOS Settings.
 - **Requests.** You may request access to, or deletion of, your personal information by contacting us at support@stressmonitor.app.
 
@@ -106,7 +106,7 @@ We use commercially reasonable security technologies and procedures — includin
 
 ## How Long We Keep Your Information
 
-- **On-device data** (health-derived scores, history, preferences) is stored on your device until you delete it (Settings → Data Management → Delete All Data) or uninstall the App.
+- **On-device data** (health-derived scores, history, preferences) is stored on your device until you delete it (Settings → Data & support → Manage data → Delete all snapshots) or uninstall the App.
 - **Chat records** (messages, attachments, and derived context sent to the backend) are retained according to the backend's chat-history retention policy.
 - **Session and authentication records** are retained only as long as necessary to provide the Services and for a reasonable period thereafter to fulfill outstanding obligations, resolve disputes, or comply with Applicable Law.
 

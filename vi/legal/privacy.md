@@ -47,7 +47,7 @@ StressMonitor có quyền **chỉ đọc** HealthKit. Chúng tôi không bao gi�
 
 ## Lưu trữ dữ liệu
 
-Tất cả dữ liệu được lưu trên thiết bị. Bạn có thể xóa mọi dữ liệu bất cứ lúc nào từ StressMonitor → Settings → Data Management → Delete All Data.
+Tất cả dữ liệu được lưu trên thiết bị. Bạn có thể xóa mọi dữ liệu bất cứ lúc nào từ StressMonitor → Settings → Data & support → Manage data → Delete all snapshots.
 
 ## Trẻ em
 
