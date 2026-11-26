@@ -33,7 +33,7 @@ When your account is deleted, we remove from our server:
 
 ## Data on your devices
 
-- **Stress data on your iPhone:** stress snapshots are stored on your device, not on our server. Delete them in the app under **Settings → Data & support → Manage data**, or delete the app.
+- **Stress data on your iPhone and in iCloud:** stress snapshots are stored on your device, not on our server. If iCloud sync is on, a copy is also kept in your own iCloud account. Delete them in the app under **Settings → Data & support → Manage data → Delete all snapshots**: this removes the iCloud copy as well as the one on your device. Deleting the app alone only removes the copy on that device, and the iCloud copy comes back if you install the app again.
 - **Apple Health:** the app only reads from Apple Health and never writes to it. Health data never reaches our server. To stop access, open the iPhone **Settings** app, then **Privacy & Security → Health → Stress AI Coach**.
 
 See the [Privacy Policy](/legal/privacy) for more on how data is handled.

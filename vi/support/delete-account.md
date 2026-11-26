@@ -33,7 +33,7 @@ Khi tài khoản bị xoá, chúng tôi xoá khỏi máy chủ:
 
 ## Dữ liệu trên thiết bị
 
-- **Dữ liệu căng thẳng trên iPhone:** các lần đo được lưu trên thiết bị, không lưu trên máy chủ của chúng tôi. Xoá chúng trong ứng dụng tại **Settings → Data & support → Manage data**, hoặc xoá ứng dụng.
+- **Dữ liệu căng thẳng trên iPhone và iCloud:** các lần đo được lưu trên thiết bị, không lưu trên máy chủ của chúng tôi. Nếu bật đồng bộ iCloud, một bản sao còn được lưu trong tài khoản iCloud của chính bạn. Xoá chúng trong ứng dụng tại **Settings → Data & support → Manage data → Delete all snapshots**: thao tác này xoá cả bản trên iCloud lẫn bản trên máy. Chỉ xoá ứng dụng thì chỉ mất bản trên máy đó, và bản trên iCloud sẽ quay lại nếu bạn cài lại ứng dụng.
 - **Apple Health:** ứng dụng chỉ đọc từ Apple Health và không bao giờ ghi vào. Dữ liệu sức khoẻ không bao giờ đến máy chủ của chúng tôi. Để ngừng cấp quyền, mở ứng dụng **Settings** của iPhone, rồi **Privacy & Security → Health → Stress AI Coach**.
 
 Xem [Chính sách bảo mật](/vi/legal/privacy) để biết thêm về cách xử lý dữ liệu.
