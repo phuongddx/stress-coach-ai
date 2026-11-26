@@ -28,6 +28,7 @@ const enSidebar = {
   ]}],
   '/support/': [{ text: 'Support', items: [
     { text: 'Support', link: '/support/' },
+    { text: 'Delete your account', link: '/support/delete-account' },
     { text: 'FAQ', link: '/principle/frequently-asked-questions' },
     { text: 'Privacy Policy', link: '/legal/privacy' },
     { text: 'Terms of Service', link: '/legal/terms' },
@@ -61,6 +62,7 @@ const viSidebar = {
   ]}],
   '/vi/support/': [{ text: 'Hỗ trợ', items: [
     { text: 'Hỗ trợ', link: '/vi/support/' },
+    { text: 'Xoá tài khoản', link: '/vi/support/delete-account' },
     { text: 'Câu hỏi thường gặp', link: '/vi/principle/frequently-asked-questions' },
     { text: 'Chính sách bảo mật', link: '/vi/legal/privacy' },
     { text: 'Điều khoản dịch vụ', link: '/vi/legal/terms' },

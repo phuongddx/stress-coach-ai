@@ -30,7 +30,7 @@ Stress AI Coach Plus is billed by Apple. To cancel or change your plan, open the
 - **Data on your iPhone:** open **Settings → Data & support → Manage data** to delete stress snapshots stored on the device, by date range or all at once.
 - **Apple Health:** the app only reads from Apple Health and never writes to it. To stop access, open the iPhone **Settings** app, then **Privacy & Security → Health → Stress AI Coach**.
 
-If you can't open the app, you can request deletion of your personal information by emailing [support@stressmonitor.app](mailto:support@stressmonitor.app), as described in the [Privacy Policy](/legal/privacy).
+If you can't open the app or no longer have it, see [Delete your account](/support/delete-account) for how to request deletion by email and what gets deleted.
 
 ## Legal
 
