@@ -30,7 +30,7 @@ Stress AI Coach Plus do Apple thu phí. Để huỷ hoặc đổi gói, mở ứ
 - **Dữ liệu trên iPhone:** mở **Settings → Data & support → Manage data** để xoá các lần đo lưu trên máy, theo khoảng thời gian hoặc toàn bộ.
 - **Apple Health:** ứng dụng chỉ đọc từ Apple Health, không bao giờ ghi vào. Để ngừng cấp quyền, mở **Cài đặt** trên iPhone, rồi **Quyền riêng tư & Bảo mật → Sức khoẻ → Stress AI Coach**.
 
-Nếu không mở được ứng dụng, bạn có thể yêu cầu xoá thông tin cá nhân bằng cách gửi email tới [support@stressmonitor.app](mailto:support@stressmonitor.app), như mô tả trong [Chính sách bảo mật](/vi/legal/privacy).
+Nếu không mở được ứng dụng hoặc không còn ứng dụng, xem [Xoá tài khoản](/vi/support/delete-account) để biết cách yêu cầu xoá qua email và những gì bị xoá.
 
 ## Pháp lý
 
